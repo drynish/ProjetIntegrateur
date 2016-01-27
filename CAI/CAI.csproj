@@ -58,6 +58,12 @@
     <Compile Include="frmCheck.Designer.cs">
       <DependentUpon>frmCheck.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCoordonnateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCoordonnateur.Designer.cs">
+      <DependentUpon>frmCoordonnateur.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCreation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCheck.resx">
       <DependentUpon>frmCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCoordonnateur.resx">
+      <DependentUpon>frmCoordonnateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCreation.resx">
       <DependentUpon>frmCreation.cs</DependentUpon>
