@@ -19,7 +19,11 @@ namespace CAI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            dataGridView1.Rows[e.RowIndex].Cells[2].Value = false;
+            dataGridView1.Rows[e.RowIndex].Cells[3].Value = false;
+            dataGridView1.Rows[e.RowIndex].Cells[4].Value = false;
 
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
         }
     }
 }
