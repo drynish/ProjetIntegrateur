@@ -1,0 +1,5 @@
+27 janvier 2016
+
+-Choix du type de base de données à utiliser.
+-Page index.php pour créer les tables dans la base de données.
+-Débogage de des erreurs dans la page index.php
