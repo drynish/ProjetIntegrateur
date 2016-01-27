@@ -20,7 +20,6 @@ namespace CAI
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            CheckBox chk = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3];
         }
     }
 }

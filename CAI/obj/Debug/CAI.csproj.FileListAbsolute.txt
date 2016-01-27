@@ -23,3 +23,16 @@ C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.frmMotDePasse.resources
 C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.Properties.Resources.resources
 C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
 C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.frmCoordonnateur.resources
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\bin\Debug\CAI.exe.config
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.exe
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.pdb
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMain.resources
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCheck.resources
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCoordonnateur.resources
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCreation.resources
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMotDePasse.resources
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.Properties.Resources.resources
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\bin\Debug\CAI.exe
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\bin\Debug\CAI.pdb
