@@ -1,0 +1,15 @@
+c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\bin\Debug\CAI.exe.config
+c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\bin\Debug\CAI.exe
+c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\bin\Debug\CAI.pdb
+c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
+c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.frmMain.resources
+c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.Properties.Resources.resources
+c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
+c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.exe
+c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.pdb
+c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.frmMotDePasse.resources
+C:\Users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.frmCreation.resources
+C:\Users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.frmCheck.resources
+C:\Users\1271285\Desktop\Presence\CAI\bin\Debug\CAI.exe.config
+C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.exe
+C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.pdb
