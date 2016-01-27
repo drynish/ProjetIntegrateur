@@ -1,0 +1,7 @@
+Journal de bord
+
+27/01 :	-Création du code c# afin de trouver la MAC adresse de l'utilisateur
+	-Création du code c# afin de trouver l'adresse IP de l'utilisateur
+	-Création de la procédure stocké servant à insérer un usager dans la BD
+	-Création de la procédure stocké servant à obtenir le droit d'un utilisateur
+	-Création du dossier des journaux de bord de l'équipe sur github
