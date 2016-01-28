@@ -23,3 +23,6 @@ C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.frmMotDePasse.resources
 C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.Properties.Resources.resources
 C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
 C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.frmCoordonnateur.resources
+P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\bin\Debug\CAI.exe.config
+P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.exe
+P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.pdb
