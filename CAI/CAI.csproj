@@ -71,6 +71,12 @@
     <Compile Include="frmCreation.Designer.cs">
       <DependentUpon>frmCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHoraireSel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoraireSel.Designer.cs">
+      <DependentUpon>frmHoraireSel.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMotDePasse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCreation.resx">
       <DependentUpon>frmCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHoraireSel.resx">
+      <DependentUpon>frmHoraireSel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMotDePasse.resx">
       <DependentUpon>frmMotDePasse.cs</DependentUpon>

@@ -19,11 +19,27 @@ namespace CAI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            GVUsagers.Rows[e.RowIndex].Cells[2].Value = false;
-            GVUsagers.Rows[e.RowIndex].Cells[3].Value = false;
-            GVUsagers.Rows[e.RowIndex].Cells[4].Value = false;
+            if (e.RowIndex > -1 && e.ColumnIndex > -1)
+            {
+                if (e.ColumnIndex == 2 || e.ColumnIndex == 3 || e.ColumnIndex == 4)
+                {
+                    GVUsagers.Rows[e.RowIndex].Cells[2].Value = false;
+                    GVUsagers.Rows[e.RowIndex].Cells[3].Value = false;
+                    GVUsagers.Rows[e.RowIndex].Cells[4].Value = false;
 
-            GVUsagers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
+                    GVUsagers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
+                }
+                else if (e.ColumnIndex == 6)
+                {
+                    frmHoraireSel frmHorSel = new frmHoraireSel();
+                    frmHorSel.ShowDialog();
+
+                    GVUsagers.Rows[e.RowIndex].Cells[5].Value = frmHorSel.AccHoraire;
+                   
+                }
+
+
+            }
         }
     }
 }

@@ -28,14 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabCoordonnateur = new System.Windows.Forms.TabControl();
             this.tabConfirm = new System.Windows.Forms.TabPage();
             this.GVUsagers = new System.Windows.Forms.DataGridView();
-            this.PrenomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CoordonnateurUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.EleveUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.NonDetUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPresence = new System.Windows.Forms.TabPage();
             this.GVPresences = new System.Windows.Forms.DataGridView();
             this.PrenomPresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +46,13 @@
             this.PrenomCumul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomCumul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCumul = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrenomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoordonnateurUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.EleveUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.NonDetUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Horaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraireSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabCoordonnateur.SuspendLayout();
             this.tabConfirm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVUsagers)).BeginInit();
@@ -67,7 +70,7 @@
             this.tabCoordonnateur.Location = new System.Drawing.Point(12, 12);
             this.tabCoordonnateur.Name = "tabCoordonnateur";
             this.tabCoordonnateur.SelectedIndex = 0;
-            this.tabCoordonnateur.Size = new System.Drawing.Size(710, 470);
+            this.tabCoordonnateur.Size = new System.Drawing.Size(909, 470);
             this.tabCoordonnateur.TabIndex = 0;
             // 
             // tabConfirm
@@ -76,74 +79,40 @@
             this.tabConfirm.Location = new System.Drawing.Point(4, 22);
             this.tabConfirm.Name = "tabConfirm";
             this.tabConfirm.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConfirm.Size = new System.Drawing.Size(702, 444);
+            this.tabConfirm.Size = new System.Drawing.Size(901, 444);
             this.tabConfirm.TabIndex = 1;
             this.tabConfirm.Text = "Usagers";
             this.tabConfirm.UseVisualStyleBackColor = true;
             // 
             // GVUsagers
             // 
-            this.GVUsagers.AllowUserToAddRows = false;
             this.GVUsagers.AllowUserToDeleteRows = false;
             this.GVUsagers.AllowUserToResizeColumns = false;
             this.GVUsagers.AllowUserToResizeRows = false;
+            this.GVUsagers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.GVUsagers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GVUsagers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PrenomUsager,
             this.NomUsager,
             this.CoordonnateurUsager,
             this.EleveUsager,
-            this.NonDetUsager});
-            this.GVUsagers.Location = new System.Drawing.Point(6, 6);
+            this.NonDetUsager,
+            this.Horaire,
+            this.HoraireSelect});
+            this.GVUsagers.Location = new System.Drawing.Point(6, 9);
             this.GVUsagers.MultiSelect = false;
             this.GVUsagers.Name = "GVUsagers";
-            this.GVUsagers.Size = new System.Drawing.Size(690, 432);
+            this.GVUsagers.RowTemplate.Height = 24;
+            this.GVUsagers.Size = new System.Drawing.Size(889, 432);
             this.GVUsagers.TabIndex = 0;
             this.GVUsagers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // PrenomUsager
-            // 
-            this.PrenomUsager.Frozen = true;
-            this.PrenomUsager.HeaderText = "Prénom";
-            this.PrenomUsager.Name = "PrenomUsager";
-            this.PrenomUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.PrenomUsager.Width = 170;
-            // 
-            // NomUsager
-            // 
-            this.NomUsager.Frozen = true;
-            this.NomUsager.HeaderText = "Nom";
-            this.NomUsager.Name = "NomUsager";
-            this.NomUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NomUsager.Width = 170;
-            // 
-            // CoordonnateurUsager
-            // 
-            this.CoordonnateurUsager.Frozen = true;
-            this.CoordonnateurUsager.HeaderText = "Coordonnateur";
-            this.CoordonnateurUsager.Name = "CoordonnateurUsager";
-            this.CoordonnateurUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // EleveUsager
-            // 
-            this.EleveUsager.Frozen = true;
-            this.EleveUsager.HeaderText = "Élève";
-            this.EleveUsager.Name = "EleveUsager";
-            this.EleveUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // NonDetUsager
-            // 
-            this.NonDetUsager.Frozen = true;
-            this.NonDetUsager.HeaderText = "Non déterminé";
-            this.NonDetUsager.Name = "NonDetUsager";
-            this.NonDetUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // tabPresence
             // 
             this.tabPresence.Controls.Add(this.GVPresences);
             this.tabPresence.Location = new System.Drawing.Point(4, 22);
             this.tabPresence.Name = "tabPresence";
-            this.tabPresence.Size = new System.Drawing.Size(702, 444);
+            this.tabPresence.Size = new System.Drawing.Size(901, 444);
             this.tabPresence.TabIndex = 2;
             this.tabPresence.Text = "Présences";
             this.tabPresence.UseVisualStyleBackColor = true;
@@ -163,7 +132,7 @@
             this.DebutPresence,
             this.FinPresence,
             this.ValidationPresence});
-            this.GVPresences.Location = new System.Drawing.Point(6, 6);
+            this.GVPresences.Location = new System.Drawing.Point(109, 3);
             this.GVPresences.MultiSelect = false;
             this.GVPresences.Name = "GVPresences";
             this.GVPresences.Size = new System.Drawing.Size(690, 432);
@@ -236,7 +205,7 @@
             this.tabCumuls.Controls.Add(this.GVCumulHeures);
             this.tabCumuls.Location = new System.Drawing.Point(4, 22);
             this.tabCumuls.Name = "tabCumuls";
-            this.tabCumuls.Size = new System.Drawing.Size(702, 444);
+            this.tabCumuls.Size = new System.Drawing.Size(901, 444);
             this.tabCumuls.TabIndex = 3;
             this.tabCumuls.Text = "Cumul des heures";
             this.tabCumuls.UseVisualStyleBackColor = true;
@@ -252,7 +221,7 @@
             this.PrenomCumul,
             this.NomCumul,
             this.TotalCumul});
-            this.GVCumulHeures.Location = new System.Drawing.Point(6, 6);
+            this.GVCumulHeures.Location = new System.Drawing.Point(110, 3);
             this.GVCumulHeures.MultiSelect = false;
             this.GVCumulHeures.Name = "GVCumulHeures";
             this.GVCumulHeures.Size = new System.Drawing.Size(690, 432);
@@ -286,11 +255,66 @@
             this.TotalCumul.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.TotalCumul.Width = 250;
             // 
+            // PrenomUsager
+            // 
+            this.PrenomUsager.Frozen = true;
+            this.PrenomUsager.HeaderText = "Prénom";
+            this.PrenomUsager.Name = "PrenomUsager";
+            this.PrenomUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.PrenomUsager.Width = 170;
+            // 
+            // NomUsager
+            // 
+            this.NomUsager.Frozen = true;
+            this.NomUsager.HeaderText = "Nom";
+            this.NomUsager.Name = "NomUsager";
+            this.NomUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NomUsager.Width = 170;
+            // 
+            // CoordonnateurUsager
+            // 
+            this.CoordonnateurUsager.Frozen = true;
+            this.CoordonnateurUsager.HeaderText = "Coordonnateur";
+            this.CoordonnateurUsager.Name = "CoordonnateurUsager";
+            this.CoordonnateurUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // EleveUsager
+            // 
+            this.EleveUsager.Frozen = true;
+            this.EleveUsager.HeaderText = "Élève";
+            this.EleveUsager.Name = "EleveUsager";
+            this.EleveUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // NonDetUsager
+            // 
+            this.NonDetUsager.Frozen = true;
+            this.NonDetUsager.HeaderText = "Non déterminé";
+            this.NonDetUsager.Name = "NonDetUsager";
+            this.NonDetUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Horaire
+            // 
+            this.Horaire.Frozen = true;
+            this.Horaire.HeaderText = "Horaire";
+            this.Horaire.Name = "Horaire";
+            this.Horaire.ReadOnly = true;
+            // 
+            // HoraireSelect
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.HoraireSelect.DefaultCellStyle = dataGridViewCellStyle1;
+            this.HoraireSelect.HeaderText = "Sélectionner l\'horaire";
+            this.HoraireSelect.Name = "HoraireSelect";
+            this.HoraireSelect.ReadOnly = true;
+            this.HoraireSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HoraireSelect.Text = "gfhfg";
+            // 
             // frmCoordonnateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 494);
+            this.ClientSize = new System.Drawing.Size(942, 494);
             this.Controls.Add(this.tabCoordonnateur);
             this.Name = "frmCoordonnateur";
             this.Text = "Fenêtre du coordonnateur";
@@ -314,11 +338,6 @@
         private System.Windows.Forms.TabPage tabCumuls;
         private System.Windows.Forms.DataGridView GVPresences;
         private System.Windows.Forms.DataGridView GVCumulHeures;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrenomUsager;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomUsager;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn CoordonnateurUsager;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn EleveUsager;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn NonDetUsager;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrenomPresence;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomPresence;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatePresence;
@@ -329,5 +348,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrenomCumul;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomCumul;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCumul;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrenomUsager;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomUsager;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CoordonnateurUsager;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn EleveUsager;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn NonDetUsager;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Horaire;
+        private System.Windows.Forms.DataGridViewButtonColumn HoraireSelect;
     }
 }

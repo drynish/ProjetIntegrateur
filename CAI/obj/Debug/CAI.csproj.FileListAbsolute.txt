@@ -42,3 +42,17 @@ C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.c
 C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\bin\Debug\CAI.exe
 C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\bin\Debug\CAI.pdb
 >>>>>>> origin/master
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.exe.config
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.exe
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.pdb
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.exe
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.pdb
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMain.resources
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCheck.resources
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCoordonnateur.resources
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCreation.resources
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMotDePasse.resources
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.Properties.Resources.resources
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
+C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
