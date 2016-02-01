@@ -1,5 +1,13 @@
 27 janvier 2016
 
--Choix du type de base de donn�es � utiliser.
--Page index.php pour cr�er les tables dans la base de donn�es.
--D�bogage de des erreurs dans la page index.php
+-Choix du type de base de données à utiliser.
+-Page index.php pour créer les tables dans la base de données.
+-Débogage de des erreurs dans la page index.php
+
+
+
+1 février 2016
+
+-Création de signerPresences. Commit #:  09574b4
+(Le commit a été fait le 1er février, mais la conception de la procédure à été fait le 30/31 janvier 2016)
+
