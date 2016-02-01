@@ -1,3 +1,4 @@
+
 27 janvier 2016
 
 -Choix du type de base de données à utiliser.
@@ -11,3 +12,6 @@
 -Création de signerPresences. Commit #:  09574b4
 (Le commit a été fait le 1er février, mais la conception de la procédure à été fait le 30/31 janvier 2016)
 
+-Création de la procédure qui permet de modifier les horraires (modifier les entrées de la table presencesRequises)
+
+-Création de la procédure qui permet d'ajouter une période.
