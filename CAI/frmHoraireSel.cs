@@ -12,60 +12,51 @@ namespace CAI
 {
     public partial class frmHoraireSel : Form
     {
-        string horaire;
+        DateTime horaire; 
         public frmHoraireSel()
         {
             InitializeComponent();
         }
 
-        private void frmHoraireSel_Load(object sender, EventArgs e)
-        {
-            string min = "00";
-            string heure = "08";
-            foreach (var comboBox in this.Controls.OfType<ComboBox>())
-            {
-                while (Convert.ToInt32(heure) < 19)
-                {
-                    if (min == "60")
-                    {
-                        min = "00";
-                        heure = (Convert.ToInt32(heure) + 1).ToString();
-                    }
-                    comboBox.Items.Add(heure + ":" + min );
-                    comboBox.SelectedIndex = 0;
-                    
-                    min = (Convert.ToInt32(min) + 30).ToString(); ;
-                }
-
-                heure = "08";
-                min = "00";
-            }
-        }
-
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            /*
+            string strHoraire = ""; 
 
             if (chkLundi.Checked)
-                horaire = horaire + " Lundi " + cmbDebutLundi.Text + " à " + cmbFinLundi.Text;
+                strHoraire = strHoraire + " Lundi " + cmbDebutLundi.Text + " à " + cmbFinLundi.Text;
             if (chkMardi.Checked)
-                horaire = horaire +  " Mardi " + cmbDebutMardi.Text + " à " + cmbFinMardi.Text;
+                strHoraire = strHoraire +  " Mardi " + cmbDebutMardi.Text + " à " + cmbFinMardi.Text;
             if (chkMercredi.Checked)
-                horaire = horaire + " Mercredi " + cmbDebutMercredi.Text + " à " + cmbFinMercredi.Text;
+                strHoraire = strHoraire + " Mercredi " + cmbDebutMercredi.Text + " à " + cmbFinMercredi.Text;
             if (chkJeudi.Checked)
-                horaire = horaire + " Jeudi " + cmbDebutJeudi.Text + " à " + cmbFinJeudi.Text;
+                strHoraire = strHoraire + " Jeudi " + cmbDebutJeudi.Text + " à " + cmbFinJeudi.Text;
             if (chkVendredi.Checked)
-                horaire = horaire +  " Vendredi " + cmbDebutVendredi.Text + " à " + cmbFinVendredi.Text;
+                strHoraire = strHoraire +  " Vendredi " + cmbDebutVendredi.Text + " à " + cmbFinVendredi.Text;
 
+            horaire = Convert.ToDateTime(strHoraire);
             
-            this.Dispose();
+            this.Dispose();*/
         }
 
-        public string AccHoraire
+        public DateTime AccHoraire 
         {
             get
             {
                 return horaire;
             }
+        }
+
+        private void frmHoraireSel_Load(object sender, EventArgs e) 
+        {
+            cmbJours.Items.Add("Lundi");
+            cmbJours.Items.Add("Mardi");
+            cmbJours.Items.Add("Mercredi");
+            cmbJours.Items.Add("Jeudi");
+            cmbJours.Items.Add("Vendredi");
+
+            cmbJours.SelectedIndex = 0;
+ 
         }
     }
 }

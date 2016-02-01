@@ -35,11 +35,18 @@ namespace CAI
             frmCreation.Show();
         }
 
-        private void btnConnect_Click(object sender, EventArgs e)
+        private void btnConnect_Click(object sender, EventArgs e) 
         {
-            frmCheck frmCreation = new frmCheck();
-            this.Hide();
-            frmCreation.Show();
+
+            if (txtNom.Text != "" && txtMDP.Text != "") 
+            {
+                frmCheck frmCreation = new frmCheck();
+                this.Hide();
+                frmCreation.Show();
+            }
+            else
+                MessageBox.Show("Veuillez entrer votre nom et votre mot de passe !");
+            
         }
     }
 }

@@ -32,11 +32,11 @@
             this.btnConfirm = new System.Windows.Forms.Button();
             this.txtMDP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNom = new System.Windows.Forms.TextBox();
+            this.txtNomUsager = new System.Windows.Forms.TextBox();
             this.lblNom = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPrenom = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -58,6 +58,7 @@
             this.btnConfirm.TabIndex = 19;
             this.btnConfirm.Text = "Confirmer";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // txtMDP
             // 
@@ -76,12 +77,12 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Mot de passe :";
             // 
-            // txtNom
+            // txtNomUsager
             // 
-            this.txtNom.Location = new System.Drawing.Point(141, 20);
-            this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(154, 20);
-            this.txtNom.TabIndex = 15;
+            this.txtNomUsager.Location = new System.Drawing.Point(141, 20);
+            this.txtNomUsager.Name = "txtNomUsager";
+            this.txtNomUsager.Size = new System.Drawing.Size(154, 20);
+            this.txtNomUsager.TabIndex = 15;
             // 
             // lblNom
             // 
@@ -92,12 +93,12 @@
             this.lblNom.TabIndex = 13;
             this.lblNom.Text = "Adresse courriel : ";
             // 
-            // textBox1
+            // txtPrenom
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 20);
-            this.textBox1.TabIndex = 22;
+            this.txtPrenom.Location = new System.Drawing.Point(141, 84);
+            this.txtPrenom.Name = "txtPrenom";
+            this.txtPrenom.Size = new System.Drawing.Size(154, 20);
+            this.txtPrenom.TabIndex = 22;
             // 
             // label2
             // 
@@ -108,12 +109,12 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Prénom : ";
             // 
-            // textBox2
+            // txtNom
             // 
-            this.textBox2.Location = new System.Drawing.Point(141, 115);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(154, 20);
-            this.textBox2.TabIndex = 24;
+            this.txtNom.Location = new System.Drawing.Point(141, 115);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(154, 20);
+            this.txtNom.TabIndex = 24;
             // 
             // label3
             // 
@@ -129,15 +130,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 232);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtNom);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPrenom);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.txtMDP);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNom);
+            this.Controls.Add(this.txtNomUsager);
             this.Controls.Add(this.lblNom);
             this.Name = "frmCreation";
             this.Text = "Création de compte";
@@ -152,11 +153,11 @@
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.TextBox txtMDP;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.TextBox txtNomUsager;
         private System.Windows.Forms.Label lblNom;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.Label label3;
     }
 }

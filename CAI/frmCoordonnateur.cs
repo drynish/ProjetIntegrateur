@@ -29,17 +29,21 @@ namespace CAI
 
                     GVUsagers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
                 }
-                else if (e.ColumnIndex == 6)
+                else if (e.ColumnIndex == 5)
                 {
                     frmHoraireSel frmHorSel = new frmHoraireSel();
                     frmHorSel.ShowDialog();
-
-                    GVUsagers.Rows[e.RowIndex].Cells[5].Value = frmHorSel.AccHoraire;
                    
                 }
 
 
             }
+        }
+
+        private void btnPeriodes_Click(object sender, EventArgs e)
+        {
+            frmPeriodes frmPeriodes = new frmPeriodes();
+            frmPeriodes.ShowDialog();
         }
     }
 }

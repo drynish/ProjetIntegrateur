@@ -56,3 +56,5 @@ C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMotDePa
 C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.Properties.Resources.resources
 C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
 C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
+C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmPeriodes.resources
