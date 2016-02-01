@@ -5,3 +5,12 @@ Journal de bord
 	-Création de la procédure stocké servant à insérer un usager dans la BD
 	-Création de la procédure stocké servant à obtenir le droit d'un utilisateur
 	-Création du dossier des journaux de bord de l'équipe sur github
+
+01/02 : -Création de la procédure permettant de retourner tous les comptes non confirmés
+	-Création de la procédure permettant de confirmer un compte
+	-Création de la procédure permettant de retourner toutes les présences pour un élève
+	-Création de la procédure permettant de modifier l'horaire d'un utilisateur (avec félix)
+	-Création de la procédure permettant d'ajouter une présence requise
+	-Création de la procédure permettant de modifier une période
+	-Création de la procédure permettant de supprimer une période
+	-Discussion sur l'interface de l'application
