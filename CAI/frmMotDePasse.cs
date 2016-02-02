@@ -12,7 +12,7 @@ namespace CAI
 {
     public partial class frmMotDePasse : Form
     {
-        frmMain RefAFrmConnection;
+        frmLogin RefAFrmConnection;
         public frmMotDePasse()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace CAI
             this.RefAFrmConnection.Show();
         }
 
-        public frmMain AccRefConnect
+        public frmLogin AccRefConnect
         {
             get { return RefAFrmConnection; }
             set { RefAFrmConnection = value; }

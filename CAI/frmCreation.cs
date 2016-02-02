@@ -13,13 +13,13 @@ namespace CAI
 {
     public partial class frmCreation : Form
     {
-        frmMain RefAFrmCreation;
+        frmLogin RefAFrmCreation;
 
         public frmCreation()
         {
             InitializeComponent();
         }
-        public frmMain AccRefCreation
+        public frmLogin AccRefCreation
         {
             get { return RefAFrmCreation; }
             set { RefAFrmCreation = value; }

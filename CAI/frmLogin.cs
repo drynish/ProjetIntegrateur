@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CAI
 {
-    public partial class frmMain : Form
+    public partial class frmLogin : Form
     {
-        public frmMain()
+        public frmLogin()
         {
             InitializeComponent();
         }

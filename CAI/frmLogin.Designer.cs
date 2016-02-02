@@ -1,6 +1,6 @@
 ﻿namespace CAI
 {
-    partial class frmMain
+    partial class frmLogin
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -40,51 +40,51 @@
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(30, 37);
+            this.lblNom.Location = new System.Drawing.Point(12, 9);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(93, 13);
+            this.lblNom.Size = new System.Drawing.Size(84, 13);
             this.lblNom.TabIndex = 0;
-            this.lblNom.Text = "Nom d\'utilisateur : ";
+            this.lblNom.Text = "Nom d\'utilisateur";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(30, 63);
+            this.lblPassword.Location = new System.Drawing.Point(12, 32);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(77, 13);
+            this.lblPassword.Size = new System.Drawing.Size(71, 13);
             this.lblPassword.TabIndex = 1;
-            this.lblPassword.Text = "Mot de passe :";
+            this.lblPassword.Text = "Mot de passe";
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(129, 34);
+            this.txtNom.Location = new System.Drawing.Point(102, 6);
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(154, 20);
+            this.txtNom.Size = new System.Drawing.Size(147, 20);
             this.txtNom.TabIndex = 2;
             // 
             // txtMDP
             // 
-            this.txtMDP.Location = new System.Drawing.Point(129, 63);
+            this.txtMDP.Location = new System.Drawing.Point(102, 29);
             this.txtMDP.Name = "txtMDP";
             this.txtMDP.PasswordChar = '*';
-            this.txtMDP.Size = new System.Drawing.Size(154, 20);
+            this.txtMDP.Size = new System.Drawing.Size(147, 20);
             this.txtMDP.TabIndex = 3;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(129, 115);
+            this.btnConnect.Location = new System.Drawing.Point(15, 55);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(135, 23);
+            this.btnConnect.Size = new System.Drawing.Size(114, 23);
             this.btnConnect.TabIndex = 4;
-            this.btnConnect.Text = "Connectez vous";
+            this.btnConnect.Text = "Connectez-vous";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // btnCreation
             // 
-            this.btnCreation.Location = new System.Drawing.Point(129, 144);
+            this.btnCreation.Location = new System.Drawing.Point(135, 55);
             this.btnCreation.Name = "btnCreation";
-            this.btnCreation.Size = new System.Drawing.Size(135, 23);
+            this.btnCreation.Size = new System.Drawing.Size(114, 23);
             this.btnCreation.TabIndex = 5;
             this.btnCreation.Text = "Créer un compte";
             this.btnCreation.UseVisualStyleBackColor = true;
@@ -92,19 +92,19 @@
             // 
             // btnNouveauMDP
             // 
-            this.btnNouveauMDP.Location = new System.Drawing.Point(129, 173);
+            this.btnNouveauMDP.Location = new System.Drawing.Point(15, 84);
             this.btnNouveauMDP.Name = "btnNouveauMDP";
-            this.btnNouveauMDP.Size = new System.Drawing.Size(135, 23);
+            this.btnNouveauMDP.Size = new System.Drawing.Size(234, 23);
             this.btnNouveauMDP.TabIndex = 6;
-            this.btnNouveauMDP.Text = "Nouveau mot de passe";
+            this.btnNouveauMDP.Text = "Mot de passe oublié";
             this.btnNouveauMDP.UseVisualStyleBackColor = true;
             this.btnNouveauMDP.Click += new System.EventHandler(this.button3_Click);
             // 
-            // frmMain
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 204);
+            this.ClientSize = new System.Drawing.Size(260, 115);
             this.Controls.Add(this.btnNouveauMDP);
             this.Controls.Add(this.btnCreation);
             this.Controls.Add(this.btnConnect);
@@ -112,8 +112,11 @@
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblNom);
-            this.Name = "frmMain";
-            this.Text = "Connection";
+            this.MaximizeBox = false;
+            this.Name = "frmLogin";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Connexion";
             this.ResumeLayout(false);
             this.PerformLayout();
 

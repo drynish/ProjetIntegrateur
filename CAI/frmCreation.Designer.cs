@@ -42,9 +42,10 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(141, 200);
+            this.btnAnnuler.Location = new System.Drawing.Point(15, 135);
+            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(93, 23);
+            this.btnAnnuler.Size = new System.Drawing.Size(287, 23);
             this.btnAnnuler.TabIndex = 20;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
@@ -52,9 +53,9 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(141, 171);
+            this.btnConfirm.Location = new System.Drawing.Point(15, 108);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(93, 23);
+            this.btnConfirm.Size = new System.Drawing.Size(287, 23);
             this.btnConfirm.TabIndex = 19;
             this.btnConfirm.Text = "Confirmer";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -62,74 +63,74 @@
             // 
             // txtMDP
             // 
-            this.txtMDP.Location = new System.Drawing.Point(141, 52);
+            this.txtMDP.Location = new System.Drawing.Point(115, 31);
             this.txtMDP.Name = "txtMDP";
             this.txtMDP.PasswordChar = '*';
-            this.txtMDP.Size = new System.Drawing.Size(154, 20);
+            this.txtMDP.Size = new System.Drawing.Size(184, 20);
             this.txtMDP.TabIndex = 18;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 55);
+            this.label1.Location = new System.Drawing.Point(12, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Mot de passe :";
+            this.label1.Text = "Mot de passe";
             // 
             // txtNomUsager
             // 
-            this.txtNomUsager.Location = new System.Drawing.Point(141, 20);
+            this.txtNomUsager.Location = new System.Drawing.Point(115, 6);
             this.txtNomUsager.Name = "txtNomUsager";
-            this.txtNomUsager.Size = new System.Drawing.Size(154, 20);
+            this.txtNomUsager.Size = new System.Drawing.Size(184, 20);
             this.txtNomUsager.TabIndex = 15;
             // 
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(12, 23);
+            this.lblNom.Location = new System.Drawing.Point(12, 9);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(91, 13);
+            this.lblNom.Size = new System.Drawing.Size(82, 13);
             this.lblNom.TabIndex = 13;
-            this.lblNom.Text = "Adresse courriel : ";
+            this.lblNom.Text = "Adresse courriel";
             // 
             // txtPrenom
             // 
-            this.txtPrenom.Location = new System.Drawing.Point(141, 84);
+            this.txtPrenom.Location = new System.Drawing.Point(115, 55);
             this.txtPrenom.Name = "txtPrenom";
-            this.txtPrenom.Size = new System.Drawing.Size(154, 20);
+            this.txtPrenom.Size = new System.Drawing.Size(184, 20);
             this.txtPrenom.TabIndex = 22;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 87);
+            this.label2.Location = new System.Drawing.Point(12, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 21;
-            this.label2.Text = "Prénom : ";
+            this.label2.Text = "Prénom";
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(141, 115);
+            this.txtNom.Location = new System.Drawing.Point(115, 82);
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(154, 20);
+            this.txtNom.Size = new System.Drawing.Size(184, 20);
             this.txtNom.TabIndex = 24;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 118);
+            this.label3.Location = new System.Drawing.Point(12, 85);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Nom : ";
+            this.label3.Text = "Nom";
             // 
             // frmCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 232);
+            this.ClientSize = new System.Drawing.Size(307, 164);
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPrenom);
@@ -140,7 +141,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNomUsager);
             this.Controls.Add(this.lblNom);
+            this.MaximizeBox = false;
             this.Name = "frmCreation";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Création de compte";
             this.ResumeLayout(false);
             this.PerformLayout();

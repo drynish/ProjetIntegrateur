@@ -17,7 +17,7 @@ namespace CAI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCoordonnateur());
+            Application.Run(new frmLogin());
         }
     }
 }
