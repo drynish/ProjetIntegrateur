@@ -10,7 +10,7 @@ class CExecuteur
     /// <summary>
     /// Représente l'objet CExecuteurl
     /// </summary>
-    private static  CExecuteur m_CExecuteur;
+    private static CExecuteur m_CExecuteur;
     /// <summary>
     /// Chaine de connexion par défaut, modifiée selon le TP.
     /// </summary>
@@ -383,8 +383,9 @@ class CExecuteur
                     object[] TabInfosLigneActuel = new object[pLigneActuel.FieldCount]; // Tableau qui contient toutes les informations de la ligne actuelle
                     pLigneActuel.GetValues(TabInfosLigneActuel);
 
-                    // Ajout des noms des paramètres de la procédure ou fonction dans la liste des noms de paramètres.       
-                    pLstParametres.Add((string)TabInfosLigneActuel[0]);  
+                    if (TabInfosLigneActuel[0] != null)
+                        // Ajout des noms des paramètres de la procédure ou fonction dans la liste des noms de paramètres.       
+                        pLstParametres.Add((string)TabInfosLigneActuel[0]);  
                 }
 
                 if (pLstParametres.Count > 0)
