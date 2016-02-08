@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 /// <summary>
 /// Classe permettant d'intéragir avec une base de données et d'exécuter procédures stockées sur celle-ci.
@@ -10,19 +10,19 @@ class CExecuteur
     /// <summary>
     /// Chaine de connexion par défaut, modifiée selon le TP.
     /// </summary>
-    private const string CHAINE_DEFAUT = "Server=J-C222-OL-12;Database=TP1;User id=samServer;Password=tabarnak;";
+    private const string CHAINE_DEFAUT = "Server=127.0.0.1; Port=3306; Database=presence; Uid=CAI; Pwd=tabarnak1!;";
 
     /// <summary>
     /// Connexion utilisée
     /// </summary>
-    private SqlConnection m_ConSQL;
+    private MySqlConnection m_ConSQL;
 
     /// <summary>
     /// Constructeur par défaut avec une chaîne de connexion par défaut.
     /// </summary>
     public CExecuteur()
     {
-        m_ConSQL = new SqlConnection();
+        m_ConSQL = new MySqlConnection();
         m_ConSQL.ConnectionString = CHAINE_DEFAUT;
     }
     /// <summary>
@@ -31,7 +31,7 @@ class CExecuteur
     /// <param name="_ChaineConnexion">Représente une chaîne de caractère qui correspond à une chaîne contenant les informations nécessaire pour se connecter à une base de données.</param>
     public CExecuteur(string _ChaineConnexion)
     {
-        m_ConSQL = new SqlConnection();
+        m_ConSQL = new MySqlConnection();
         m_ConSQL.ConnectionString = _ChaineConnexion;
     }
     /// <summary>
@@ -82,14 +82,14 @@ class CExecuteur
         // Si la vue reçu existe
         if (RetournerSiVueExiste(_NomVue))
         {
-            SqlCommand pCmdSql = new SqlCommand("SELECT * FROM " + _NomVue, m_ConSQL); // Pointe vers une commande SQL (ici ce sera une vue qui va être exécuté)
+            MySqlCommand pCmdSql = new MySqlCommand("SELECT * FROM " + _NomVue, m_ConSQL); // Pointe vers une commande SQL (ici ce sera une vue qui va être exécuté)
 
             pCmdSql.CommandType = CommandType.Text;
 
             try
             {
                 m_ConSQL.Open();
-                SqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informations retournées de la procédure stockée exécuté.
+                MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informations retournées de la procédure stockée exécuté.
                 // Si la vue retourné a au moins un enregistrement ou plus.
                 if (pLigneActuel.HasRows)
                 {
@@ -125,14 +125,14 @@ class CExecuteur
     public bool RetournerSiVueExiste(string _NomVue)
     {
         bool VueExiste = false; // Représente si la vue existe.
-        SqlCommand pCmdSql = new SqlCommand("SELECT * FROM " + _NomVue, m_ConSQL); // Commande SQL que l'on va exécuter (ici on exécute une vue).
+        MySqlCommand pCmdSql = new MySqlCommand("SELECT * FROM " + _NomVue, m_ConSQL); // Commande SQL que l'on va exécuter (ici on exécute une vue).
 
         pCmdSql.CommandType = CommandType.Text;
 
         try
         {
             m_ConSQL.Open();
-            SqlDataReader pRequete = pCmdSql.ExecuteReader(); // La procédure stockée va retourner si le nom de la procédure reçu en paramètre existe ou pas.
+            MySqlDataReader pRequete = pCmdSql.ExecuteReader(); // La procédure stockée va retourner si le nom de la procédure reçu en paramètre existe ou pas.
             VueExiste = (pRequete.Read()); // Si la procédure stockée existe
         }
         finally
@@ -159,7 +159,7 @@ class CExecuteur
         if (RetournerSiPsExiste(_NomPs))
         {
             string[] TabNomParametres = RetournerNomParametre(_NomPs); // Tableau qui représente les paramètres pour la procédure stockée.
-            SqlCommand pCmdSql = new SqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée.
+            MySqlCommand pCmdSql = new MySqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée.
             pCmdSql.CommandType = CommandType.StoredProcedure;
 
             try
@@ -171,7 +171,7 @@ class CExecuteur
                     for (int indParam = 0; indParam < TabNomParametres.Length; indParam++)
                         pCmdSql.Parameters.AddWithValue(TabNomParametres[indParam], _TabParametres[indParam]);
 
-                SqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informatiosn retournées de la procédure stockée exécuté.
+                MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informatiosn retournées de la procédure stockée exécuté.
                 
                 // Si la procédure retourné a au moins un enregistrement ou plus.
                 if (pLigneActuel.HasRows)
@@ -213,7 +213,7 @@ class CExecuteur
         if (RetournerSiPsExiste(_NomPs))
         {
             string[] TabNomParametres = RetournerNomParametre(_NomPs); // Tableau qui représente les paramètres pour la procédure stockée.
-            SqlCommand pCmdSql = new SqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée.
+            MySqlCommand pCmdSql = new MySqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée.
             pCmdSql.CommandType = CommandType.StoredProcedure;
 
             try
@@ -228,7 +228,7 @@ class CExecuteur
                         pCmdSql.Parameters.AddWithValue(TabNomParametres[IndParam], _TabParametres[IndParam]);
                         if (_TabEstEnOutput[IndParam])
                         {
-                            pCmdSql.Parameters[IndParam].SqlDbType = SqlDbType.NVarChar;
+                            pCmdSql.Parameters[IndParam].MySqlDbType = MySqlDbType.VarChar;
                             pCmdSql.Parameters[IndParam].Size = 4000;
                             pCmdSql.Parameters[IndParam].Direction = ParameterDirection.Output;
                         }
@@ -262,14 +262,14 @@ class CExecuteur
     public bool RetournerSiPsExiste(string _NomPs)
     {
         bool PsExiste = false; // Représente si la procédure stockée existe.
-        SqlCommand pCmdSql = new SqlCommand("spVerifierSiProcedureExiste", m_ConSQL); // Procédure stockée qui va vérifier si la procédure stockée que l'on souhaite exécuter existe.
+        MySqlCommand pCmdSql = new MySqlCommand("spVerifierSiProcedureExiste", m_ConSQL); // Procédure stockée qui va vérifier si la procédure stockée que l'on souhaite exécuter existe.
         pCmdSql.Parameters.AddWithValue("@NomProcedure", _NomPs);
         pCmdSql.CommandType = CommandType.StoredProcedure;
 
         try
         {
             m_ConSQL.Open();
-            SqlDataReader pRequete = pCmdSql.ExecuteReader(); // La procédure stockée va retourner si le nom de la procédure reçu en paramètre existe ou pas.
+            MySqlDataReader pRequete = pCmdSql.ExecuteReader(); // La procédure stockée va retourner si le nom de la procédure reçu en paramètre existe ou pas.
             PsExiste = (pRequete.Read()); // Si la procédure stockée existe
         }
         finally
@@ -293,14 +293,14 @@ class CExecuteur
         // Si la procédure stockée existe
         if (RetournerSiPsExiste(_NomPs))
         {
-            SqlCommand pCmdSql = new SqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée (ici on va exécuter une procédure stockée)
+            MySqlCommand pCmdSql = new MySqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée (ici on va exécuter une procédure stockée)
 
             pCmdSql.CommandType = CommandType.StoredProcedure;
 
             try
             {
                 m_ConSQL.Open();
-                SqlCommandBuilder.DeriveParameters(pCmdSql);
+                MySqlCommandBuilder.DeriveParameters(pCmdSql);
                 List<string> pLstParametres = new List<string>(); // Création d'une liste pour sauvegarder les paramètres.
 
                 // Pour chaque paramètre, on l'ajoute dans la liste des paramètres. 

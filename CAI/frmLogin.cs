@@ -12,8 +12,11 @@ namespace CAI
 {
     public partial class frmLogin : Form
     {
+        private CExecuteur FConnexionBD;
+
         public frmLogin()
         {
+            FConnexionBD = new CExecuteur();
             InitializeComponent();
         }
 
@@ -40,9 +43,13 @@ namespace CAI
 
             if (txtNom.Text != "" && txtMDP.Text != "") 
             {
-                frmCheck frmCreation = new frmCheck();
+                if (FConnexionBD.RetournerSiPsExiste("spAfficherCompteNonConfirme"))
+                    MessageBox.Show("Vrai");
+                else
+                    MessageBox.Show("Faux");
+               /* frmCheck frmCreation = new frmCheck();
                 this.Hide();
-                frmCreation.Show();
+                frmCreation.Show();*/
             }
             else
                 MessageBox.Show("Veuillez entrer votre nom et votre mot de passe !");
