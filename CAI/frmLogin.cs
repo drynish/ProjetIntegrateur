@@ -40,10 +40,14 @@ namespace CAI
 
         private void btnConnect_Click(object sender, EventArgs e) 
         {
+            string[] TabParametres = new string[2];
+
+            TabParametres[0] = "jonathan3698";
+            TabParametres[1] = "test";
 
             if (txtNom.Text != "" && txtMDP.Text != "") 
             {
-                if (FConnexionBD.RetournerSiPsExiste("spAfficherCompteNonConfirme"))
+                if (FConnexionBD.ExecPs("spAfficherCompteNonConfirme", TabParametres) == null)
                     MessageBox.Show("Vrai");
                 else
                     MessageBox.Show("Faux");

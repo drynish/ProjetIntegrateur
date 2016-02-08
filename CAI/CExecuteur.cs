@@ -307,24 +307,30 @@ class CExecuteur
         // Si la procédure stockée existe
         if (RetournerSiPsExiste(_NomPs))
         {
-            MySqlCommand pCmdSql = new MySqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée (ici on va exécuter une procédure stockée)
-
+            MySqlCommand pCmdSql = new MySqlCommand("spRetournerNomsParametres", m_ConSQL); // Pointe vers une procédure stockée (ici on va exécuter une procédure stockée)
+            pCmdSql.Parameters.AddWithValue("NomProcedure", _NomPs);
             pCmdSql.CommandType = CommandType.StoredProcedure;
 
             try
             {
                 m_ConSQL.Open();
-                MySqlCommandBuilder.DeriveParameters(pCmdSql);
-                List<string> pLstParametres = new List<string>(); // Création d'une liste pour sauvegarder les paramètres.
+                MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader();
+                List<string> pLstParametres  = new List<string>(); // Création d'une liste pour sauvegarder les paramètres.
 
-                // Pour chaque paramètre, on l'ajoute dans la liste des paramètres. 
-                // On commence à 1 puisque le premier paramètre retourné est toujours "@RETURN_VALUE" 
-                // qui est un paramètre caché dans les procédures stockées que l'on n'a pas de besoin.
-                for (int IndParametre = 1; IndParametre < pCmdSql.Parameters.Count; IndParametre++)
-                    pLstParametres.Add(pCmdSql.Parameters[IndParametre].ParameterName);
+                // Si ça la retourné des paramètres.
+                while (pLigneActuel.Read())
+                {
+                    object[] TabInfosLigneActuel = new object[pLigneActuel.FieldCount]; // Tableau qui contient toutes les informations de la ligne actuelle
+                    pLigneActuel.GetValues(TabInfosLigneActuel);
 
-                TabParametres = pLstParametres.ToArray();
-                pLstParametres = null; 
+                    // Ajout des noms des paramètres de la procédure ou fonction dans la liste des noms de paramètres.       
+                    pLstParametres.Add((string)TabInfosLigneActuel[0]);  
+                }
+
+                if (pLstParametres.Count > 0)
+                    TabParametres = pLstParametres.ToArray();
+
+                pLstParametres = null;
             }
             finally
             {
