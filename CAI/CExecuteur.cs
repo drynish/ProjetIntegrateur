@@ -8,6 +8,10 @@ using MySql.Data.MySqlClient;
 class CExecuteur
 {
     /// <summary>
+    /// Représente l'objet CExecuteurl
+    /// </summary>
+    private static  CExecuteur m_CExecuteur;
+    /// <summary>
     /// Chaine de connexion par défaut, modifiée selon le TP.
     /// </summary>
     private const string CHAINE_DEFAUT = "Server=127.0.0.1; Port=3306; Database=presence; Uid=CAI; Pwd=tabarnak1!;";
@@ -33,6 +37,16 @@ class CExecuteur
     {
         m_ConSQL = new MySqlConnection();
         m_ConSQL.ConnectionString = _ChaineConnexion;
+    }
+    /// <summary>
+    /// Permet d'obtenir l'objet CExecuteur et d'ainsi avoir accès à ses méthodes
+    /// </summary>
+    /// <returns>Retourne le CExecuteur</returns>
+    public static CExecuteur ObtenirCExecuteur()
+    {
+        if (m_CExecuteur == null)
+            m_CExecuteur = new CExecuteur();
+        return m_CExecuteur;
     }
     /// <summary>
     /// Changer le nom de la base de données dans la chaîne de connexion courante.
