@@ -14,7 +14,7 @@ class CExecuteur
     /// <summary>
     /// Chaine de connexion par défaut, modifiée selon le TP.
     /// </summary>
-    private const string CHAINE_DEFAUT = "Server=127.0.0.1; Port=3306; Database=presence; Uid=CAI; Pwd=tabarnak1!;";
+    private const string CHAINE_DEFAUT = "Server=172.21.82.37; Port=3306; Database=presence; Uid=CAI; Pwd=tabarnak1!;";
 
     /// <summary>
     /// Connexion utilisée
