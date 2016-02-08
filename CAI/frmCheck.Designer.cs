@@ -106,6 +106,8 @@
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(499, 307);
+            this.MinimumSize = new System.Drawing.Size(499, 307);
             this.Name = "frmCheck";
             this.Text = "frmCheck";
             this.Load += new System.EventHandler(this.frmCheck_Load);

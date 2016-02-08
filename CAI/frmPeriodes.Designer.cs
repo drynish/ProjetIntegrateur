@@ -167,6 +167,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbPeriodes);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(208, 306);
+            this.MinimumSize = new System.Drawing.Size(208, 306);
             this.Name = "frmPeriodes";
             this.Text = "frmPeriodes";
             this.Load += new System.EventHandler(this.frmPeriodes_Load);
