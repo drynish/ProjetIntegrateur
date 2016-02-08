@@ -71,3 +71,18 @@ P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.frmPeriodes.
 P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.Properties.Resources.resources
 P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
 P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\bin\Debug\MySql.Data.dll
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.exe.config
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.exe
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.pdb
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.exe
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.pdb
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmLogin.resources
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCheck.resources
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCoordonnateur.resources
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCreation.resources
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMotDePasse.resources
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmPeriodes.resources
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.Properties.Resources.resources
+C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
