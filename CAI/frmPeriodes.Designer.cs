@@ -32,13 +32,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMinuteDebut = new System.Windows.Forms.TextBox();
+            this.txtHeureDebut = new System.Windows.Forms.TextBox();
             this.btnConfirmer = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtMinutesFin = new System.Windows.Forms.TextBox();
+            this.txtHeureFin = new System.Windows.Forms.TextBox();
             this.btnQuitter = new System.Windows.Forms.Button();
             this.btnSupp = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -79,23 +79,25 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Début de la période";
             // 
-            // textBox2
+            // txtMinuteDebut
             // 
-            this.textBox2.Location = new System.Drawing.Point(62, 91);
-            this.textBox2.MaxLength = 2;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(28, 20);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.txtMinuteDebut.Location = new System.Drawing.Point(62, 91);
+            this.txtMinuteDebut.MaxLength = 2;
+            this.txtMinuteDebut.Name = "txtMinuteDebut";
+            this.txtMinuteDebut.Size = new System.Drawing.Size(28, 20);
+            this.txtMinuteDebut.TabIndex = 9;
+            this.txtMinuteDebut.Click += new System.EventHandler(this.gererTouchesPeriodes);
+            this.txtMinuteDebut.Leave += new System.EventHandler(this.verifierMinutes);
             // 
-            // textBox1
+            // txtHeureDebut
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 91);
-            this.textBox1.MaxLength = 2;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(28, 20);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.txtHeureDebut.Location = new System.Drawing.Point(15, 91);
+            this.txtHeureDebut.MaxLength = 2;
+            this.txtHeureDebut.Name = "txtHeureDebut";
+            this.txtHeureDebut.Size = new System.Drawing.Size(28, 20);
+            this.txtHeureDebut.TabIndex = 8;
+            this.txtHeureDebut.Click += new System.EventHandler(this.gererTouchesPeriodes);
+            this.txtHeureDebut.Leave += new System.EventHandler(this.verifierHeures);
             // 
             // btnConfirmer
             // 
@@ -105,6 +107,7 @@
             this.btnConfirmer.TabIndex = 5;
             this.btnConfirmer.Text = "Confirmer";
             this.btnConfirmer.UseVisualStyleBackColor = true;
+            this.btnConfirmer.Click += new System.EventHandler(this.btnConfirmer_Click);
             // 
             // label4
             // 
@@ -124,23 +127,25 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Fin de la période";
             // 
-            // textBox3
+            // txtMinutesFin
             // 
-            this.textBox3.Location = new System.Drawing.Point(62, 143);
-            this.textBox3.MaxLength = 2;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(28, 20);
-            this.textBox3.TabIndex = 13;
-            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.txtMinutesFin.Location = new System.Drawing.Point(62, 143);
+            this.txtMinutesFin.MaxLength = 2;
+            this.txtMinutesFin.Name = "txtMinutesFin";
+            this.txtMinutesFin.Size = new System.Drawing.Size(28, 20);
+            this.txtMinutesFin.TabIndex = 13;
+            this.txtMinutesFin.Click += new System.EventHandler(this.gererTouchesPeriodes);
+            this.txtMinutesFin.Leave += new System.EventHandler(this.verifierMinutes);
             // 
-            // textBox4
+            // txtHeureFin
             // 
-            this.textBox4.Location = new System.Drawing.Point(15, 143);
-            this.textBox4.MaxLength = 2;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(28, 20);
-            this.textBox4.TabIndex = 12;
-            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.txtHeureFin.Location = new System.Drawing.Point(15, 143);
+            this.txtHeureFin.MaxLength = 2;
+            this.txtHeureFin.Name = "txtHeureFin";
+            this.txtHeureFin.Size = new System.Drawing.Size(28, 20);
+            this.txtHeureFin.TabIndex = 12;
+            this.txtHeureFin.Click += new System.EventHandler(this.gererTouchesPeriodes);
+            this.txtHeureFin.Leave += new System.EventHandler(this.verifierHeures);
             // 
             // btnQuitter
             // 
@@ -150,6 +155,7 @@
             this.btnQuitter.TabIndex = 16;
             this.btnQuitter.Text = "Quitter";
             this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // btnSupp
             // 
@@ -161,7 +167,7 @@
             this.btnSupp.TabIndex = 17;
             this.btnSupp.Text = "Supprimer la dernière période";
             this.btnSupp.UseVisualStyleBackColor = true;
-            this.btnSupp.Click += new System.EventHandler(this.button2_Click);
+            this.btnSupp.Click += new System.EventHandler(this.btnSupp_Click);
             // 
             // frmPeriodes
             // 
@@ -172,12 +178,12 @@
             this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtMinutesFin);
+            this.Controls.Add(this.txtHeureFin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtMinuteDebut);
+            this.Controls.Add(this.txtHeureDebut);
             this.Controls.Add(this.btnConfirmer);
             this.Controls.Add(this.cmbPeriodes);
             this.Controls.Add(this.label1);
@@ -196,13 +202,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMinuteDebut;
+        private System.Windows.Forms.TextBox txtHeureDebut;
         private System.Windows.Forms.Button btnConfirmer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtMinutesFin;
+        private System.Windows.Forms.TextBox txtHeureFin;
         private System.Windows.Forms.Button btnQuitter;
         private System.Windows.Forms.Button btnSupp;
     }
