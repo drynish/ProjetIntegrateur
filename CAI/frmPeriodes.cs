@@ -33,5 +33,10 @@ namespace CAI
                 e.Handled = !char.IsNumber(e.KeyChar);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

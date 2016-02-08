@@ -34,12 +34,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnConfirmer = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnQuitter = new System.Windows.Forms.Button();
+            this.btnSupp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbPeriodes
@@ -96,14 +97,14 @@
             this.textBox1.TabIndex = 8;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
-            // button1
+            // btnConfirmer
             // 
-            this.button1.Location = new System.Drawing.Point(62, 207);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Confirmer";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnConfirmer.Location = new System.Drawing.Point(62, 178);
+            this.btnConfirmer.Name = "btnConfirmer";
+            this.btnConfirmer.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmer.TabIndex = 5;
+            this.btnConfirmer.Text = "Confirmer";
+            this.btnConfirmer.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -150,11 +151,24 @@
             this.btnQuitter.Text = "Quitter";
             this.btnQuitter.UseVisualStyleBackColor = true;
             // 
+            // btnSupp
+            // 
+            this.btnSupp.Location = new System.Drawing.Point(15, 207);
+            this.btnSupp.MaximumSize = new System.Drawing.Size(165, 23);
+            this.btnSupp.MinimumSize = new System.Drawing.Size(165, 23);
+            this.btnSupp.Name = "btnSupp";
+            this.btnSupp.Size = new System.Drawing.Size(165, 23);
+            this.btnSupp.TabIndex = 17;
+            this.btnSupp.Text = "Supprimer la dernière période";
+            this.btnSupp.UseVisualStyleBackColor = true;
+            this.btnSupp.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmPeriodes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(192, 268);
+            this.Controls.Add(this.btnSupp);
             this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
@@ -164,7 +178,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnConfirmer);
             this.Controls.Add(this.cmbPeriodes);
             this.Controls.Add(this.label1);
             this.MaximumSize = new System.Drawing.Size(208, 306);
@@ -184,11 +198,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnConfirmer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button btnQuitter;
+        private System.Windows.Forms.Button btnSupp;
     }
 }

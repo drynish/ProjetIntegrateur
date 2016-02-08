@@ -91,11 +91,14 @@
             // btnConfirm
             // 
             this.btnConfirm.Location = new System.Drawing.Point(141, 111);
+            this.btnConfirm.MaximumSize = new System.Drawing.Size(93, 23);
+            this.btnConfirm.MinimumSize = new System.Drawing.Size(93, 23);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(93, 23);
             this.btnConfirm.TabIndex = 11;
             this.btnConfirm.Text = "Confirmer";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnAnnuler
             // 

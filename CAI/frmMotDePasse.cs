@@ -31,5 +31,17 @@ namespace CAI
             set { RefAFrmConnection = value; }
 
         }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if (txtNom.TextLength != 0 || txtMDPActuel.TextLength < 8)
+            {
+                if (txtMDP.TextLength >= 8) { }
+                else
+                    MessageBox.Show("Votre mot de passe doit contenir au moins 8 caractères !");
+            }
+            else
+                MessageBox.Show("Veuillez entrer votre courriel et/ou votre mot de passe");
+        }
     }
 }
