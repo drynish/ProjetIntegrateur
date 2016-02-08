@@ -14,3 +14,7 @@ Journal de bord
 	-Création de la procédure permettant de modifier une période
 	-Création de la procédure permettant de supprimer une période
 	-Discussion sur l'interface de l'application
+
+08/02 : -Fixer quelques bugg
+	-Implémenter le patron singleton dans la classe CExecuteur
+	-Création de la procédure ExecFn permettant d'exécuter une fonction stocker dans la base de donnée
