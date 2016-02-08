@@ -165,6 +165,66 @@ class CExecuteur
     /// <param name="_NomPs">Nom de la procédure stockée que l'on veut exécuter.</param>
     /// <param name="_TabParametres">Tableau des paramètres EN ORDRE des procédures.</param>
     /// <returns>Retourne la table contenant les informations que la procédure stockée a retourné si c'est le cas. Sinon, retourne null si rien n'a été retourné.</returns>
+    public DataTable ExecFn(string _NomPs, string[] _TabParametres)
+    {
+        DataTable pTabInfos = null; // Représente les informations retournées de la procédure stockée exécuté.
+
+        // Si la procédure stockée reçu existe
+        if (RetournerSiPsExiste(_NomPs))
+        {
+            string[] TabNomParametres = RetournerNomParametre(_NomPs); // Tableau qui représente les paramètres pour la procédure stockée.
+            MySqlCommand pCmdSql = new MySqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée.
+            pCmdSql.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                m_ConSQL.Open();
+
+                // S'il y a des paramètres existant, on ajoute ces paramètres pour que lorsqu'on va exécuter la procédure stockée, cette procéduire va recevoir les valeurs pour chaque paramètre.
+                if (TabNomParametres != null && _TabParametres.Length == TabNomParametres.Length)
+                    for (int indParam = 0; indParam < TabNomParametres.Length; indParam++)
+                        pCmdSql.Parameters.AddWithValue(TabNomParametres[indParam], _TabParametres[indParam]);
+                pCmdSql.Parameters.Add("@return", MySqlDbType.Int32);
+                pCmdSql.Parameters["@return"].Direction = ParameterDirection.ReturnValue;
+
+                MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informatiosn retournées de la procédure stockée exécuté.
+
+                // Si la procédure retourné a au moins un enregistrement ou plus.
+                if (pLigneActuel.HasRows)
+                {
+                    pTabInfos = new DataTable(); // Correspond à la table d'enregistrement que l'on va retourner selon les informations retournées de la procédure stockée.
+                    // Pour chaque colonne de la vue retourné
+                    for (int indCol = 0; indCol < pLigneActuel.FieldCount; indCol++)
+                        pTabInfos.Columns.Add();
+                    // Pour chaque enregistrement reçu de la vue exécuté, on place celui-ci dans la table que l'on souhaite retourner.
+                    while (pLigneActuel.Read())
+                    {
+                        object[] TabInfosLigneActuel = new object[pLigneActuel.FieldCount]; // Tableau qui contient toutes les informations de la ligne actuelle
+                        pLigneActuel.GetValues(TabInfosLigneActuel);
+                        pTabInfos.Rows.Add(TabInfosLigneActuel);
+                    }
+                    pTabInfos.Rows.Add(pCmdSql.Parameters["@return"].Value);
+                    pLigneActuel.Close();
+                }
+            }
+            finally
+            {
+                // Si la connexion existe encore, on ferme celle-ci.
+                if (m_ConSQL != null)
+                    m_ConSQL.Close();
+               
+            }
+        }
+
+        return pTabInfos;
+    }
+
+    /// <summary>
+    /// Exécuter une procédure stockée et retourner les informations qu'elle retourne si elle retourne des informations.
+    /// </summary>
+    /// <param name="_NomPs">Nom de la procédure stockée que l'on veut exécuter.</param>
+    /// <param name="_TabParametres">Tableau des paramètres EN ORDRE des procédures.</param>
+    /// <returns>Retourne la table contenant les informations que la procédure stockée a retourné si c'est le cas. Sinon, retourne null si rien n'a été retourné.</returns>
     public DataTable ExecPs(string _NomPs, string[] _TabParametres)
     {
         DataTable pTabInfos = null; // Représente les informations retournées de la procédure stockée exécuté.
@@ -184,7 +244,7 @@ class CExecuteur
                 if (TabNomParametres != null && _TabParametres.Length == TabNomParametres.Length)
                     for (int indParam = 0; indParam < TabNomParametres.Length; indParam++)
                         pCmdSql.Parameters.AddWithValue(TabNomParametres[indParam], _TabParametres[indParam]);
-
+                
                 MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informatiosn retournées de la procédure stockée exécuté.
                 
                 // Si la procédure retourné a au moins un enregistrement ou plus.

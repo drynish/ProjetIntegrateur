@@ -43,17 +43,17 @@ namespace CAI
             string[] TabParametres = new string[2];
 
             TabParametres[0] = "jonathan3698";
-            TabParametres[1] = "test";
+            TabParametres[1] = "12345678";
 
             if (txtNom.Text != "" && txtMDP.Text != "") 
             {
-                if (FConnexionBD.ExecPs("spAfficherCompteNonConfirme", TabParametres) == null)
-                    MessageBox.Show("Vrai");
-                else
-                    MessageBox.Show("Faux");
-               /* frmCheck frmCreation = new frmCheck();
-                this.Hide();
-                frmCreation.Show();*/
+                DataTable DTableTest;
+                DTableTest = FConnexionBD.ExecFn("fnRetournerDroit", TabParametres);
+                    MessageBox.Show(DTableTest.Rows[0][0].ToString());
+                    //Similarly for QuantityInIssueUnit_uom.
+                /* frmCheck frmCreation = new frmCheck();
+                 this.Hide();
+                 frmCreation.Show();*/
             }
             else
                 MessageBox.Show("Veuillez entrer votre nom et votre mot de passe !");
