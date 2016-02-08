@@ -113,6 +113,8 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblNom);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(276, 153);
+            this.MinimumSize = new System.Drawing.Size(276, 153);
             this.Name = "frmLogin";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
