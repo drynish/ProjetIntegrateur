@@ -37,11 +37,32 @@ namespace CAI
             if (txtNom.TextLength != 0 || txtMDPActuel.TextLength < 8)
             {
                 if (txtMDP.TextLength >= 8 && txtMDP.TextLength <= 40) {
-                    string[] param = new string[3];
-                    param[0] = txtNom.Text;
-                    param[1] = txtMDPActuel.Text;
-                    param[2] = txtMDP.Text;
-                    CExecuteur.ObtenirCExecuteur().ExecPs("spChangerMDP", param);
+                    string[] paramIN = new string[4];
+                    paramIN[0] = txtNom.Text;
+                    paramIN[1] = txtMDPActuel.Text;
+                    paramIN[2] = txtMDP.Text;
+                    paramIN[3] = "0";
+
+                    bool[] paramOUT = new bool[4];
+                    paramOUT[0] = false;
+                    paramOUT[1] = false;
+                    paramOUT[2] = false;
+                    paramOUT[3] = true;
+
+
+                    CExecuteur.ObtenirCExecuteur().ExecPs("spChangerMDP", ref paramIN, paramOUT);
+
+                    if (paramIN[3] == "-1")
+                        MessageBox.Show("Échec !");
+                    else if (paramIN[3] == "1")
+                    {
+                        MessageBox.Show("Succès !");
+                        txtMDP.Text = "";
+                        txtNom.Text = "";
+                        txtMDPActuel.Text = "";
+
+                    }
+
                 }
                 else
                     MessageBox.Show("Votre mot de passe doit contenir au moins 8 caractères !");
