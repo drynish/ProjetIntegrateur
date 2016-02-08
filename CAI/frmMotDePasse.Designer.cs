@@ -120,8 +120,6 @@
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblNom);
-            this.MaximumSize = new System.Drawing.Size(393, 207);
-            this.MinimumSize = new System.Drawing.Size(393, 207);
             this.Name = "frmMotDePasse";
             this.Text = "Nouveau mot de passe";
             this.ResumeLayout(false);

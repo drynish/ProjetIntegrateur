@@ -142,8 +142,6 @@
             this.Controls.Add(this.txtNomUsager);
             this.Controls.Add(this.lblNom);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(323, 202);
-            this.MinimumSize = new System.Drawing.Size(323, 202);
             this.Name = "frmCreation";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

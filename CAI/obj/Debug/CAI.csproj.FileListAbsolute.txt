@@ -58,4 +58,3 @@ C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.Gen
 C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
 C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
 C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmPeriodes.resources
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmLogin.resources

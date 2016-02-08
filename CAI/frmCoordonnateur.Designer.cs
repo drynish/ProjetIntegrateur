@@ -28,16 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabCoordonnateur = new System.Windows.Forms.TabControl();
             this.tabConfirm = new System.Windows.Forms.TabPage();
             this.GVUsagers = new System.Windows.Forms.DataGridView();
-            this.PrenomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CoordonnateurUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.EleveUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.NonDetUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.HoraireSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPresence = new System.Windows.Forms.TabPage();
             this.GVPresences = new System.Windows.Forms.DataGridView();
             this.PrenomPresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +46,12 @@
             this.PrenomCumul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomCumul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCumul = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrenomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoordonnateurUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.EleveUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.NonDetUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.HoraireSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnPeriodes = new System.Windows.Forms.Button();
             this.tabCoordonnateur.SuspendLayout();
             this.tabConfirm.SuspendLayout();
@@ -107,55 +107,6 @@
             this.GVUsagers.Size = new System.Drawing.Size(889, 432);
             this.GVUsagers.TabIndex = 0;
             this.GVUsagers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // PrenomUsager
-            // 
-            this.PrenomUsager.Frozen = true;
-            this.PrenomUsager.HeaderText = "Prénom";
-            this.PrenomUsager.Name = "PrenomUsager";
-            this.PrenomUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.PrenomUsager.Width = 170;
-            // 
-            // NomUsager
-            // 
-            this.NomUsager.Frozen = true;
-            this.NomUsager.HeaderText = "Nom";
-            this.NomUsager.Name = "NomUsager";
-            this.NomUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NomUsager.Width = 170;
-            // 
-            // CoordonnateurUsager
-            // 
-            this.CoordonnateurUsager.Frozen = true;
-            this.CoordonnateurUsager.HeaderText = "Coordonnateur";
-            this.CoordonnateurUsager.Name = "CoordonnateurUsager";
-            this.CoordonnateurUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // EleveUsager
-            // 
-            this.EleveUsager.Frozen = true;
-            this.EleveUsager.HeaderText = "Élève";
-            this.EleveUsager.Name = "EleveUsager";
-            this.EleveUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // NonDetUsager
-            // 
-            this.NonDetUsager.Frozen = true;
-            this.NonDetUsager.HeaderText = "Non déterminé";
-            this.NonDetUsager.Name = "NonDetUsager";
-            this.NonDetUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // HoraireSelect
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.HoraireSelect.DefaultCellStyle = dataGridViewCellStyle1;
-            this.HoraireSelect.HeaderText = "Sélectionner l\'horaire";
-            this.HoraireSelect.Name = "HoraireSelect";
-            this.HoraireSelect.ReadOnly = true;
-            this.HoraireSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.HoraireSelect.Text = "gfhfg";
-            this.HoraireSelect.Width = 200;
             // 
             // tabPresence
             // 
@@ -305,6 +256,55 @@
             this.TotalCumul.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.TotalCumul.Width = 250;
             // 
+            // PrenomUsager
+            // 
+            this.PrenomUsager.Frozen = true;
+            this.PrenomUsager.HeaderText = "Prénom";
+            this.PrenomUsager.Name = "PrenomUsager";
+            this.PrenomUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.PrenomUsager.Width = 170;
+            // 
+            // NomUsager
+            // 
+            this.NomUsager.Frozen = true;
+            this.NomUsager.HeaderText = "Nom";
+            this.NomUsager.Name = "NomUsager";
+            this.NomUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NomUsager.Width = 170;
+            // 
+            // CoordonnateurUsager
+            // 
+            this.CoordonnateurUsager.Frozen = true;
+            this.CoordonnateurUsager.HeaderText = "Coordonnateur";
+            this.CoordonnateurUsager.Name = "CoordonnateurUsager";
+            this.CoordonnateurUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // EleveUsager
+            // 
+            this.EleveUsager.Frozen = true;
+            this.EleveUsager.HeaderText = "Élève";
+            this.EleveUsager.Name = "EleveUsager";
+            this.EleveUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // NonDetUsager
+            // 
+            this.NonDetUsager.Frozen = true;
+            this.NonDetUsager.HeaderText = "Non déterminé";
+            this.NonDetUsager.Name = "NonDetUsager";
+            this.NonDetUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // HoraireSelect
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.HoraireSelect.DefaultCellStyle = dataGridViewCellStyle2;
+            this.HoraireSelect.HeaderText = "Sélectionner l\'horaire";
+            this.HoraireSelect.Name = "HoraireSelect";
+            this.HoraireSelect.ReadOnly = true;
+            this.HoraireSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HoraireSelect.Text = "gfhfg";
+            this.HoraireSelect.Width = 200;
+            // 
             // btnPeriodes
             // 
             this.btnPeriodes.Location = new System.Drawing.Point(623, 5);
@@ -322,8 +322,6 @@
             this.ClientSize = new System.Drawing.Size(942, 494);
             this.Controls.Add(this.btnPeriodes);
             this.Controls.Add(this.tabCoordonnateur);
-            this.MaximumSize = new System.Drawing.Size(958, 532);
-            this.MinimumSize = new System.Drawing.Size(958, 532);
             this.Name = "frmCoordonnateur";
             this.Text = "Fenêtre du coordonnateur";
             this.tabCoordonnateur.ResumeLayout(false);
