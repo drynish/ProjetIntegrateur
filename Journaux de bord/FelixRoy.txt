@@ -1,4 +1,4 @@
-
+﻿
 27 janvier 2016
 
 -Choix du type de base de données à utiliser.
@@ -15,3 +15,7 @@
 -Création de la procédure qui permet de modifier les horraires (modifier les entrées de la table presencesRequises)
 
 -Création de la procédure qui permet d'ajouter une période.
+
+
+8 février 2016
+-Codage des méthodes pour faire fonctionner l'interface de la gestion des projets.
