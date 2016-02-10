@@ -62,6 +62,8 @@ namespace CAI
                         frmCheck frmUtilisateur = new frmCheck(txtNom.Text, txtMDP.Text);
                         frmUtilisateur.ShowDialog();
                     }
+                    else if (DroitUtilisateur.Rows[0][0].ToString() == "-1")
+                        MessageBox.Show("Votre compte n'est pas confirmé. Veuillez contacter l'administrateur de votre système.");
                     else
                         MessageBox.Show("Mauvais utilisateur ou mot de passe! Veuillez réessayer.");
                 }
