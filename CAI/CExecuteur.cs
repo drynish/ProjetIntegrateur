@@ -24,20 +24,12 @@ class CExecuteur
     /// <summary>
     /// Constructeur par défaut avec une chaîne de connexion par défaut.
     /// </summary>
-    public CExecuteur()
+    private CExecuteur()
     {
         m_ConSQL = new MySqlConnection();
         m_ConSQL.ConnectionString = CHAINE_DEFAUT;
     }
-    /// <summary>
-    /// Deuxième constructeur. Assigne une chaîne de connexion selon la chaîne de connexion reçu en paramètre.
-    /// </summary>
-    /// <param name="_ChaineConnexion">Représente une chaîne de caractère qui correspond à une chaîne contenant les informations nécessaire pour se connecter à une base de données.</param>
-    public CExecuteur(string _ChaineConnexion)
-    {
-        m_ConSQL = new MySqlConnection();
-        m_ConSQL.ConnectionString = _ChaineConnexion;
-    }
+
     /// <summary>
     /// Permet d'obtenir l'objet CExecuteur et d'ainsi avoir accès à ses méthodes
     /// </summary>

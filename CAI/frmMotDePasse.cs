@@ -21,8 +21,8 @@ namespace CAI
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             //Objectif : Détruite cette fenêtre et revenir à la fenêtre principale.
-            this.Dispose();
-            this.RefAFrmConnection.Show();
+            Dispose();
+            RefAFrmConnection.Show();
         }
 
         public frmLogin AccRefConnect
@@ -54,13 +54,13 @@ namespace CAI
                         txtMDP.Text = "";
                         txtMDPActuel.Text = "";
                         txtNom.Text = "";
-                        MessageBox.Show("Mauvais nom d'usager et/ou mot de passe");
+                        MessageBox.Show("Votre nom d'utilisateur existe déjà. Veuillez en choisir un autre.");
                     }
                     if (paramIN[3] == "1")
                     {
-                        MessageBox.Show("Succès !");
-                        this.Dispose();
-                        this.RefAFrmConnection.Show();
+                        MessageBox.Show("Votre compte a été enregistré avec succès.");
+                        Dispose();
+                        RefAFrmConnection.Show();
                     }
                 }
                 else

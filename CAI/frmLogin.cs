@@ -12,11 +12,9 @@ namespace CAI
 {
     public partial class frmLogin : Form
     {
-        private CExecuteur FConnexionBD;
-
+    
         public frmLogin()
         {
-            FConnexionBD = new CExecuteur();
             InitializeComponent();
         }
 
@@ -34,7 +32,7 @@ namespace CAI
         {
             frmCreation frmCreation = new frmCreation();
             frmCreation.AccRefCreation = this;
-            this.Hide();
+            Hide();
             frmCreation.Show();
         }
 
@@ -49,7 +47,7 @@ namespace CAI
             {
                 try
                 {
-                    DataTable DroitUtilisateur = FConnexionBD.ExecFn("fnRetournerDroit", TabParametres);
+                    DataTable DroitUtilisateur = CExecuteur.ObtenirCExecuteur().ExecFn("fnRetournerDroit", TabParametres);
                     // Si c'est un administrateur
                     if (DroitUtilisateur.Rows[0][0].ToString() == "0")
                     {
