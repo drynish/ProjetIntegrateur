@@ -37,19 +37,19 @@ namespace CAI
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void GVUsagers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1 && e.ColumnIndex > -1)
             {
-                if (e.ColumnIndex == 2 || e.ColumnIndex == 3 || e.ColumnIndex == 4)
+                if (e.ColumnIndex == 3 || e.ColumnIndex == 4 || e.ColumnIndex == 5)
                 {
-                    GVUsagers.Rows[e.RowIndex].Cells[2].Value = false;
                     GVUsagers.Rows[e.RowIndex].Cells[3].Value = false;
                     GVUsagers.Rows[e.RowIndex].Cells[4].Value = false;
+                    GVUsagers.Rows[e.RowIndex].Cells[5].Value = false;
 
                     GVUsagers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
                 }
-                else if (e.ColumnIndex == 5)
+                else if (e.ColumnIndex == 6)
                 {
                     frmHoraireSel frmHorSel = new frmHoraireSel();
                     frmHorSel.ShowDialog();
@@ -64,6 +64,43 @@ namespace CAI
         {
             frmPeriodes frmPeriodes = new frmPeriodes();
             frmPeriodes.ShowDialog();
+        }
+
+        private void frmCoordonnateur_Load(object sender, EventArgs e)
+        {
+            string[] paramIN = new string[2];
+
+            paramIN[0] = FNomUtilisateur;
+            paramIN[1] = FMotDePasse;
+            DataTable TableRequete = new DataTable();
+            TableRequete = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherUsagers", paramIN);
+
+            for (int i = 0; i < TableRequete.Rows.Count; i++)
+            {
+                GVUsagers.Rows.Add();
+                GVUsagers.Rows[i].Cells[0].Value = TableRequete.Rows[i][0].ToString();
+                GVUsagers.Rows[i].Cells[1].Value = TableRequete.Rows[i][1].ToString();
+                GVUsagers.Rows[i].Cells[2].Value = TableRequete.Rows[i][2].ToString();
+
+                if (TableRequete.Rows[i][3].ToString() == "-1")
+                {
+                    GVUsagers.Rows[i].Cells[3].Value = false;
+                    GVUsagers.Rows[i].Cells[4].Value = false;
+                    GVUsagers.Rows[i].Cells[5].Value = true;
+                }
+                else if (TableRequete.Rows[i][3].ToString() == "1")
+                {
+                    GVUsagers.Rows[i].Cells[3].Value = false;
+                    GVUsagers.Rows[i].Cells[4].Value = true;
+                    GVUsagers.Rows[i].Cells[5].Value = false;
+                }
+                else if (TableRequete.Rows[i][3].ToString() == "0")
+                {
+                    GVUsagers.Rows[i].Cells[3].Value = true;
+                    GVUsagers.Rows[i].Cells[4].Value = false;
+                    GVUsagers.Rows[i].Cells[5].Value = false;
+                }
+            }
         }
     }
 }

@@ -32,6 +32,7 @@
             this.tabCoordonnateur = new System.Windows.Forms.TabControl();
             this.tabConfirm = new System.Windows.Forms.TabPage();
             this.GVUsagers = new System.Windows.Forms.DataGridView();
+            this.UtilisateurID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrenomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CoordonnateurUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -40,19 +41,17 @@
             this.HoraireSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPresence = new System.Windows.Forms.TabPage();
             this.GVPresences = new System.Windows.Forms.DataGridView();
-            this.PrenomPresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomPresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatePresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CAIPresence = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DebutPresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FinPresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValidationPresence = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabCumuls = new System.Windows.Forms.TabPage();
             this.GVCumulHeures = new System.Windows.Forms.DataGridView();
             this.PrenomCumul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomCumul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCumul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPeriodes = new System.Windows.Forms.Button();
+            this.PrenomPresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomPresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatePresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DebutPresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinPresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCoordonnateur.SuspendLayout();
             this.tabConfirm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVUsagers)).BeginInit();
@@ -86,12 +85,14 @@
             // 
             // GVUsagers
             // 
+            this.GVUsagers.AllowUserToAddRows = false;
             this.GVUsagers.AllowUserToDeleteRows = false;
             this.GVUsagers.AllowUserToResizeColumns = false;
             this.GVUsagers.AllowUserToResizeRows = false;
             this.GVUsagers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.GVUsagers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GVUsagers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UtilisateurID,
             this.PrenomUsager,
             this.NomUsager,
             this.CoordonnateurUsager,
@@ -106,7 +107,13 @@
             this.GVUsagers.RowTemplate.Height = 24;
             this.GVUsagers.Size = new System.Drawing.Size(889, 432);
             this.GVUsagers.TabIndex = 0;
-            this.GVUsagers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.GVUsagers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GVUsagers_CellContentClick);
+            // 
+            // UtilisateurID
+            // 
+            this.UtilisateurID.Frozen = true;
+            this.UtilisateurID.HeaderText = "ID";
+            this.UtilisateurID.Name = "UtilisateurID";
             // 
             // PrenomUsager
             // 
@@ -169,7 +176,6 @@
             // 
             // GVPresences
             // 
-            this.GVPresences.AllowUserToAddRows = false;
             this.GVPresences.AllowUserToDeleteRows = false;
             this.GVPresences.AllowUserToResizeColumns = false;
             this.GVPresences.AllowUserToResizeRows = false;
@@ -178,77 +184,13 @@
             this.PrenomPresence,
             this.NomPresence,
             this.DatePresence,
-            this.CAIPresence,
             this.DebutPresence,
-            this.FinPresence,
-            this.ValidationPresence});
-            this.GVPresences.Location = new System.Drawing.Point(109, 3);
+            this.FinPresence});
+            this.GVPresences.Location = new System.Drawing.Point(182, 9);
             this.GVPresences.MultiSelect = false;
             this.GVPresences.Name = "GVPresences";
-            this.GVPresences.Size = new System.Drawing.Size(690, 432);
+            this.GVPresences.Size = new System.Drawing.Size(524, 432);
             this.GVPresences.TabIndex = 1;
-            // 
-            // PrenomPresence
-            // 
-            this.PrenomPresence.Frozen = true;
-            this.PrenomPresence.HeaderText = "Prénom";
-            this.PrenomPresence.Name = "PrenomPresence";
-            this.PrenomPresence.ReadOnly = true;
-            this.PrenomPresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.PrenomPresence.Width = 130;
-            // 
-            // NomPresence
-            // 
-            this.NomPresence.Frozen = true;
-            this.NomPresence.HeaderText = "Nom";
-            this.NomPresence.Name = "NomPresence";
-            this.NomPresence.ReadOnly = true;
-            this.NomPresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NomPresence.Width = 130;
-            // 
-            // DatePresence
-            // 
-            this.DatePresence.Frozen = true;
-            this.DatePresence.HeaderText = "Date";
-            this.DatePresence.Name = "DatePresence";
-            this.DatePresence.ReadOnly = true;
-            this.DatePresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.DatePresence.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // CAIPresence
-            // 
-            this.CAIPresence.Frozen = true;
-            this.CAIPresence.HeaderText = "CAI";
-            this.CAIPresence.Name = "CAIPresence";
-            this.CAIPresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CAIPresence.Width = 50;
-            // 
-            // DebutPresence
-            // 
-            this.DebutPresence.Frozen = true;
-            this.DebutPresence.HeaderText = "Début";
-            this.DebutPresence.Name = "DebutPresence";
-            this.DebutPresence.ReadOnly = true;
-            this.DebutPresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.DebutPresence.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.DebutPresence.Width = 60;
-            // 
-            // FinPresence
-            // 
-            this.FinPresence.Frozen = true;
-            this.FinPresence.HeaderText = "Fin";
-            this.FinPresence.Name = "FinPresence";
-            this.FinPresence.ReadOnly = true;
-            this.FinPresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.FinPresence.Width = 60;
-            // 
-            // ValidationPresence
-            // 
-            this.ValidationPresence.Frozen = true;
-            this.ValidationPresence.HeaderText = "Validation";
-            this.ValidationPresence.Name = "ValidationPresence";
-            this.ValidationPresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ValidationPresence.Width = 110;
             // 
             // tabCumuls
             // 
@@ -262,7 +204,6 @@
             // 
             // GVCumulHeures
             // 
-            this.GVCumulHeures.AllowUserToAddRows = false;
             this.GVCumulHeures.AllowUserToDeleteRows = false;
             this.GVCumulHeures.AllowUserToResizeColumns = false;
             this.GVCumulHeures.AllowUserToResizeRows = false;
@@ -315,6 +256,52 @@
             this.btnPeriodes.UseVisualStyleBackColor = true;
             this.btnPeriodes.Click += new System.EventHandler(this.btnPeriodes_Click);
             // 
+            // PrenomPresence
+            // 
+            this.PrenomPresence.Frozen = true;
+            this.PrenomPresence.HeaderText = "Prénom";
+            this.PrenomPresence.Name = "PrenomPresence";
+            this.PrenomPresence.ReadOnly = true;
+            this.PrenomPresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.PrenomPresence.Width = 130;
+            // 
+            // NomPresence
+            // 
+            this.NomPresence.Frozen = true;
+            this.NomPresence.HeaderText = "Nom";
+            this.NomPresence.Name = "NomPresence";
+            this.NomPresence.ReadOnly = true;
+            this.NomPresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NomPresence.Width = 130;
+            // 
+            // DatePresence
+            // 
+            this.DatePresence.Frozen = true;
+            this.DatePresence.HeaderText = "Date";
+            this.DatePresence.Name = "DatePresence";
+            this.DatePresence.ReadOnly = true;
+            this.DatePresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.DatePresence.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DebutPresence
+            // 
+            this.DebutPresence.Frozen = true;
+            this.DebutPresence.HeaderText = "Début";
+            this.DebutPresence.Name = "DebutPresence";
+            this.DebutPresence.ReadOnly = true;
+            this.DebutPresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.DebutPresence.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DebutPresence.Width = 60;
+            // 
+            // FinPresence
+            // 
+            this.FinPresence.Frozen = true;
+            this.FinPresence.HeaderText = "Fin";
+            this.FinPresence.Name = "FinPresence";
+            this.FinPresence.ReadOnly = true;
+            this.FinPresence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.FinPresence.Width = 60;
+            // 
             // frmCoordonnateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,6 +317,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fenêtre du coordonnateur";
+            this.Load += new System.EventHandler(this.frmCoordonnateur_Load);
             this.tabCoordonnateur.ResumeLayout(false);
             this.tabConfirm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GVUsagers)).EndInit();
@@ -350,22 +338,21 @@
         private System.Windows.Forms.TabPage tabCumuls;
         private System.Windows.Forms.DataGridView GVPresences;
         private System.Windows.Forms.DataGridView GVCumulHeures;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrenomPresence;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomPresence;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DatePresence;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn CAIPresence;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DebutPresence;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FinPresence;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ValidationPresence;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrenomCumul;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomCumul;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCumul;
+        private System.Windows.Forms.Button btnPeriodes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UtilisateurID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrenomUsager;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomUsager;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CoordonnateurUsager;
         private System.Windows.Forms.DataGridViewCheckBoxColumn EleveUsager;
         private System.Windows.Forms.DataGridViewCheckBoxColumn NonDetUsager;
         private System.Windows.Forms.DataGridViewButtonColumn HoraireSelect;
-        private System.Windows.Forms.Button btnPeriodes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrenomPresence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomPresence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DatePresence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DebutPresence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FinPresence;
     }
 }
