@@ -16,8 +16,28 @@ namespace CAI
 {
     public partial class frmCheck : Form
     {
+        /// <summary>
+        /// Nom d'utilisateur du compte.
+        /// </summary>
+        private string FNomUtilisateur;
+        /// <summary>
+        /// Mot de passe du compte.
+        /// </summary>
+        private string FMotDePasse;
+
         public frmCheck()
         {
+            InitializeComponent();
+        }
+        /// <summary>
+        /// Constructeur par défaut. On devrait utiliser ce constructeur.
+        /// </summary>
+        /// <param name="_NomUtilisateur">Correspond au nom d'utilisateur du compte.</param>
+        /// <param name="_MotDePasse">Correspond au mot de passe du compte.</param>
+        public frmCheck(string _NomUtilisateur, string _MotDePasse)
+        {
+            FNomUtilisateur = _NomUtilisateur;
+            FMotDePasse     = _MotDePasse;
             InitializeComponent();
         }
 

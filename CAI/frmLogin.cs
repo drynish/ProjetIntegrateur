@@ -40,20 +40,37 @@ namespace CAI
 
         private void btnConnect_Click(object sender, EventArgs e) 
         {
-            string[] TabParametres = new string[2];
+            string[] TabParametres = new string[2]; // Paramètre que l'on envoit à la procédure.
 
-            TabParametres[0] = "jonathan3698";
-            TabParametres[1] = "12345678";
+            TabParametres[0] = txtNom.Text;
+            TabParametres[1] = txtMDP.Text;
 
             if (txtNom.Text != "" && txtMDP.Text != "") 
             {
-                DataTable DTableTest;
-                DTableTest = FConnexionBD.ExecFn("fnRetournerDroit", TabParametres);
-                    MessageBox.Show(DTableTest.Rows[0][0].ToString());
-                    //Similarly for QuantityInIssueUnit_uom.
-                /* frmCheck frmCreation = new frmCheck();
-                 this.Hide();
-                 frmCreation.Show();*/
+                try
+                {
+                    DataTable DroitUtilisateur = FConnexionBD.ExecFn("fnRetournerDroit", TabParametres);
+                    // Si c'est un administrateur
+                    if (DroitUtilisateur.Rows[0][0].ToString() == "0")
+                    {
+                        frmCoordonnateur frmAdmin = new frmCoordonnateur(txtNom.Text, txtMDP.Text);
+                        frmAdmin.ShowDialog();
+                    }
+                    // Si c'est un utilisateur
+                    else if (DroitUtilisateur.Rows[0][0].ToString() == "1")
+                    {
+                        frmCheck frmUtilisateur = new frmCheck(txtNom.Text, txtMDP.Text);
+                        frmUtilisateur.ShowDialog();
+                    }
+                    else
+                        MessageBox.Show("Mauvais utilisateur ou mot de passe! Veuillez réessayer.");
+                }
+                catch
+                {
+                    MessageBox.Show("Une erreur inconnue s'est produite. Veuillez réessayer plus tard.");
+                    Application.Exit();
+                }
+
             }
             else
                 MessageBox.Show("Veuillez entrer votre nom et votre mot de passe !");

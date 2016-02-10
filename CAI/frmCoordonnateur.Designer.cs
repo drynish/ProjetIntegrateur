@@ -322,9 +322,13 @@
             this.ClientSize = new System.Drawing.Size(942, 494);
             this.Controls.Add(this.btnPeriodes);
             this.Controls.Add(this.tabCoordonnateur);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(958, 532);
             this.MinimumSize = new System.Drawing.Size(958, 532);
             this.Name = "frmCoordonnateur";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fenêtre du coordonnateur";
             this.tabCoordonnateur.ResumeLayout(false);
             this.tabConfirm.ResumeLayout(false);

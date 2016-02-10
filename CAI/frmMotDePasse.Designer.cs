@@ -58,18 +58,18 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Location = new System.Drawing.Point(12, 46);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(109, 13);
+            this.lblPassword.Size = new System.Drawing.Size(103, 13);
             this.lblPassword.TabIndex = 5;
-            this.lblPassword.Text = "Mot de passe actuel :";
+            this.lblPassword.Text = "Mot de passe actuel";
             // 
             // lblNom
             // 
             this.lblNom.AutoSize = true;
             this.lblNom.Location = new System.Drawing.Point(12, 20);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(91, 13);
+            this.lblNom.Size = new System.Drawing.Size(82, 13);
             this.lblNom.TabIndex = 4;
-            this.lblNom.Text = "Adresse courriel : ";
+            this.lblNom.Text = "Adresse courriel";
             // 
             // txtMDP
             // 
@@ -84,17 +84,17 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 13);
+            this.label1.Size = new System.Drawing.Size(117, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Nouveau mot de passe :";
+            this.label1.Text = "Nouveau mot de passe";
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(141, 111);
-            this.btnConfirm.MaximumSize = new System.Drawing.Size(93, 23);
-            this.btnConfirm.MinimumSize = new System.Drawing.Size(93, 23);
+            this.btnConfirm.Location = new System.Drawing.Point(12, 100);
+            this.btnConfirm.MaximumSize = new System.Drawing.Size(0, 200);
+            this.btnConfirm.MinimumSize = new System.Drawing.Size(0, 23);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(93, 23);
+            this.btnConfirm.Size = new System.Drawing.Size(283, 27);
             this.btnConfirm.TabIndex = 11;
             this.btnConfirm.Text = "Confirmer";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -102,9 +102,9 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(141, 140);
+            this.btnAnnuler.Location = new System.Drawing.Point(12, 133);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(93, 23);
+            this.btnAnnuler.Size = new System.Drawing.Size(283, 27);
             this.btnAnnuler.TabIndex = 12;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 169);
+            this.ClientSize = new System.Drawing.Size(306, 169);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.txtMDP);
@@ -123,10 +123,11 @@
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblNom);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(393, 207);
-            this.MinimumSize = new System.Drawing.Size(393, 207);
             this.Name = "frmMotDePasse";
-            this.Text = "Nouveau mot de passe";
+            this.ShowIcon = false;
+            this.Text = "Réinitialiser son mot de passe";
             this.ResumeLayout(false);
             this.PerformLayout();
 

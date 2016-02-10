@@ -12,8 +12,28 @@ namespace CAI
 {
     public partial class frmCoordonnateur : Form
     {
+        /// <summary>
+        /// Nom utilisateur du compte.
+        /// </summary>
+        private string FNomUtilisateur;
+        /// <summary>
+        /// Mot de passe du compte.
+        /// </summary>
+        private string FMotDePasse;
+
         public frmCoordonnateur()
         {
+            InitializeComponent();
+        }
+        /// <summary>
+        /// Constructeur par défaut.
+        /// </summary>
+        /// <param name="_NomUtilisateur">Nom utilisateur du compte.</param>
+        /// <param name="_MotDePasse">Mot de passe du compte.</param>
+        public frmCoordonnateur(string _NomUtilisateur, string _MotDePasse)
+        {
+            FNomUtilisateur = _NomUtilisateur;
+            FMotDePasse     = _MotDePasse;
             InitializeComponent();
         }
 

@@ -29,7 +29,6 @@ namespace CAI
         {
             get { return RefAFrmConnection; }
             set { RefAFrmConnection = value; }
-
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
