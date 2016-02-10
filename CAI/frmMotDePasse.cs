@@ -51,9 +51,18 @@ namespace CAI
                     CExecuteur.ObtenirCExecuteur().ExecPs("spChangerMDP", ref paramIN, paramOUT);
 
                     if (paramIN[3] == "-1")
-                        MessageBox.Show("Échec !");
+                    {
+                        txtMDP.Text = "";
+                        txtMDPActuel.Text = "";
+                        txtNom.Text = "";
+                        MessageBox.Show("Mauvais nom d'usager et/ou mot de passe");
+                    }
                     if (paramIN[3] == "1")
+                    {
                         MessageBox.Show("Succès !");
+                        this.Dispose();
+                        this.RefAFrmConnection.Show();
+                    }
                 }
                 else
                     MessageBox.Show("Votre mot de passe doit contenir au moins 8 caractères !");
