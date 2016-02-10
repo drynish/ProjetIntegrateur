@@ -51,7 +51,7 @@ namespace CAI
                 }
                 else if (e.ColumnIndex == 6)
                 {
-                    frmHoraireSel frmHorSel = new frmHoraireSel();
+                    frmHoraireSel frmHorSel = new frmHoraireSel(FNomUtilisateur, FMotDePasse);
                     frmHorSel.ShowDialog();
                    
                 }

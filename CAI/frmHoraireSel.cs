@@ -12,9 +12,20 @@ namespace CAI
 {
     public partial class frmHoraireSel : Form
     {
+        /// <summary>
+        /// Nom utilisateur du compte.
+        /// </summary>
+        private string FNomUtilisateur;
+        /// <summary>
+        /// Mot de passe du compte.
+        /// </summary>
+        private string FMotDePasse;
+
         DateTime horaire; 
-        public frmHoraireSel()
+        public frmHoraireSel(string _NomUtilisateur, string _MotDePasse)
         {
+            FNomUtilisateur = _NomUtilisateur;
+            FMotDePasse = _MotDePasse;
             InitializeComponent();
         }
 
@@ -47,16 +58,62 @@ namespace CAI
             }
         }
 
-        private void frmHoraireSel_Load(object sender, EventArgs e) 
+        private void frmHoraireSel_Load(object sender, EventArgs e)
         {
-            cmbJours.Items.Add("Lundi");
-            cmbJours.Items.Add("Mardi");
-            cmbJours.Items.Add("Mercredi");
-            cmbJours.Items.Add("Jeudi");
-            cmbJours.Items.Add("Vendredi");
+            string[] paramIN = new string[2];
 
-            cmbJours.SelectedIndex = 0;
- 
+            int RatioPosition = 75;
+            paramIN[0] = FNomUtilisateur;
+            paramIN[1] = FMotDePasse;
+            DataTable TableRequete = new DataTable();
+            TableRequete = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPeriodes", paramIN);
+
+            CheckBox Lundi;
+            CheckBox Mardi;
+            CheckBox Mercredi;
+            CheckBox Jeudi;
+            CheckBox Vendredi;
+            Label Periode;
+
+            for (int i = 0; i < TableRequete.Rows.Count; i++)
+            {
+                Periode = new Label();
+                Lundi = new CheckBox();
+                Mardi = new CheckBox();
+                Mercredi = new CheckBox();
+                Jeudi = new CheckBox();
+                Vendredi = new CheckBox();
+
+                Periode.Name = "lblPeriode" + i.ToString();
+                Periode.Location = new Point(RatioPosition + (i * 25), 9);
+                Periode.Text = (i + 1).ToString();
+                Periode.AutoSize = true;
+
+                Lundi.Name = "ChBLundi" + i.ToString();
+                Mardi.Name = "ChBMardi" + i.ToString();
+                Mercredi.Name = "ChBMercredi" + i.ToString();
+                Jeudi.Name = "ChBJeudi" + i.ToString();
+                Vendredi.Name = "ChBVendredi" + i.ToString();
+
+                Lundi.Location = new Point(RatioPosition + (i * 25), 50);
+                Lundi.AutoSize = true;
+                Mardi.Location = new Point(RatioPosition + (i * 25), 72);
+                Mardi.AutoSize = true;
+                Mercredi.Location = new Point(RatioPosition + (i * 25), 94);
+                Mercredi.AutoSize = true;
+                Jeudi.Location = new Point(RatioPosition + (i * 25), 116);
+                Jeudi.AutoSize = true;
+                Vendredi.Location = new Point(RatioPosition + (i * 25), 138);
+                Vendredi.AutoSize = true;
+
+                Controls.Add(Periode);
+                Controls.Add(Lundi);
+                Controls.Add(Mardi);
+                Controls.Add(Mercredi);
+                Controls.Add(Jeudi);
+                Controls.Add(Vendredi);
+
+            }
         }
     }
 }
