@@ -47,38 +47,20 @@ namespace CAI
         }
 
         /// <summary>
-        /// Permet d'obtenir l'adresse physique (MAC) de l'utilisateur
+        /// Permet de trouver la MAC adresse de l'utilisateur
         /// </summary>
-        /// <param name="allowedURL">
-        /// Site sous la forme d'une chaine de caractères auquel on se connecte afin de trouver la MAC adresse
-        /// </param>
-        /// <returns>L'adresse physique</returns>
-        private static PhysicalAddress GetCurrentMAC(string allowedURL)
+        /// <returns>La MAC adresse sous la forme d'une chaine de caractères</returns>
+        public static string GetMACAddress()
         {
-            TcpClient client = new TcpClient();
-            client.Client.Connect(new IPEndPoint(Dns.GetHostAddresses(allowedURL)[0], 80));
-            while (!client.Connected)
+            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+            string sMacAddress = string.Empty;
+
+            foreach (NetworkInterface adapter in nics)
             {
-                Thread.Sleep(500);
+                if (sMacAddress == string.Empty)
+                    sMacAddress = adapter.GetPhysicalAddress().ToString();       
             }
-            IPAddress address2 = ((IPEndPoint)client.Client.LocalEndPoint).Address;
-            client.Client.Disconnect(false);
-            NetworkInterface[] allNetworkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
-            client.Close();
-            if (allNetworkInterfaces.Length > 0)
-            {
-                foreach (NetworkInterface interface2 in allNetworkInterfaces)
-                {
-                    UnicastIPAddressInformationCollection unicastAddresses = interface2.GetIPProperties().UnicastAddresses;
-                    if ((unicastAddresses != null) && (unicastAddresses.Count > 0))
-                    {
-                        for (int i = 0; i < unicastAddresses.Count; i++)
-                            if (unicastAddresses[i].Address.Equals(address2))
-                                return interface2.GetPhysicalAddress();
-                    }
-                }
-            }
-            return null;
+            return sMacAddress;
         }
 
         /// <summary>
@@ -105,5 +87,9 @@ namespace CAI
             return strHostName;
         }
 
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

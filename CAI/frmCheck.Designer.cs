@@ -71,6 +71,7 @@
             this.btnConfirm.TabIndex = 21;
             this.btnConfirm.Text = "Confirmer";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // radioButton1
             // 

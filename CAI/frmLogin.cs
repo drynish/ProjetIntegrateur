@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CAI
@@ -23,7 +17,7 @@ namespace CAI
             //Objectif : Afficher la forme pour modifier son mot de passe. Cacher la forme actuelle.
             frmMotDePasse frmMDP = new frmMotDePasse();
             frmMDP.AccRefConnect = this;
-            this.Hide();
+            Hide();
             frmMDP.Show();
            
         }
@@ -70,11 +64,9 @@ namespace CAI
                     MessageBox.Show("Une erreur inconnue s'est produite. Veuillez réessayer plus tard.");
                     Application.Exit();
                 }
-
             }
             else
-                MessageBox.Show("Veuillez entrer votre nom et votre mot de passe !");
-            
+                MessageBox.Show("Veuillez entrer votre nom et votre mot de passe !");   
         }
     }
 }
