@@ -18,3 +18,9 @@ Journal de bord
 08/02 : -Fixer quelques bugg
 	-Implémenter le patron singleton dans la classe CExecuteur
 	-Création de la procédure ExecFn permettant d'exécuter une fonction stocker dans la base de donnée
+
+10/02 : -Modification de la méthode en c# permettant de trouver la MAC adresse de l'utilisateur
+	 en étant hors-ligne
+	-Création de la procédure permettant d'obtenir l'heure de check in d'un utilisateur pour la journée en cours
+	-Création du code pour l'affichage de la Form frmCheck
+	-Création de la procédure permettant d'obtenir la date et l'heure du serveur
