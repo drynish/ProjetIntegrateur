@@ -19,3 +19,11 @@
 
 8 février 2016
 -Codage des méthodes pour faire fonctionner l'interface de la gestion des projets.
+
+
+10 février 2016
+-Création du script spModifierPeriodes.
+-Création du script spAfficherPresencesRequises.
+-Création du script spAfficherPeriode.
+-Finalisation de l'interface de la gestion de période.                                               
+
