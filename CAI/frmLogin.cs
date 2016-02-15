@@ -54,10 +54,8 @@ namespace CAI
                         frmCheck frmUtilisateur = new frmCheck(txtNom.Text, txtMDP.Text);
                         frmUtilisateur.ShowDialog();
                     }
-                    else if (DroitUtilisateur.Rows[0][0].ToString() == "-1")
-                        MessageBox.Show("Votre compte n'est pas confirmé. Veuillez contacter l'administrateur de votre système.");
                     else
-                        MessageBox.Show("Mauvais utilisateur ou mot de passe! Veuillez réessayer.");
+                        MessageBox.Show("Mauvais utilisateur et/ou mot de passe! Veuillez réessayer.");
                 }
                 catch
                 {
@@ -67,6 +65,11 @@ namespace CAI
             }
             else
                 MessageBox.Show("Veuillez entrer votre nom et votre mot de passe !");   
+        }
+
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

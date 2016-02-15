@@ -46,7 +46,7 @@
             this.btnAnnuler.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(287, 23);
-            this.btnAnnuler.TabIndex = 20;
+            this.btnAnnuler.TabIndex = 6;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
@@ -56,7 +56,7 @@
             this.btnConfirm.Location = new System.Drawing.Point(15, 108);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(287, 23);
-            this.btnConfirm.TabIndex = 19;
+            this.btnConfirm.TabIndex = 5;
             this.btnConfirm.Text = "Confirmer";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
@@ -67,7 +67,7 @@
             this.txtMDP.Name = "txtMDP";
             this.txtMDP.PasswordChar = '*';
             this.txtMDP.Size = new System.Drawing.Size(184, 20);
-            this.txtMDP.TabIndex = 18;
+            this.txtMDP.TabIndex = 2;
             // 
             // label1
             // 
@@ -83,7 +83,7 @@
             this.txtNomUsager.Location = new System.Drawing.Point(115, 6);
             this.txtNomUsager.Name = "txtNomUsager";
             this.txtNomUsager.Size = new System.Drawing.Size(184, 20);
-            this.txtNomUsager.TabIndex = 15;
+            this.txtNomUsager.TabIndex = 1;
             // 
             // lblNom
             // 
@@ -99,7 +99,7 @@
             this.txtPrenom.Location = new System.Drawing.Point(115, 55);
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(184, 20);
-            this.txtPrenom.TabIndex = 22;
+            this.txtPrenom.TabIndex = 3;
             // 
             // label2
             // 
@@ -115,7 +115,7 @@
             this.txtNom.Location = new System.Drawing.Point(115, 82);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(184, 20);
-            this.txtNom.TabIndex = 24;
+            this.txtNom.TabIndex = 4;
             // 
             // label3
             // 

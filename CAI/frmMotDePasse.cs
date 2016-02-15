@@ -54,20 +54,20 @@ namespace CAI
                         txtMDP.Text = "";
                         txtMDPActuel.Text = "";
                         txtNom.Text = "";
-                        MessageBox.Show("Votre nom d'utilisateur existe déjà. Veuillez en choisir un autre.");
+                        MessageBox.Show("Mauvais nom d'utilisateur et/ou mot de passe. Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     if (paramIN[3] == "1")
                     {
-                        MessageBox.Show("Votre compte a été enregistré avec succès.");
+                        MessageBox.Show("Votre mot de passe a été changé.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Dispose();
                         RefAFrmConnection.Show();
                     }
                 }
                 else
-                    MessageBox.Show("Votre mot de passe doit contenir au moins 8 caractères !");
+                    MessageBox.Show("Votre mot de passe doit contenir au moins 8 caractères.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                MessageBox.Show("Veuillez entrer votre courriel et/ou votre mot de passe");
+                MessageBox.Show("Veuillez entrer votre courriel et/ou votre mot de passe", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

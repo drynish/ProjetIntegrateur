@@ -40,7 +40,7 @@
             // 
             // txtMDPActuel
             // 
-            this.txtMDPActuel.Location = new System.Drawing.Point(141, 43);
+            this.txtMDPActuel.Location = new System.Drawing.Point(132, 32);
             this.txtMDPActuel.Name = "txtMDPActuel";
             this.txtMDPActuel.PasswordChar = '*';
             this.txtMDPActuel.Size = new System.Drawing.Size(154, 20);
@@ -48,7 +48,7 @@
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(141, 17);
+            this.txtNom.Location = new System.Drawing.Point(132, 6);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(154, 20);
             this.txtNom.TabIndex = 6;
@@ -56,7 +56,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(12, 46);
+            this.lblPassword.Location = new System.Drawing.Point(6, 35);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(103, 13);
             this.lblPassword.TabIndex = 5;
@@ -65,7 +65,7 @@
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(12, 20);
+            this.lblNom.Location = new System.Drawing.Point(6, 9);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(82, 13);
             this.lblNom.TabIndex = 4;
@@ -73,7 +73,7 @@
             // 
             // txtMDP
             // 
-            this.txtMDP.Location = new System.Drawing.Point(141, 69);
+            this.txtMDP.Location = new System.Drawing.Point(132, 58);
             this.txtMDP.Name = "txtMDP";
             this.txtMDP.PasswordChar = '*';
             this.txtMDP.Size = new System.Drawing.Size(154, 20);
@@ -82,7 +82,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 72);
+            this.label1.Location = new System.Drawing.Point(6, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 13);
             this.label1.TabIndex = 8;
@@ -90,11 +90,11 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(12, 100);
-            this.btnConfirm.MaximumSize = new System.Drawing.Size(0, 200);
+            this.btnConfirm.Location = new System.Drawing.Point(9, 84);
+            this.btnConfirm.MaximumSize = new System.Drawing.Size(800, 200);
             this.btnConfirm.MinimumSize = new System.Drawing.Size(0, 23);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(283, 27);
+            this.btnConfirm.Size = new System.Drawing.Size(136, 27);
             this.btnConfirm.TabIndex = 11;
             this.btnConfirm.Text = "Confirmer";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -102,9 +102,9 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(12, 133);
+            this.btnAnnuler.Location = new System.Drawing.Point(150, 84);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(283, 27);
+            this.btnAnnuler.Size = new System.Drawing.Size(136, 27);
             this.btnAnnuler.TabIndex = 12;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 169);
+            this.ClientSize = new System.Drawing.Size(296, 119);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.txtMDP);
@@ -123,10 +123,12 @@
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblNom);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(393, 207);
             this.Name = "frmMotDePasse";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Réinitialiser son mot de passe";
             this.ResumeLayout(false);
             this.PerformLayout();

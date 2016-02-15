@@ -60,7 +60,7 @@
             this.txtNom.Location = new System.Drawing.Point(102, 6);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(147, 20);
-            this.txtNom.TabIndex = 2;
+            this.txtNom.TabIndex = 1;
             // 
             // txtMDP
             // 
@@ -68,14 +68,14 @@
             this.txtMDP.Name = "txtMDP";
             this.txtMDP.PasswordChar = '*';
             this.txtMDP.Size = new System.Drawing.Size(147, 20);
-            this.txtMDP.TabIndex = 3;
+            this.txtMDP.TabIndex = 2;
             // 
             // btnConnect
             // 
             this.btnConnect.Location = new System.Drawing.Point(15, 55);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(114, 23);
-            this.btnConnect.TabIndex = 4;
+            this.btnConnect.TabIndex = 3;
             this.btnConnect.Text = "Connectez-vous";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
@@ -85,7 +85,7 @@
             this.btnCreation.Location = new System.Drawing.Point(135, 55);
             this.btnCreation.Name = "btnCreation";
             this.btnCreation.Size = new System.Drawing.Size(114, 23);
-            this.btnCreation.TabIndex = 5;
+            this.btnCreation.TabIndex = 4;
             this.btnCreation.Text = "Créer un compte";
             this.btnCreation.UseVisualStyleBackColor = true;
             this.btnCreation.Click += new System.EventHandler(this.btnCreation_Click);
@@ -95,7 +95,7 @@
             this.btnNouveauMDP.Location = new System.Drawing.Point(15, 84);
             this.btnNouveauMDP.Name = "btnNouveauMDP";
             this.btnNouveauMDP.Size = new System.Drawing.Size(234, 23);
-            this.btnNouveauMDP.TabIndex = 6;
+            this.btnNouveauMDP.TabIndex = 5;
             this.btnNouveauMDP.Text = "Mot de passe oublié";
             this.btnNouveauMDP.UseVisualStyleBackColor = true;
             this.btnNouveauMDP.Click += new System.EventHandler(this.button3_Click);
@@ -119,6 +119,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Connexion";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLogin_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
