@@ -11,6 +11,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading;
+using System.Globalization;
 
 namespace CAI
 {
@@ -90,6 +91,33 @@ namespace CAI
         private void btnConfirm_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmCheck_Shown(object sender, EventArgs e)
+        {
+            CultureInfo provider = new CultureInfo("fr-FR");
+            string[] TabParametres = new string[0];
+            DataTable DroitUtilisateur = CExecuteur.ObtenirCExecuteur().ExecPs("spObtenirDateEtHeure", TabParametres);
+            string date = DroitUtilisateur.Rows[0][0].ToString();
+            date = date.Remove(date.Length - 3);
+            DateTime datetime = DateTime.ParseExact(date, "g", provider);
+            lblDate.Text = datetime.ToLongDateString() + ' ' + datetime.ToShortTimeString();
+            string[] TabParametres2 = new string[1];
+            TabParametres2[0] = FNomUtilisateur;
+            DataTable DroitUtilisateur2 = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPresencesRequisesDeUnEleve", TabParametres2);
+            if (DroitUtilisateur2 != null)
+            {
+                string date2 = DroitUtilisateur2.Rows[0][0].ToString();
+                lblNote.Text = lblNote.Text + " Vous avez un Check in aujourd'hui à " + date2;
+            }
+            else
+                lblNote.Text = lblNote.Text + " Vous n'avez pas de Check in aujourd'hui ";
+
+        }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

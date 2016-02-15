@@ -28,31 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblNote = new System.Windows.Forms.Label();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
-            // label1
+            // lblDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "DATE ACTUELLE";
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(12, 30);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(94, 13);
+            this.lblDate.TabIndex = 0;
+            this.lblDate.Text = "DATE ACTUELLE";
             // 
-            // label4
+            // lblNote
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 160);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Note :";
+            this.lblNote.AutoSize = true;
+            this.lblNote.Location = new System.Drawing.Point(12, 160);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(36, 13);
+            this.lblNote.TabIndex = 3;
+            this.lblNote.Text = "Note :";
             // 
             // btnAnnuler
             // 
@@ -62,6 +60,7 @@
             this.btnAnnuler.TabIndex = 22;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnConfirm
             // 
@@ -73,45 +72,21 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 92);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(67, 17);
-            this.radioButton1.TabIndex = 23;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Check in";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(192, 92);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(74, 17);
-            this.radioButton2.TabIndex = 24;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Check out";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
             // frmCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 269);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnConfirm);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNote);
+            this.Controls.Add(this.lblDate);
             this.MaximumSize = new System.Drawing.Size(499, 307);
             this.MinimumSize = new System.Drawing.Size(499, 307);
             this.Name = "frmCheck";
             this.Text = "frmCheck";
             this.Load += new System.EventHandler(this.frmCheck_Load);
+            this.Shown += new System.EventHandler(this.frmCheck_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,11 +94,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblNote;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
