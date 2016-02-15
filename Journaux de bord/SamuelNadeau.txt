@@ -24,3 +24,6 @@ Journal de bord
 	-Création de la procédure permettant d'obtenir l'heure de check in d'un utilisateur pour la journée en cours
 	-Création du code pour l'affichage de la Form frmCheck
 	-Création de la procédure permettant d'obtenir la date et l'heure du serveur
+
+15/02 : -Finalisation de l'affichage de la form frmCheck
+	-Modification de la procedure permettant de signer sa présence
