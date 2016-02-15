@@ -45,6 +45,7 @@
             this.NomCumul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCumul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPeriodes = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomUtilisateurUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrenomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +93,7 @@
             this.GVUsagers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.GVUsagers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GVUsagers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.NomUtilisateurUsager,
             this.PrenomUsager,
             this.NomUsager,
@@ -253,6 +255,14 @@
             this.btnPeriodes.UseVisualStyleBackColor = true;
             this.btnPeriodes.Click += new System.EventHandler(this.btnPeriodes_Click);
             // 
+            // ID
+            // 
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
             // NomUtilisateurUsager
             // 
             this.NomUtilisateurUsager.Frozen = true;
@@ -313,7 +323,7 @@
             this.HoraireSelect.Name = "HoraireSelect";
             this.HoraireSelect.ReadOnly = true;
             this.HoraireSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.HoraireSelect.Text = "gfhfg";
+            this.HoraireSelect.Text = "";
             this.HoraireSelect.Width = 200;
             // 
             // frmCoordonnateur
@@ -361,6 +371,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DatePresence;
         private System.Windows.Forms.DataGridViewTextBoxColumn DebutPresence;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinPresence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomUtilisateurUsager;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrenomUsager;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomUsager;

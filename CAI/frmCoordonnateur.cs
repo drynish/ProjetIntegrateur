@@ -41,19 +41,26 @@ namespace CAI
         {
             if (e.RowIndex > -1 && e.ColumnIndex > -1)
             {
-                if (e.ColumnIndex == 3 || e.ColumnIndex == 4 || e.ColumnIndex == 5)
+                if (e.ColumnIndex == 4 || e.ColumnIndex == 5 || e.ColumnIndex == 5)
                 {
-                    GVUsagers.Rows[e.RowIndex].Cells[3].Value = false;
                     GVUsagers.Rows[e.RowIndex].Cells[4].Value = false;
                     GVUsagers.Rows[e.RowIndex].Cells[5].Value = false;
+                    GVUsagers.Rows[e.RowIndex].Cells[6].Value = false;
 
                     GVUsagers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
                 }
-                else if (e.ColumnIndex == 6)
+                else if (e.ColumnIndex == 7)
                 {
-                    frmHoraireSel frmHorSel = new frmHoraireSel(FNomUtilisateur, FMotDePasse);
-                    frmHorSel.ShowDialog();
-                   
+                    if (bool.Parse(GVUsagers.Rows[e.RowIndex].Cells[5].Value.ToString()))
+                    {
+                        int id = Convert.ToInt32(GVUsagers.Rows[e.RowIndex].Cells[0].Value);
+                        frmHoraireSel frmHorSel = new frmHoraireSel(FNomUtilisateur, FMotDePasse, id);
+                        frmHorSel.ShowDialog();
+                    }
+                    else
+                        MessageBox.Show("Vous pouvez choisir un horaire seulement pour un élève !");
+
+
                 }
 
 
@@ -81,24 +88,28 @@ namespace CAI
                 GVUsagers.Rows[i].Cells[0].Value = TableRequete.Rows[i][0].ToString();
                 GVUsagers.Rows[i].Cells[1].Value = TableRequete.Rows[i][1].ToString();
                 GVUsagers.Rows[i].Cells[2].Value = TableRequete.Rows[i][2].ToString();
+                GVUsagers.Rows[i].Cells[3].Value = TableRequete.Rows[i][3].ToString();
 
-                if (TableRequete.Rows[i][3].ToString() == "-1")
+
+                if (TableRequete.Rows[i][4].ToString() == "-1")
                 {
-                    GVUsagers.Rows[i].Cells[3].Value = false;
+                    GVUsagers.Rows[i].Cells[4].Value = false;
+                    GVUsagers.Rows[i].Cells[5].Value = false;
+                    GVUsagers.Rows[i].Cells[6].Value = true;
+                }
+                else if (TableRequete.Rows[i][4].ToString() == "1")
+                {
                     GVUsagers.Rows[i].Cells[4].Value = false;
                     GVUsagers.Rows[i].Cells[5].Value = true;
+                    GVUsagers.Rows[i].Cells[6].Value = false;
                 }
-                else if (TableRequete.Rows[i][3].ToString() == "1")
+                else if (TableRequete.Rows[i][4].ToString() == "0")
                 {
-                    GVUsagers.Rows[i].Cells[3].Value = false;
                     GVUsagers.Rows[i].Cells[4].Value = true;
                     GVUsagers.Rows[i].Cells[5].Value = false;
-                }
-                else if (TableRequete.Rows[i][3].ToString() == "0")
-                {
-                    GVUsagers.Rows[i].Cells[3].Value = true;
-                    GVUsagers.Rows[i].Cells[4].Value = false;
-                    GVUsagers.Rows[i].Cells[5].Value = false;
+                    GVUsagers.Rows[i].Cells[6].Value = false;
+                    
+
                 }
             }
         }
