@@ -25,5 +25,8 @@
 -Création du script spModifierPeriodes.
 -Création du script spAfficherPresencesRequises.
 -Création du script spAfficherPeriode.
--Finalisation de l'interface de la gestion de période.                                               
+-Finalisation de l'interface de la gestion de période.
+
+15 février 2016
+-Débogage de la classe frmPeriodes.                                               
 

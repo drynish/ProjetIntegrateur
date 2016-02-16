@@ -12,8 +12,9 @@ namespace CAI
 {
     public partial class frmPeriodes : Form
     {
-        string FNomUtilisateur = "";
-        string FMotDePasse = "";
+        string FNomUtilisateur = "f";
+        string FMotDePasse = "f";
+        List<string> FIdPeriodes = new List<string>();
 
         public frmPeriodes()
         {
@@ -25,6 +26,7 @@ namespace CAI
             FNomUtilisateur = _NomUtilisateur;
             FMotDePasse = _MotDePasse;
             InitializeComponent();
+
             lblInformation.Text = "";
         }
 
@@ -43,10 +45,7 @@ namespace CAI
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
+   
 
         /// <summary>
         /// Vérifie si l'heure entrée est valide. (Sur un format de 24h).
@@ -54,15 +53,22 @@ namespace CAI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public void verifierHeures(object sender, EventArgs e)
-        {
+            {
             TextBox txtSource = (TextBox)sender;
 
             //Si l'heure entrée est plus petite que 0 et plus grande que 23,
             //un message est affiché, et la valeur est retirée.
-            if ((Convert.ToInt32(txtSource.Text) < 0) || (Convert.ToInt32(txtSource.Text) > 23))
+            if (txtSource.Text.Length == 2)
             {
-                MessageBox.Show("L'heure doit se situer entre 0 et 23 (inclusivement)");
-                txtSource.Text = "";
+                if ((Convert.ToInt32(txtSource.Text) < 0) || (Convert.ToInt32(txtSource.Text) > 23))
+                {
+                    MessageBox.Show("L'heure doit se situer entre 0 et 23 (inclusivement)");
+                    txtSource.Text = "";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Les boîtes de textes doivent contenir deux caractères.");
             }
         }
 
@@ -78,10 +84,17 @@ namespace CAI
 
             //Si l'heure entrée est plus petite que 0 et plus grande que 23,
             //un message est affiché, et la valeur est retirée.
-            if ((Convert.ToInt32(txtSource.Text) < 0) || (Convert.ToInt32(txtSource.Text) > 59))
+            if (txtSource.Text.Length == 2)
             {
-                MessageBox.Show("Le nombre de minutes doit se situer entre 0 et 59 (inclusivement)");
-                txtSource.Text = "";
+                if ((Convert.ToInt32(txtSource.Text) < 0) || (Convert.ToInt32(txtSource.Text) > 59))
+                {
+                    MessageBox.Show("Le nombre de minutes doit se situer entre 0 et 59 (inclusivement)");
+                    txtSource.Text = "";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Les boîtes de textes doivent contenir deux caractères.");
             }
         }
 
@@ -143,10 +156,13 @@ namespace CAI
             heureFin = txtHeureFin.Text + ":" + txtMinuteFin.Text;
 
             //La commande d'ajout est exécutée.
-            CExecuteur.ObtenirCExecuteur().ExecPs("spAjouterPeriode", new string[] { FNomUtilisateur, FMotDePasse, heureDebut, heureFin });
+            if (verificationCoherenceHeure())
+            {
+                CExecuteur.ObtenirCExecuteur().ExecPs("spAjouterPeriode", new string[] { FNomUtilisateur, FMotDePasse, heureDebut, heureFin });
 
-            //Les périodes sont rechargées.
-            chargerPeriodes();
+                //Les périodes sont rechargées.
+                chargerPeriodes();
+            }
         }
 
 
@@ -157,14 +173,18 @@ namespace CAI
         private void chargerPeriodes()
         {
             //La commande est exécutée et le résultat est ajouté à la liste.
-            DataTable resultat = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPeriode", new string[] { FNomUtilisateur, FMotDePasse });
+            DataTable resultat = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPeriodes", new string[] { FNomUtilisateur, FMotDePasse });
 
             string texteListe = "";
 
-            for (int i = 0; i < resultat.Rows.Count; i++)
+            if (resultat != null)
             {
-                texteListe = resultat.Rows[i][0].ToString() + ". " + resultat.Rows[i][1] + " à " + resultat.Rows[i][2];
-                cmbPeriodes.Items.Add(texteListe);
+                for (int i = 0; i < resultat.Rows.Count; i++)
+                {
+                    FIdPeriodes.Add(resultat.Rows[i][0].ToString());
+                    texteListe = (i + 1) + ". " + resultat.Rows[i][1] + " à " + resultat.Rows[i][2];
+                    cmbPeriodes.Items.Add(texteListe);
+                }
             }
 
             //Le premier élément est sélectionné.
@@ -179,53 +199,58 @@ namespace CAI
         /// <param name="e"></param>
         private void cmdModifier_Click(object sender, EventArgs e)
         {
-            if (
+            if (cmbPeriodes.Items.Count > 0)
+            {
+                if (
                 (txtHeureDebut.Text != "") &&
                 (txtHeureFin.Text != "") &&
                 (txtMinuteDebut.Text != "") &&
-                (txtMinuteFin.Text != "")
+                (txtMinuteFin.Text != "") 
                 )
-            {
-                //Contiens le id du dernier item de la comboBox.
-                string idPeriode = cmbPeriodes.Items[cmbPeriodes.SelectedIndex].ToString();
-                string[] tempoSplit;//Tableau temporaire pour le split.
-                string heureDebut; //Nouvelle heure de début de la période.
-                string heureFin; //Nouvelle heure de fin de la période.
+                {
+                    if (verificationCoherenceHeure())
+                    {
+                        //Contiens le id du dernier item de la comboBox.
+                        int idPeriode = cmbPeriodes.SelectedIndex;
+                        string heureDebut; //Nouvelle heure de début de la période.
+                        string heureFin; //Nouvelle heure de fin de la période.
 
-                heureDebut = txtHeureDebut.Text + ":" + txtMinuteDebut.Text;
-                heureFin = txtHeureFin.Text + ":" + txtMinuteFin.Text;
+                        heureDebut = txtHeureDebut.Text + ":" + txtMinuteDebut.Text;
+                        heureFin = txtHeureFin.Text + ":" + txtMinuteFin.Text;
 
-                //La chaîne est séparé et seul le id est gardé.
-                tempoSplit = idPeriode.Split('.');
-                idPeriode = tempoSplit[0];
+                        //La commande de suppression est exécutée.
+                        CExecuteur.ObtenirCExecuteur().ExecPs("spModifierPeriode", new string[] { FNomUtilisateur, FMotDePasse, heureDebut, heureFin, idPeriode.ToString() });
 
-                //La commande de suppression est exécutée.
-                CExecuteur.ObtenirCExecuteur().ExecPs("spModifierPeriode", new string[] { FNomUtilisateur, FMotDePasse, heureDebut, heureFin, idPeriode });
+                        //Le message de confirmation est affiché.
+                        lblInformation.Text = "La période #" + FIdPeriodes[idPeriode] + " à été mis à jour.";
 
-                //Les périodes sont rechargées.
-                chargerPeriodes();
+                        //Les périodes sont rechargées.
+                        chargerPeriodes();
+                    }
+                }
+                else
+                {
+                    lblInformation.Text = "Tous les blocs de temps doivent être remplis.";
+                }
             }
-        }
+            else
+            {
+                lblInformation.Text = "Il n'y a aucune période à modifier.";
+            }
+}
 
 
-        /// <summary>
-        /// Lorsque que la souris quitte le bouton supprimer, le message d'information est vidé.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSupp_MouseLeave(object sender, EventArgs e)
-        {
-            lblInformation.Text = "";
-        }
+        
 
         private void cmbPeriodes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string idPeriode = cmbPeriodes.Items[cmbPeriodes.SelectedIndex].ToString();
+            string idPeriode = FIdPeriodes[cmbPeriodes.SelectedIndex];
+            string contenuSelection = cmbPeriodes.Items[cmbPeriodes.SelectedIndex].ToString();
             string[] tempoSplit;//Tableau temporaire pour le split.
 
             //La chaîne est séparé et seul le id est gardé.
-            tempoSplit = idPeriode.Split('.');
-            idPeriode = tempoSplit[0];
+            //tempoSplit = contenuSelection.Split('.');
+            
 
             //La commande d'obtension de période est exécutée.
 
@@ -246,17 +271,54 @@ namespace CAI
 
         }
 
-        private void btnConfirmer_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtHeureDebut_Click(object sender, EventArgs e)
         {
-            TextBox txtActuel = (sender as TextBox);
+            /*TextBox txtActuel = (sender as TextBox);
 
             if (txtActuel.Text == "hh" || txtActuel.Text == "mm")
-                txtActuel.Clear();
+                txtActuel.Clear();*/
+        }
+
+        private void btnSupp_Leave(object sender, EventArgs e)
+        {
+            lblInformation.Text = "";
+        }
+
+        private void btnAjouter_Leave(object sender, EventArgs e)
+        {
+            lblInformation.Text = "";
+        }
+
+        private void cmdModifier_Leave(object sender, EventArgs e)
+        {
+            lblInformation.Text = "";
+        }
+
+
+        /// <summary>
+        /// Vérifie si l'heure de début est avant l'heure de fin.
+        /// Retourne "vrai" si l'heure de début est avant l'heure de fin.
+        /// </summary>
+        /// <returns></returns>
+        private bool verificationCoherenceHeure()
+        {
+            bool estCoherent = true;
+
+            if (Convert.ToInt32(txtHeureDebut.Text) <= Convert.ToInt32(txtHeureFin.Text))
+            {
+                if (
+                    Convert.ToInt32(txtHeureDebut.Text) == Convert.ToInt32(txtHeureFin.Text) &&
+                    Convert.ToInt32(txtMinuteDebut.Text) >= Convert.ToInt32(txtMinuteFin.Text)
+                    )
+                {
+                    MessageBox.Show("L'heure de fin doit être plus tard que l'heure de début.");
+                    txtMinuteFin.Text = "";
+                    estCoherent = false;
+                }
+            }
+
+            return estCoherent;
         }
     }
 }
