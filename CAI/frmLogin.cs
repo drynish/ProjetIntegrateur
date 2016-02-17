@@ -46,12 +46,17 @@ namespace CAI
                     if (DroitUtilisateur.Rows[0][0].ToString() == "0")
                     {
                         frmCoordonnateur frmAdmin = new frmCoordonnateur(txtNom.Text, txtMDP.Text);
+                        txtNom.Text = "";
+                        txtMDP.Text = "";
                         frmAdmin.ShowDialog();
+                    
                     }
                     // Si c'est un utilisateur
                     else if (DroitUtilisateur.Rows[0][0].ToString() == "1")
                     {
                         frmCheck frmUtilisateur = new frmCheck(txtNom.Text, txtMDP.Text);
+                        txtNom.Text = "";
+                        txtMDP.Text = "";
                         frmUtilisateur.ShowDialog();
                     }
                     else

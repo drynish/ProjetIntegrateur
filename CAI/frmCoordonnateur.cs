@@ -94,6 +94,13 @@ namespace CAI
 
         private void frmCoordonnateur_Load(object sender, EventArgs e)
         {
+            AfficherUtilisateurs();
+            AfficherEleves();
+            AfficherTotal();
+        }
+
+        private void AfficherUtilisateurs()
+        {
             string[] paramIN = new string[2];
 
             paramIN[0] = FNomUtilisateur;
@@ -127,10 +134,53 @@ namespace CAI
                     GVUsagers.Rows[i].Cells[4].Value = true;
                     GVUsagers.Rows[i].Cells[5].Value = false;
                     GVUsagers.Rows[i].Cells[6].Value = false;
-                    
+
 
                 }
             }
+        }
+
+        private void AfficherEleves()
+        {
+            string[] paramIN = new string[2];
+
+            paramIN[0] = FNomUtilisateur;
+            paramIN[1] = FMotDePasse;
+            DataTable TableRequete = new DataTable();
+            TableRequete = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherEleves", paramIN);
+
+            for (int i = 0; i < TableRequete.Rows.Count; i++)
+            {
+                GVPresences.Rows.Add();
+                GVPresences.Rows[i].Cells[0].Value = TableRequete.Rows[i][0].ToString();
+                GVPresences.Rows[i].Cells[1].Value = TableRequete.Rows[i][1].ToString();
+                GVPresences.Rows[i].Cells[2].Value = TableRequete.Rows[i][2].ToString();
+                GVPresences.Rows[i].Cells[3].Value = TableRequete.Rows[i][3].ToString();
+            }
+
+        }
+
+        private void GVPresences_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1 && e.ColumnIndex > -1)
+                if (e.ColumnIndex == 4)
+                {
+                    frmPresences frmPresences = new frmPresences(GVPresences.Rows[e.RowIndex].Cells[2].Value.ToString() + " " + GVPresences.Rows[e.RowIndex].Cells[3].Value.ToString(), GVPresences.Rows[e.RowIndex].Cells[0].Value.ToString(), FNomUtilisateur, FMotDePasse);
+                    frmPresences.ShowDialog();
+                }
+            
+        }
+
+        private void AfficherTotal()
+        {
+            string[] paramIN = new string[2];
+
+            paramIN[0] = FNomUtilisateur;
+            paramIN[1] = FMotDePasse;
+            DataTable TableRequete = new DataTable();
+            TableRequete = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherHeuresTous", paramIN);
+
+            lbltotal.Text = TableRequete.Rows[0][0].ToString();
         }
     }
 }
