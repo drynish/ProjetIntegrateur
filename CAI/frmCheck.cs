@@ -90,6 +90,38 @@ namespace CAI
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            string[] TabParametres = new string[5];
+            bool[] TabParamOutput = new bool[5];
+
+            string Message = "";
+
+            TabParametres[0] = FNomUtilisateur;
+            TabParametres[1] = FMotDePasse;
+            TabParametres[2] = GetIpAddress();
+            TabParametres[3] = GetMACAddress();
+            TabParametres[4] = Message;
+
+            TabParamOutput[0] = false;
+            TabParamOutput[1] = false;
+            TabParamOutput[2] = false;
+            TabParamOutput[3] = false;
+            TabParamOutput[4] = true;
+
+            CExecuteur.ObtenirCExecuteur().ExecPs("spSignerPresence", ref TabParametres, TabParamOutput);
+
+            switch (Message)
+            {
+                case "0":
+                    MessageBox.Show("Vous avez signé votre présence (check-in) avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case "1":
+                    MessageBox.Show("Vous avez signé votre présence (check-out) avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                default:
+                    MessageBox.Show("Une erreur inconnue est survenue. Veuillez réessayer plus tard.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
+            Close();
 
         }
 
@@ -111,7 +143,11 @@ namespace CAI
                 lblNote.Text = lblNote.Text + " Vous avez un Check in aujourd'hui à " + date2;
             }
             else
+            {
                 lblNote.Text = lblNote.Text + " Vous n'avez pas de Check in aujourd'hui ";
+                btnConfirm.Enabled = false;
+            }
+
 
         }
 
