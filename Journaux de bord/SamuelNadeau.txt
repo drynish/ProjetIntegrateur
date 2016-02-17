@@ -27,3 +27,6 @@ Journal de bord
 
 15/02 : -Finalisation de l'affichage de la form frmCheck
 	-Modification de la procedure permettant de signer sa présence
+
+17/02 : -Fonctionnement de la form frmCheck
+	-Modification de la procédure permettant de signer sa présence

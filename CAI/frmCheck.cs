@@ -93,13 +93,11 @@ namespace CAI
             string[] TabParametres = new string[5];
             bool[] TabParamOutput = new bool[5];
 
-            string Message = "";
-
             TabParametres[0] = FNomUtilisateur;
             TabParametres[1] = FMotDePasse;
             TabParametres[2] = GetIpAddress();
             TabParametres[3] = GetMACAddress();
-            TabParametres[4] = Message;
+            TabParametres[4] = "";
 
             TabParamOutput[0] = false;
             TabParamOutput[1] = false;
@@ -109,7 +107,7 @@ namespace CAI
 
             CExecuteur.ObtenirCExecuteur().ExecPs("spSignerPresence", ref TabParametres, TabParamOutput);
 
-            switch (Message)
+            switch (TabParametres[4])
             {
                 case "0":
                     MessageBox.Show("Vous avez signé votre présence (check-in) avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -139,12 +137,22 @@ namespace CAI
             DataTable DroitUtilisateur2 = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPresencesRequisesDeUnEleve", TabParametres2);
             if (DroitUtilisateur2 != null)
             {
-                string date2 = DroitUtilisateur2.Rows[0][0].ToString();
-                lblNote.Text = lblNote.Text + " Vous avez un Check in aujourd'hui à " + date2;
+                string date2 = "";
+                for (int i=0; i< DroitUtilisateur2.Rows.Count; i++)
+                {
+                    if (i == DroitUtilisateur2.Rows.Count - 2)
+                        date2 = date2 + DroitUtilisateur2.Rows[i][0].ToString() + " et ";
+                    else
+                        date2 = date2 + DroitUtilisateur2.Rows[i][0].ToString() + " , ";
+                }
+                if (DroitUtilisateur2.Rows.Count > 1)
+                    lblNote.Text = lblNote.Text + " Vous avez des présences requises aujourd'hui à " + date2.Remove(date2.Length - 2) + ".";
+                else
+                    lblNote.Text = lblNote.Text + " Vous avez une présence requise aujourd'hui à " + date2.Remove(date2.Length - 2) + ".";
             }
             else
             {
-                lblNote.Text = lblNote.Text + " Vous n'avez pas de Check in aujourd'hui ";
+                lblNote.Text = lblNote.Text + " Vous n'avez pas de présences requises aujourd'hui ";
                 btnConfirm.Enabled = false;
             }
 
