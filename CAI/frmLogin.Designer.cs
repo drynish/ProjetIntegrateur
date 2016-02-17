@@ -76,7 +76,7 @@
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(114, 23);
             this.btnConnect.TabIndex = 3;
-            this.btnConnect.Text = "Connectez-vous";
+            this.btnConnect.Text = "Se connecter";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 

@@ -38,8 +38,10 @@ namespace CAI
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            // Suppressions des présences requises déjà en place
+            CExecuteur.ObtenirCExecuteur().ExecPs("spSupprimerPresenceRequise", new string[] { FNomUtilisateur, FMotDePasse, Convert.ToString(FID) });
 
-            foreach (Control chb in this.Controls)
+            foreach (Control chb in Controls)
             {
                 if (chb is CheckBox)
                 {
@@ -57,6 +59,8 @@ namespace CAI
                     }
                 }
             }
+            MessageBox.Show("Les présences ont été sauvegardés avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
         }
 
 
@@ -76,57 +80,62 @@ namespace CAI
             DataTable TableRequete = new DataTable();
             TableRequete = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPeriodes", paramIN);
 
-            CheckBox Lundi;
-            CheckBox Mardi;
-            CheckBox Mercredi;
-            CheckBox Jeudi;
-            CheckBox Vendredi;
-            Label Periode;
-
-            for (int i = 0; i < TableRequete.Rows.Count; i++)
+            if (TableRequete != null)
             {
-                Periode = new Label();
-                Lundi = new CheckBox();
-                Mardi = new CheckBox();
-                Mercredi = new CheckBox();
-                Jeudi = new CheckBox();
-                Vendredi = new CheckBox();
+                for (int i = 0; i < TableRequete.Rows.Count; i++)
+                {
+                    Label Periode = new Label();
+                    CheckBox Lundi = new CheckBox();
+                    CheckBox Mardi = new CheckBox();
+                    CheckBox Mercredi = new CheckBox();
+                    CheckBox Jeudi = new CheckBox();
+                    CheckBox Vendredi = new CheckBox();
 
-                Periode.Name = "lblPeriode" + TableRequete.Rows[2].ToString();
-                Periode.Location = new Point(RatioPosition + (i * 25), 9);
-                Periode.Text = (i + 1).ToString();
-                Periode.AutoSize = true;
+                    Periode.Name = "lblPeriode" + TableRequete.Rows[i][1].ToString();
+                    Periode.Location = new Point(RatioPosition + (i * 25), 9);
+                    Periode.Text = (i + 1).ToString();
+                    Periode.AutoSize = true;
 
-                Lundi.Name = "ChBLundi" + (i + 1).ToString();
-                Mardi.Name = "ChBMardi" + (i + 1).ToString();
-                Mercredi.Name = "ChBMercredi" + (i + 1).ToString();
-                Jeudi.Name = "ChBJeudi" + (i + 1).ToString();
-                Vendredi.Name = "ChBVendredi" + (i + 1).ToString();
+                    Lundi.Name = "ChBLundi" + (i + 1).ToString();
+                    Mardi.Name = "ChBMardi" + (i + 1).ToString();
+                    Mercredi.Name = "ChBMercredi" + (i + 1).ToString();
+                    Jeudi.Name = "ChBJeudi" + (i + 1).ToString();
+                    Vendredi.Name = "ChBVendredi" + (i + 1).ToString();
 
-                Lundi.Tag = "Lundi";
-                Mardi.Tag = "Mardi";
-                Mercredi.Tag = "Mercredi";
-                Jeudi.Tag = "Jeudi";
-                Vendredi.Tag = "Vendredi";
+                    Lundi.Tag = "Lundi";
+                    Mardi.Tag = "Mardi";
+                    Mercredi.Tag = "Mercredi";
+                    Jeudi.Tag = "Jeudi";
+                    Vendredi.Tag = "Vendredi";
 
-                Lundi.Location = new Point(RatioPosition + (i * 25), 66);
-                Lundi.AutoSize = true;
-                Mardi.Location = new Point(RatioPosition + (i * 25), 88);
-                Mardi.AutoSize = true;
-                Mercredi.Location = new Point(RatioPosition + (i * 25), 110);
-                Mercredi.AutoSize = true;
-                Jeudi.Location = new Point(RatioPosition + (i * 25), 132);
-                Jeudi.AutoSize = true;
-                Vendredi.Location = new Point(RatioPosition + (i * 25), 154);
-                Vendredi.AutoSize = true;
+                    Lundi.Location = new Point(RatioPosition + (i * 25), 66);
+                    Lundi.AutoSize = true;
+                    Mardi.Location = new Point(RatioPosition + (i * 25), 88);
+                    Mardi.AutoSize = true;
+                    Mercredi.Location = new Point(RatioPosition + (i * 25), 110);
+                    Mercredi.AutoSize = true;
+                    Jeudi.Location = new Point(RatioPosition + (i * 25), 132);
+                    Jeudi.AutoSize = true;
+                    Vendredi.Location = new Point(RatioPosition + (i * 25), 154);
+                    Vendredi.AutoSize = true;
 
-                Controls.Add(Periode);
-                Controls.Add(Lundi);
-                Controls.Add(Mardi);
-                Controls.Add(Mercredi);
-                Controls.Add(Jeudi);
-                Controls.Add(Vendredi);
+                    Controls.Add(Periode);
+                    Controls.Add(Lundi);
+                    Controls.Add(Mardi);
+                    Controls.Add(Mercredi);
+                    Controls.Add(Jeudi);
+                    Controls.Add(Vendredi);
 
+                }
+                if (TableRequete.Rows.Count > 0)
+                {
+                    int test = (25 * TableRequete.Rows.Count);
+                    Width = (test + 86);
+                    btnConfirm.Width = (Width - 26);
+                }
+                    
+                else
+                    MessageBox.Show("Une erreur inconnue est survenu. Veuillez réessayer plus tard.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void afficherPresences()

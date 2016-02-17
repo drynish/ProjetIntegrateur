@@ -41,13 +41,36 @@ namespace CAI
         {
             if (e.RowIndex > -1 && e.ColumnIndex > -1)
             {
-                if (e.ColumnIndex == 4 || e.ColumnIndex == 5 || e.ColumnIndex == 5)
+                if (e.ColumnIndex == 4 || e.ColumnIndex == 5)
                 {
                     GVUsagers.Rows[e.RowIndex].Cells[4].Value = false;
                     GVUsagers.Rows[e.RowIndex].Cells[5].Value = false;
                     GVUsagers.Rows[e.RowIndex].Cells[6].Value = false;
 
                     GVUsagers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
+
+                    if (e.ColumnIndex == 4)
+                        CExecuteur.ObtenirCExecuteur().ExecPs("spModifierDroits", new string[] { FNomUtilisateur, FMotDePasse, GVUsagers.Rows[e.RowIndex].Cells[0].Value.ToString(), "0" });
+                    else
+                    {
+                        // S'il se met lui-même élève, on le déconnecte par la suite.
+                        if (GVUsagers.Rows[e.RowIndex].Cells[1].Value.ToString() == FNomUtilisateur)
+                        {
+                            if (MessageBox.Show("Êtes-vous sûr de vouloir vous mettre élève? Cette opération entraînera une déconnexion immédiate et est irréversible.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                            {
+                                CExecuteur.ObtenirCExecuteur().ExecPs("spModifierDroits", new string[] { FNomUtilisateur, FMotDePasse, GVUsagers.Rows[e.RowIndex].Cells[0].Value.ToString(), "1" });
+                                Close();
+                            }
+                            else
+                            {
+                                GVUsagers.Rows[e.RowIndex].Cells[5].Value = false;
+                                GVUsagers.Rows[e.RowIndex].Cells[4].Value = true;
+                            }
+                                
+                        }
+                        else
+                            CExecuteur.ObtenirCExecuteur().ExecPs("spModifierDroits", new string[] { FNomUtilisateur, FMotDePasse, GVUsagers.Rows[e.RowIndex].Cells[0].Value.ToString(), "1" });  
+                    }
                 }
                 else if (e.ColumnIndex == 7)
                 {
@@ -58,12 +81,8 @@ namespace CAI
                         frmHorSel.ShowDialog();
                     }
                     else
-                        MessageBox.Show("Vous pouvez choisir un horaire seulement pour un élève !");
-
-
+                        MessageBox.Show("Vous pouvez choisir un horaire seulement pour un élève !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
             }
         }
 
