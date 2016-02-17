@@ -78,7 +78,7 @@ namespace CAI
 
                 MessageBox.Show("Vous avez supprimé la période " + FTabPeriodesID.Length.ToString(), "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FVientAjoutePeriode = false;
-                btnConfirmer.Enabled = false;
+                btnSauvegarder.Enabled = false;
                 btnSupp.Enabled = false;
                 cmbPeriodes.Enabled = false;
                 txtHeureDebut.Enabled = false;
@@ -123,7 +123,8 @@ namespace CAI
                 txtHeureDebut.Text = txtHeureFin.Text = "hh";
                 txtMinuteDebut.Text = txtMinuteFin.Text = "mm";
 
-                btnConfirmer.Enabled = true;
+                btnAjouter.Enabled = false;
+                btnSauvegarder.Enabled = true;
                 cmbPeriodes.Enabled = true;
                 txtHeureDebut.Enabled = true;
                 txtHeureFin.Enabled = true;
@@ -182,6 +183,7 @@ namespace CAI
                 if (FVientAjoutePeriode)
                 {
                     CExecuteur.ObtenirCExecuteur().ExecPs("spAjouterPeriode", new string[] { FNomUtilisateur, FMotDePasse, HeureDebut, HeureFin });
+                    btnAjouter.Enabled = true;
                     FVientAjoutePeriode = false;
                     MessageBox.Show("La période " + (FTabPeriodesID.Length + 1).ToString() + " a été ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -212,6 +214,7 @@ namespace CAI
                 if (FVientAjoutePeriode)
                 {
                     cmbPeriodes.Items.RemoveAt(cmbPeriodes.Items.Count - 1);
+                    btnAjouter.Enabled = true;
                     FVientAjoutePeriode = false;
                 }   
                 
@@ -227,7 +230,7 @@ namespace CAI
                 txtHeureFin.Text = tempoSplit[0];
                 txtMinuteFin.Text = tempoSplit[1];
 
-                btnConfirmer.Enabled = true;
+                btnSauvegarder.Enabled = true;
                 btnSupp.Enabled = true;
                 cmbPeriodes.Enabled = true;
                 txtHeureDebut.Enabled = true;
@@ -253,7 +256,7 @@ namespace CAI
         private bool VerifierHeureDebut()
         {
             return (txtHeureDebut.Text.Length >= 1 && (txtHeureDebut.Text != "hh") && (txtHeureDebut.Text != "h") &&
-                   ((Convert.ToInt32(txtHeureDebut.Text) >= 0) || (Convert.ToInt32(txtHeureDebut.Text) <= 23)));   
+                    Convert.ToInt32(txtHeureDebut.Text) >= 0 && Convert.ToInt32(txtHeureDebut.Text) <= 23);   
         }
 
         /// <summary>
@@ -263,7 +266,7 @@ namespace CAI
         private bool VerifierHeureFin()
         {
             return (txtHeureFin.Text.Length >= 1 && (txtHeureFin.Text != "hh") && (txtHeureFin.Text != "h") && 
-                   ((Convert.ToInt32(txtHeureFin.Text) >= 0) || (Convert.ToInt32(txtHeureFin.Text) <= 23)));
+                    Convert.ToInt32(txtHeureFin.Text) >= 0 && Convert.ToInt32(txtHeureFin.Text) <= 23);
         }
 
         /// <summary>
@@ -273,7 +276,7 @@ namespace CAI
         private bool VerifierMinuteDebut()
         {
             return (txtMinuteDebut.Text.Length == 2 && (txtMinuteDebut.Text != "mm") && (txtMinuteDebut.Text != "m") && 
-                   ((Convert.ToInt32(txtMinuteDebut.Text) >= 0) || (Convert.ToInt32(txtMinuteDebut.Text) <= 59)));
+                    Convert.ToInt32(txtMinuteDebut.Text) >= 0 && Convert.ToInt32(txtMinuteDebut.Text) <= 59);
         }
 
         /// <summary>
@@ -283,7 +286,7 @@ namespace CAI
         private bool VerifierMinuteFin()
         {
             return (txtMinuteFin.Text.Length == 2 && (txtMinuteFin.Text != "mm") && (txtMinuteFin.Text != "m") && 
-                   ((Convert.ToInt32(txtMinuteFin.Text) >= 0) || (Convert.ToInt32(txtMinuteFin.Text) <= 59)));
+                    Convert.ToInt32(txtMinuteFin.Text) >= 0 && Convert.ToInt32(txtMinuteFin.Text) <= 59);
         }
 
         /// <summary>

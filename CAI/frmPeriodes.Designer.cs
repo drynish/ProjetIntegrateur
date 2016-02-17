@@ -38,7 +38,7 @@
             this.btnSupp = new System.Windows.Forms.Button();
             this.lblHeureDebut = new System.Windows.Forms.Label();
             this.lblHeureFin = new System.Windows.Forms.Label();
-            this.btnConfirmer = new System.Windows.Forms.Button();
+            this.btnSauvegarder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbPeriodes
@@ -48,14 +48,14 @@
             this.cmbPeriodes.FormattingEnabled = true;
             this.cmbPeriodes.Location = new System.Drawing.Point(6, 12);
             this.cmbPeriodes.Name = "cmbPeriodes";
-            this.cmbPeriodes.Size = new System.Drawing.Size(149, 21);
+            this.cmbPeriodes.Size = new System.Drawing.Size(158, 21);
             this.cmbPeriodes.TabIndex = 1;
             this.cmbPeriodes.SelectedIndexChanged += new System.EventHandler(this.cmbPeriodes_SelectedIndexChanged);
             // 
             // txtMinuteDebut
             // 
             this.txtMinuteDebut.Enabled = false;
-            this.txtMinuteDebut.Location = new System.Drawing.Point(40, 62);
+            this.txtMinuteDebut.Location = new System.Drawing.Point(43, 62);
             this.txtMinuteDebut.MaxLength = 2;
             this.txtMinuteDebut.Name = "txtMinuteDebut";
             this.txtMinuteDebut.Size = new System.Drawing.Size(28, 20);
@@ -66,7 +66,7 @@
             // txtHeureDebut
             // 
             this.txtHeureDebut.Enabled = false;
-            this.txtHeureDebut.Location = new System.Drawing.Point(6, 62);
+            this.txtHeureDebut.Location = new System.Drawing.Point(9, 62);
             this.txtHeureDebut.MaxLength = 2;
             this.txtHeureDebut.Name = "txtHeureDebut";
             this.txtHeureDebut.Size = new System.Drawing.Size(28, 20);
@@ -78,7 +78,7 @@
             // 
             this.btnAjouter.Location = new System.Drawing.Point(6, 88);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(75, 23);
+            this.btnAjouter.Size = new System.Drawing.Size(81, 23);
             this.btnAjouter.TabIndex = 6;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             // txtMinuteFin
             // 
             this.txtMinuteFin.Enabled = false;
-            this.txtMinuteFin.Location = new System.Drawing.Point(127, 62);
+            this.txtMinuteFin.Location = new System.Drawing.Point(136, 62);
             this.txtMinuteFin.MaxLength = 2;
             this.txtMinuteFin.Name = "txtMinuteFin";
             this.txtMinuteFin.Size = new System.Drawing.Size(28, 20);
@@ -98,7 +98,7 @@
             // txtHeureFin
             // 
             this.txtHeureFin.Enabled = false;
-            this.txtHeureFin.Location = new System.Drawing.Point(93, 62);
+            this.txtHeureFin.Location = new System.Drawing.Point(102, 62);
             this.txtHeureFin.MaxLength = 2;
             this.txtHeureFin.Name = "txtHeureFin";
             this.txtHeureFin.Size = new System.Drawing.Size(28, 20);
@@ -110,7 +110,7 @@
             // 
             this.btnQuitter.Location = new System.Drawing.Point(6, 146);
             this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitter.Size = new System.Drawing.Size(81, 23);
             this.btnQuitter.TabIndex = 9;
             this.btnQuitter.Text = "Quitter";
             this.btnQuitter.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@
             // btnSupp
             // 
             this.btnSupp.Enabled = false;
-            this.btnSupp.Location = new System.Drawing.Point(87, 88);
+            this.btnSupp.Location = new System.Drawing.Point(93, 88);
             this.btnSupp.Name = "btnSupp";
             this.btnSupp.Size = new System.Drawing.Size(77, 81);
             this.btnSupp.TabIndex = 8;
@@ -130,7 +130,7 @@
             // lblHeureDebut
             // 
             this.lblHeureDebut.AutoSize = true;
-            this.lblHeureDebut.Location = new System.Drawing.Point(3, 46);
+            this.lblHeureDebut.Location = new System.Drawing.Point(6, 46);
             this.lblHeureDebut.Name = "lblHeureDebut";
             this.lblHeureDebut.Size = new System.Drawing.Size(81, 13);
             this.lblHeureDebut.TabIndex = 23;
@@ -139,31 +139,31 @@
             // lblHeureFin
             // 
             this.lblHeureFin.AutoSize = true;
-            this.lblHeureFin.Location = new System.Drawing.Point(90, 46);
+            this.lblHeureFin.Location = new System.Drawing.Point(99, 46);
             this.lblHeureFin.Name = "lblHeureFin";
             this.lblHeureFin.Size = new System.Drawing.Size(65, 13);
             this.lblHeureFin.TabIndex = 24;
             this.lblHeureFin.Text = "Heure de fin";
             // 
-            // btnConfirmer
+            // btnSauvegarder
             // 
-            this.btnConfirmer.Enabled = false;
-            this.btnConfirmer.Location = new System.Drawing.Point(6, 117);
-            this.btnConfirmer.Name = "btnConfirmer";
-            this.btnConfirmer.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmer.TabIndex = 7;
-            this.btnConfirmer.Text = "Confirmer";
-            this.btnConfirmer.UseVisualStyleBackColor = true;
-            this.btnConfirmer.Click += new System.EventHandler(this.cmdConfirmer_Click);
+            this.btnSauvegarder.Enabled = false;
+            this.btnSauvegarder.Location = new System.Drawing.Point(6, 117);
+            this.btnSauvegarder.Name = "btnSauvegarder";
+            this.btnSauvegarder.Size = new System.Drawing.Size(81, 23);
+            this.btnSauvegarder.TabIndex = 7;
+            this.btnSauvegarder.Text = "Sauvegarder";
+            this.btnSauvegarder.UseVisualStyleBackColor = true;
+            this.btnSauvegarder.Click += new System.EventHandler(this.cmdConfirmer_Click);
             // 
             // frmPeriodes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(170, 176);
+            this.ClientSize = new System.Drawing.Size(178, 176);
             this.Controls.Add(this.lblHeureFin);
             this.Controls.Add(this.lblHeureDebut);
-            this.Controls.Add(this.btnConfirmer);
+            this.Controls.Add(this.btnSauvegarder);
             this.Controls.Add(this.btnSupp);
             this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.txtMinuteFin);
@@ -195,6 +195,6 @@
         private System.Windows.Forms.Button btnSupp;
         private System.Windows.Forms.Label lblHeureDebut;
         private System.Windows.Forms.Label lblHeureFin;
-        private System.Windows.Forms.Button btnConfirmer;
+        private System.Windows.Forms.Button btnSauvegarder;
     }
 }
