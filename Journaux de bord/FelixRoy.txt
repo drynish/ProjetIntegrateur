@@ -28,5 +28,8 @@
 -Finalisation de l'interface de la gestion de période.
 
 15 février 2016
--Débogage de la classe frmPeriodes.                                               
+-Débogage de la classe frmPeriodes.   
+
+17 février 2016
+-Débogage de la classe frmPeriodes et du script de connection pour signer les présences.                                             
 
