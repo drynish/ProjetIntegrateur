@@ -172,7 +172,7 @@ namespace CAI
                     if (i == DroitUtilisateur.Rows.Count - 2)
                         Date = Date + DroitUtilisateur.Rows[i][0].ToString() + " et ";
                     else
-                        Date = Date + DroitUtilisateur.Rows[i][0].ToString() + " , ";
+                        Date = Date + DroitUtilisateur.Rows[i][0].ToString() + ", ";
                 }
                 if (DroitUtilisateur.Rows.Count > 1)
                     lblNote.Text = lblNote.Text + " Vous avez des présences requises aujourd'hui à " + Date.Remove(Date.Length - 2) + ".";

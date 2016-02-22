@@ -87,16 +87,16 @@ namespace CAI
                         frmUtilisateur.ShowDialog();
                     }
                     else
-                        MessageBox.Show("Mauvais utilisateur et/ou mot de passe! Veuillez réessayer.");
+                        MessageBox.Show("Mauvais utilisateur et/ou mot de passe! Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch
                 {
-                    MessageBox.Show("Une erreur inconnue s'est produite. Veuillez réessayer plus tard.");
+                    MessageBox.Show("Une erreur inconnue s'est produite. Veuillez réessayer plus tard.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                 }
             }
             else
-                MessageBox.Show("Veuillez entrer votre nom et votre mot de passe !");   
+                MessageBox.Show("Veuillez entrer votre nom et votre mot de passe!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);   
         }
 
         /// <summary>
