@@ -1,4 +1,4 @@
-﻿
+
 27 janvier 2016
 
 -Choix du type de base de données à utiliser.
@@ -31,5 +31,8 @@
 -Débogage de la classe frmPeriodes.   
 
 17 février 2016
--Débogage de la classe frmPeriodes et du script de connection pour signer les présences.                                             
+-Débogage de la classe frmPeriodes et du script de connection pour signer les présences.
+
+22 février 2016
+-Changement de frmPeriode pour respecter les normes de programmations (ajout de commentaires).                                             
 
