@@ -6,30 +6,47 @@ namespace CAI
 {
     public partial class frmLogin : Form
     {
-    
+        /// <summary>
+        /// Constructeur par défaut
+        /// </summary>
         public frmLogin()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Permet de faire afficher la form permettant de modifier le mot de passe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btNouveauMDP_Click(object sender, EventArgs e)
         {
-            frmMotDePasse FrmMDP = new frmMotDePasse();
+            frmMotDePasse FrmMDP = new frmMotDePasse();     // Représente la form permettant de changer de mot de passe
             Hide();
             FrmMDP.ShowDialog();
         }
 
+        /// <summary>
+        /// Permet de faire afficher la form permettant de créer un nouveau compte
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreation_Click(object sender, EventArgs e)
         {
-            frmCreation frmCreation = new frmCreation();
+            frmCreation frmCreation = new frmCreation();    // Représente la form permettant de créer un compte
             frmCreation.AccRefCreation = this;
             Hide();
             frmCreation.Show();
         }
 
+        /// <summary>
+        /// Permet à l'usager de se connecter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConnect_Click(object sender, EventArgs e) 
         {
-            string[] TabParametres = new string[2]; // Paramètre que l'on envoit à la procédure.
+            string[] TabParametres = new string[2];   // Paramètre que l'on envoit à la procédure.
 
             TabParametres[0] = txtNom.Text;
             TabParametres[1] = txtMDP.Text;
@@ -69,6 +86,11 @@ namespace CAI
                 MessageBox.Show("Veuillez entrer votre nom et votre mot de passe !");   
         }
 
+        /// <summary>
+        /// Permet de fermer l'application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
