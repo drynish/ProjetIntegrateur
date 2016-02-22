@@ -34,6 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPeriodes = new System.Windows.Forms.Button();
             this.tabPresence = new System.Windows.Forms.TabPage();
+            this.lbltotal = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.GVPresences = new System.Windows.Forms.DataGridView();
             this.presenceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.presenceNomUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +44,7 @@
             this.presenceInformations = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabConfirm = new System.Windows.Forms.TabPage();
             this.GVUsagers = new System.Windows.Forms.DataGridView();
+            this.tabCoordonnateur = new System.Windows.Forms.TabControl();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomUtilisateurUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrenomUsager = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,9 +53,7 @@
             this.EleveUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.NonDetUsager = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.HoraireSelect = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tabCoordonnateur = new System.Windows.Forms.TabControl();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbltotal = new System.Windows.Forms.Label();
+            this.btnSupprimer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPresence.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVPresences)).BeginInit();
             this.tabConfirm.SuspendLayout();
@@ -81,6 +82,24 @@
             this.tabPresence.TabIndex = 2;
             this.tabPresence.Text = "Présences";
             this.tabPresence.UseVisualStyleBackColor = true;
+            // 
+            // lbltotal
+            // 
+            this.lbltotal.AutoSize = true;
+            this.lbltotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotal.Location = new System.Drawing.Point(61, 62);
+            this.lbltotal.Name = "lbltotal";
+            this.lbltotal.Size = new System.Drawing.Size(0, 20);
+            this.lbltotal.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(177, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Total des heures de tous les élèves:";
             // 
             // GVPresences
             // 
@@ -171,7 +190,8 @@
             this.CoordonnateurUsager,
             this.EleveUsager,
             this.NonDetUsager,
-            this.HoraireSelect});
+            this.HoraireSelect,
+            this.btnSupprimer});
             this.GVUsagers.Location = new System.Drawing.Point(6, 9);
             this.GVUsagers.MultiSelect = false;
             this.GVUsagers.Name = "GVUsagers";
@@ -187,6 +207,16 @@
             this.GVUsagers.Size = new System.Drawing.Size(926, 452);
             this.GVUsagers.TabIndex = 0;
             this.GVUsagers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GVUsagers_CellContentClick);
+            // 
+            // tabCoordonnateur
+            // 
+            this.tabCoordonnateur.Controls.Add(this.tabConfirm);
+            this.tabCoordonnateur.Controls.Add(this.tabPresence);
+            this.tabCoordonnateur.Location = new System.Drawing.Point(4, 12);
+            this.tabCoordonnateur.Name = "tabCoordonnateur";
+            this.tabCoordonnateur.SelectedIndex = 0;
+            this.tabCoordonnateur.Size = new System.Drawing.Size(934, 478);
+            this.tabCoordonnateur.TabIndex = 0;
             // 
             // ID
             // 
@@ -228,7 +258,7 @@
             this.NomUsager.Name = "NomUsager";
             this.NomUsager.ReadOnly = true;
             this.NomUsager.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NomUsager.Width = 220;
+            this.NomUsager.Width = 200;
             // 
             // CoordonnateurUsager
             // 
@@ -262,40 +292,20 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.HoraireSelect.DefaultCellStyle = dataGridViewCellStyle4;
+            this.HoraireSelect.Frozen = true;
             this.HoraireSelect.HeaderText = "Horaire";
             this.HoraireSelect.Name = "HoraireSelect";
             this.HoraireSelect.ReadOnly = true;
             this.HoraireSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HoraireSelect.Text = "";
-            this.HoraireSelect.Width = 138;
             // 
-            // tabCoordonnateur
+            // btnSupprimer
             // 
-            this.tabCoordonnateur.Controls.Add(this.tabConfirm);
-            this.tabCoordonnateur.Controls.Add(this.tabPresence);
-            this.tabCoordonnateur.Location = new System.Drawing.Point(4, 12);
-            this.tabCoordonnateur.Name = "tabCoordonnateur";
-            this.tabCoordonnateur.SelectedIndex = 0;
-            this.tabCoordonnateur.Size = new System.Drawing.Size(934, 478);
-            this.tabCoordonnateur.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Total des heures de tous les élèves:";
-            // 
-            // lbltotal
-            // 
-            this.lbltotal.AutoSize = true;
-            this.lbltotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotal.Location = new System.Drawing.Point(61, 62);
-            this.lbltotal.Name = "lbltotal";
-            this.lbltotal.Size = new System.Drawing.Size(0, 20);
-            this.lbltotal.TabIndex = 3;
+            this.btnSupprimer.Frozen = true;
+            this.btnSupprimer.HeaderText = "Supprimer ";
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.ReadOnly = true;
+            this.btnSupprimer.Width = 60;
             // 
             // frmCoordonnateur
             // 
@@ -329,14 +339,6 @@
         private System.Windows.Forms.DataGridView GVPresences;
         private System.Windows.Forms.TabPage tabConfirm;
         private System.Windows.Forms.DataGridView GVUsagers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomUtilisateurUsager;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrenomUsager;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomUsager;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn CoordonnateurUsager;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn EleveUsager;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn NonDetUsager;
-        private System.Windows.Forms.DataGridViewButtonColumn HoraireSelect;
         private System.Windows.Forms.TabControl tabCoordonnateur;
         private System.Windows.Forms.DataGridViewTextBoxColumn presenceID;
         private System.Windows.Forms.DataGridViewTextBoxColumn presenceNomUtilisateur;
@@ -345,5 +347,14 @@
         private System.Windows.Forms.DataGridViewButtonColumn presenceInformations;
         private System.Windows.Forms.Label lbltotal;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomUtilisateurUsager;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrenomUsager;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomUsager;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CoordonnateurUsager;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn EleveUsager;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn NonDetUsager;
+        private System.Windows.Forms.DataGridViewButtonColumn HoraireSelect;
+        private System.Windows.Forms.DataGridViewButtonColumn btnSupprimer;
     }
 }

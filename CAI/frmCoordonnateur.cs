@@ -83,6 +83,17 @@ namespace CAI
                     else
                         MessageBox.Show("Vous pouvez choisir un horaire seulement pour un élève !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                else if (e.ColumnIndex == 8)
+                {
+                    if (FNomUtilisateur != GVUsagers.Rows[e.RowIndex].Cells[1].Value.ToString())
+                    {
+                        CExecuteur.ObtenirCExecuteur().ExecPs("spSupprimerEleve", new string[] { FNomUtilisateur, FMotDePasse, GVUsagers.Rows[e.RowIndex].Cells[0].Value.ToString()});
+                        GVUsagers.Rows.RemoveAt(e.RowIndex);
+                    }
+                    else
+                        MessageBox.Show("Vous ne pouvez pas supprimer votre propre compte !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
