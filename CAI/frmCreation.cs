@@ -1,4 +1,4 @@
-﻿/* Projet intégrateur 1 (frmMotDePasse)
+﻿/* Projet intégrateur 1 (frmCréation)
     Travail sur les présences du centre d'aide en informatique du Cegep de Joliette
     
     Fiche permettant de créer un compte
@@ -20,9 +20,14 @@ using System.Net.Mail;
 
 namespace CAI
 {
+    /// <summary>
+    /// Classe permettant de créer un compte
+    /// </summary>
     public partial class frmCreation : Form
     {
-
+        /// <summary>
+        /// Constructeur par défaut
+        /// </summary>
         public frmCreation()
         {
             InitializeComponent();
@@ -38,6 +43,11 @@ namespace CAI
             Close();
         }
 
+        /// <summary>
+        /// Permet de confirmer les données entrées par l'utilisateur et de créer le compte si valide
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConfirm_Click(object sender, EventArgs e) 
         {
             const string MSG_UTILISATEUR_INVALIDE = "-1"; // Code d'erreur qui représente que l'utilisateur spécifié est déjà utilisé.
@@ -86,6 +96,11 @@ namespace CAI
 
         }
 
+        /// <summary>
+        /// Permet de vérifier si le format du nom d'utilisateur est valide
+        /// </summary>
+        /// <param name="_AdresseCourriel"></param>
+        /// <returns>Retourne true si l'adresse est valide sinon retourne false</returns>
         public bool AdresseValide(string _AdresseCourriel) 
         {
             try
