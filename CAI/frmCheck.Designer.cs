@@ -85,7 +85,6 @@
             this.MinimumSize = new System.Drawing.Size(499, 307);
             this.Name = "frmCheck";
             this.Text = "frmCheck";
-            this.Load += new System.EventHandler(this.frmCheck_Load);
             this.Shown += new System.EventHandler(this.frmCheck_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
