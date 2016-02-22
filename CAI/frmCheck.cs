@@ -157,7 +157,7 @@ namespace CAI
             Date = Date.Remove(Date.Length - 3);
             DateTime Datetime = DateTime.ParseExact(Date, "g", Fournisseur); // Représente la date sous la forme d'un DateTime
 
-            lblDate.Text     = Datetime.ToLongDateString() + ' ' + Datetime.ToShortTimeString();
+            lblDate.Text = "Le " + Datetime.ToLongDateString() + " à " + Datetime.ToShortTimeString();
             TabParametres    = new string[1];
             TabParametres[0] = FNomUtilisateur;
             DroitUtilisateur = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPresencesRequisesDeUnEleve", TabParametres);

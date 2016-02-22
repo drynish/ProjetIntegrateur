@@ -38,7 +38,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(54, 29);
+            this.lblDate.Location = new System.Drawing.Point(26, 25);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(181, 24);
             this.lblDate.TabIndex = 0;
@@ -59,7 +59,7 @@
             this.btnAnnuler.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.Location = new System.Drawing.Point(190, 151);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(178, 48);
+            this.btnAnnuler.Size = new System.Drawing.Size(184, 48);
             this.btnAnnuler.TabIndex = 22;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
