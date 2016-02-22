@@ -1,11 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* Projet intégrateur 1 (frmMotDePasse)
+    Travail sur les présences du centre d'aide en informatique du Cegep de Joliette
+    
+    Fiche permettant de créer un compte
+
+    Fait par :
+
+    -Antoine Monzerol
+    -Félix Roy
+    -Jonathan Clavet-Grenier
+    -Alexandre Gratton
+    -Samuel Nadeau
+
+    Contact : 514-475-2623
+*/
+
+using System;
 using System.Windows.Forms;
 using System.Net.Mail;
 
@@ -13,74 +22,78 @@ namespace CAI
 {
     public partial class frmCreation : Form
     {
-        frmLogin RefAFrmCreation;
 
         public frmCreation()
         {
             InitializeComponent();
         }
-        public frmLogin AccRefCreation
-        {
-            get { return RefAFrmCreation; }
-            set { RefAFrmCreation = value; }
 
-        }
-
+        /// <summary>
+        /// Fermer la fiche présentement ouverte et retourner à la fiche de connexion.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            //Objectif : Détruite cette fenêtre et revenir à la fenêtre principale.
-            this.Dispose();
-            this.RefAFrmCreation.Show();
+            Close();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e) 
         {
+            const string MSG_UTILISATEUR_INVALIDE = "-1"; // Code d'erreur qui représente que l'utilisateur spécifié est déjà utilisé.
+            const string MSG_SUCCES = "1"; // Représente que l'exécution de la procédure stockée s'est effectuée avec succès.
 
             if (txtNomUsager.Text == "" && txtMDP.Text == "" && txtNom.Text == "" && txtPrenom.Text == "")
-                MessageBox.Show("Vous n'avez pas entrer tous les champs !");
+                MessageBox.Show("Veuillez remplir tous les champs!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else  if (txtMDP.TextLength < 8)
-                MessageBox.Show("Votre mot de passe doit contenir au moins 8 caractères !");
+                MessageBox.Show("Votre mot de passe doit contenir au moins 8 caractères!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (!AdresseValide(txtNomUsager.Text))
-                MessageBox.Show("Le nom d'usager n'est pas une adresse valide !");
+                MessageBox.Show("Le nom d'usager n'est pas une adresse valide!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                string[] paramIN = new string[5];
-                paramIN[0] = txtPrenom.Text;
-                paramIN[1] = txtNom.Text; 
-                paramIN[2] = txtNomUsager.Text;
-                paramIN[3] = txtMDP.Text;
-                paramIN[4] = "0";
+                string[] TabParamIN = new string[5];
+                bool[] TabParamOUT  = new bool[5];
 
-                bool[] paramOUT = new bool[5];
-                paramOUT[0] = false;
-                paramOUT[1] = false;
-                paramOUT[2] = false;
-                paramOUT[3] = false;
-                paramOUT[4] = true;
-                CExecuteur.ObtenirCExecuteur().ExecPs("spInsererUsager", ref paramIN, paramOUT);
+                TabParamIN[0] = txtPrenom.Text;
+                TabParamIN[1] = txtNom.Text; 
+                TabParamIN[2] = txtNomUsager.Text;
+                TabParamIN[3] = txtMDP.Text;
+                TabParamIN[4] = "0";
+                
+                TabParamOUT[0] = false;
+                TabParamOUT[1] = false;
+                TabParamOUT[2] = false;
+                TabParamOUT[3] = false;
+                TabParamOUT[4] = true;
 
-                if (paramIN[4] == "-1")
-                    MessageBox.Show("Le nom d'utilisateur n'est pas valide. Veuillez en choisir un nouveau.");
-                if (paramIN[4] == "1")
+                CExecuteur.ObtenirCExecuteur().ExecPs("spInsererUsager", ref TabParamIN, TabParamOUT);
+
+                switch (TabParamIN[4])
                 {
-                    MessageBox.Show("Succès !");
-                    this.Dispose();
-                    this.RefAFrmCreation.Show();
+                    case MSG_UTILISATEUR_INVALIDE:
+                        MessageBox.Show("Le nom d'utilisateur existe déjà. Veuillez en choisir un autre.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case MSG_SUCCES:
+                        MessageBox.Show("Votre compte a été enregistré avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                        break;
+                    default:
+                        MessageBox.Show("Une erreur inconnue est survenue. Veuillez réessayer plus tard.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
                 }
                     
             }
 
         }
 
-        public bool AdresseValide(string emailaddress) 
+        public bool AdresseValide(string _AdresseCourriel) 
         {
             try
             {
-                MailAddress m = new MailAddress(emailaddress);
-
+                MailAddress m = new MailAddress(_AdresseCourriel);
                 return true;
             }
-            catch (FormatException)
+            catch
             {
                 return false;
             }

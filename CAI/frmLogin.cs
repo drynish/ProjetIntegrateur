@@ -1,4 +1,20 @@
-﻿using System;
+﻿/* Projet intégrateur 1 (frmLogin)
+    Travail sur les présences du centre d'aide en informatique du Cegep de Joliette
+    
+    Fiche permettant de se connecter pour afficher la bonne fiche selon le droit de l'utilisateur.
+
+    Fait par :
+
+    -Antoine Monzerol
+    -Félix Roy
+    -Jonathan Clavet-Grenier
+    -Alexandre Gratton
+    -Samuel Nadeau
+
+    Contact : 514-475-2623
+*/
+
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -21,8 +37,7 @@ namespace CAI
         /// <param name="e"></param>
         private void btNouveauMDP_Click(object sender, EventArgs e)
         {
-            frmMotDePasse FrmMDP = new frmMotDePasse();     // Représente la form permettant de changer de mot de passe
-            Hide();
+            frmMotDePasse FrmMDP = new frmMotDePasse(); // Représente la fiche permettant de changer de mot de passe
             FrmMDP.ShowDialog();
         }
 
@@ -33,9 +48,7 @@ namespace CAI
         /// <param name="e"></param>
         private void btnCreation_Click(object sender, EventArgs e)
         {
-            frmCreation frmCreation = new frmCreation();    // Représente la form permettant de créer un compte
-            frmCreation.AccRefCreation = this;
-            Hide();
+            frmCreation frmCreation = new frmCreation(); // Représente la fiche permettant de créer un compte
             frmCreation.Show();
         }
 
@@ -46,7 +59,7 @@ namespace CAI
         /// <param name="e"></param>
         private void btnConnect_Click(object sender, EventArgs e) 
         {
-            string[] TabParametres = new string[2];   // Paramètre que l'on envoit à la procédure.
+            string[] TabParametres = new string[2]; // Paramètre que l'on envoit à la procédure.
 
             TabParametres[0] = txtNom.Text;
             TabParametres[1] = txtMDP.Text;
