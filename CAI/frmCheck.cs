@@ -15,6 +15,9 @@ using System.Globalization;
 
 namespace CAI
 {
+    /// <summary>
+    /// Classe permettant de signer sa présence lord d'un "CheckIn" ou d'un "CheckOut"
+    /// </summary>
     public partial class frmCheck : Form
     {
         /// <summary>
@@ -53,10 +56,10 @@ namespace CAI
         /// <returns>La MAC adresse sous la forme d'une chaine de caractères</returns>
         public static string GetMACAddress()
         {
-            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+            NetworkInterface[] Nics = NetworkInterface.GetAllNetworkInterfaces();
             string sMacAddress = string.Empty;
 
-            foreach (NetworkInterface adapter in nics)
+            foreach (NetworkInterface adapter in Nics)
             {
                 if (sMacAddress == string.Empty)
                     sMacAddress = adapter.GetPhysicalAddress().ToString();       
@@ -70,11 +73,11 @@ namespace CAI
         /// <returns>L'adresse IP sous la forme d'une chaine de caractères</returns>
         public static string GetIpAddress()
         {
-            string ip = "";
+            string Ip = "";
             IPHostEntry ipEntry = Dns.GetHostEntry(GetCompCode());
             IPAddress[] addr = ipEntry.AddressList;
-            ip = addr[2].ToString();
-            return ip;
+            Ip = addr[2].ToString();
+            return Ip;
         }
 
         /// <summary>
@@ -83,15 +86,22 @@ namespace CAI
         /// <returns>Le nom de l'ordinateur sous la forme d'une chaine de caractères</returns>
         public static string GetCompCode()
         {
-            string strHostName = "";
-            strHostName = Dns.GetHostName();
-            return strHostName;
+            string HostName = "";
+            HostName = Dns.GetHostName();
+            return HostName;
         }
 
+        /// <summary>
+        /// Permet de confirmer sa présence lors d'un "CheckIn" ou d'un CheckOut
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            //Tableau contenant les paramètres de la procédure
             string[] TabParametres = new string[5];
-            bool[] TabParamOutput = new bool[5];
+            //Tableau représentant si les paramètres sont en output          
+            bool[] TabParamOutput = new bool[5];                
 
             TabParametres[0] = FNomUtilisateur;
             TabParametres[1] = FMotDePasse;
@@ -107,6 +117,7 @@ namespace CAI
 
             CExecuteur.ObtenirCExecuteur().ExecPs("spSignerPresence", ref TabParametres, TabParamOutput);
 
+            // Permet d'afficher le bon message selon le résultat de la requête
             switch (TabParametres[4])
             {
                 case "0":
@@ -123,32 +134,44 @@ namespace CAI
 
         }
 
+        /// <summary>
+        /// Permet de faire afficher la date de la journée en cours
+        /// Permet d'avertir l'utilisteur s'il a des présences pour la journée en cours
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmCheck_Shown(object sender, EventArgs e)
         {
-            CultureInfo provider = new CultureInfo("fr-FR");
+            //Représente le fournisseur pour la conversion de la date
+            CultureInfo Fournisseur = new CultureInfo("fr-FR");
+            //Représente le tableau des paramètres nécessaires pour la requête
             string[] TabParametres = new string[0];
+            //DataTable contenant le résultat de la requête
             DataTable DroitUtilisateur = CExecuteur.ObtenirCExecuteur().ExecPs("spObtenirDateEtHeure", TabParametres);
-            string date = DroitUtilisateur.Rows[0][0].ToString();
-            date = date.Remove(date.Length - 3);
-            DateTime datetime = DateTime.ParseExact(date, "g", provider);
-            lblDate.Text = datetime.ToLongDateString() + ' ' + datetime.ToShortTimeString();
-            string[] TabParametres2 = new string[1];
-            TabParametres2[0] = FNomUtilisateur;
-            DataTable DroitUtilisateur2 = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPresencesRequisesDeUnEleve", TabParametres2);
-            if (DroitUtilisateur2 != null)
+            //Représente la date actuelle du serveur
+            string Date = DroitUtilisateur.Rows[0][0].ToString();
+            Date = Date.Remove(Date.Length - 3);
+            //Représente la date sous la forme d'un DateTime
+            DateTime Datetime = DateTime.ParseExact(Date, "g", Fournisseur);
+            lblDate.Text = Datetime.ToLongDateString() + ' ' + Datetime.ToShortTimeString();
+            TabParametres = new string[1];
+            TabParametres[0] = FNomUtilisateur;
+            DroitUtilisateur = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPresencesRequisesDeUnEleve", TabParametres);
+            //Permet de faire afficher les information selon le résultat de la requête
+            if (DroitUtilisateur != null)
             {
-                string date2 = "";
-                for (int i=0; i< DroitUtilisateur2.Rows.Count; i++)
+                Date = "";
+                for (int i=0; i< DroitUtilisateur.Rows.Count; i++)
                 {
-                    if (i == DroitUtilisateur2.Rows.Count - 2)
-                        date2 = date2 + DroitUtilisateur2.Rows[i][0].ToString() + " et ";
+                    if (i == DroitUtilisateur.Rows.Count - 2)
+                        Date = Date + DroitUtilisateur.Rows[i][0].ToString() + " et ";
                     else
-                        date2 = date2 + DroitUtilisateur2.Rows[i][0].ToString() + " , ";
+                        Date = Date + DroitUtilisateur.Rows[i][0].ToString() + " , ";
                 }
-                if (DroitUtilisateur2.Rows.Count > 1)
-                    lblNote.Text = lblNote.Text + " Vous avez des présences requises aujourd'hui à " + date2.Remove(date2.Length - 2) + ".";
+                if (DroitUtilisateur.Rows.Count > 1)
+                    lblNote.Text = lblNote.Text + " Vous avez des présences requises aujourd'hui à " + Date.Remove(Date.Length - 2) + ".";
                 else
-                    lblNote.Text = lblNote.Text + " Vous avez une présence requise aujourd'hui à " + date2.Remove(date2.Length - 2) + ".";
+                    lblNote.Text = lblNote.Text + " Vous avez une présence requise aujourd'hui à " + Date.Remove(Date.Length - 2) + ".";
             }
             else
             {
@@ -158,7 +181,11 @@ namespace CAI
 
 
         }
-
+        /// <summary>
+        /// Perme de fermer la form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             Close();
