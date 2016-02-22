@@ -64,7 +64,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 9);
+            this.label9.Location = new System.Drawing.Point(6, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 13);
             this.label9.TabIndex = 8;
@@ -84,16 +84,16 @@
             this.dateCheckOut,
             this.AdresseIpCheckOut,
             this.AdresseMacCheckOut});
-            this.GVPresences.Location = new System.Drawing.Point(12, 43);
+            this.GVPresences.Location = new System.Drawing.Point(6, 30);
             this.GVPresences.Name = "GVPresences";
             this.GVPresences.RowHeadersVisible = false;
             this.GVPresences.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.GVPresences.Size = new System.Drawing.Size(758, 442);
+            this.GVPresences.Size = new System.Drawing.Size(770, 460);
             this.GVPresences.TabIndex = 9;
             // 
             // dateCheckIn
             // 
-            this.dateCheckIn.HeaderText = "Date de check in";
+            this.dateCheckIn.HeaderText = "Date du check in";
             this.dateCheckIn.Name = "dateCheckIn";
             this.dateCheckIn.ReadOnly = true;
             this.dateCheckIn.Width = 150;
@@ -107,13 +107,13 @@
             // 
             // AdresseMacCheckIn
             // 
-            this.AdresseMacCheckIn.HeaderText = "Adresse MAC de check in";
+            this.AdresseMacCheckIn.HeaderText = "Adresse MAC du check in";
             this.AdresseMacCheckIn.Name = "AdresseMacCheckIn";
             this.AdresseMacCheckIn.ReadOnly = true;
             // 
             // dateCheckOut
             // 
-            this.dateCheckOut.HeaderText = "Date de check out";
+            this.dateCheckOut.HeaderText = "Date du check out";
             this.dateCheckOut.Name = "dateCheckOut";
             this.dateCheckOut.ReadOnly = true;
             this.dateCheckOut.Width = 150;
@@ -127,9 +127,10 @@
             // 
             // AdresseMacCheckOut
             // 
-            this.AdresseMacCheckOut.HeaderText = "Adresse MAC de check out";
+            this.AdresseMacCheckOut.HeaderText = "Adresse MAC du check out";
             this.AdresseMacCheckOut.Name = "AdresseMacCheckOut";
             this.AdresseMacCheckOut.ReadOnly = true;
+            this.AdresseMacCheckOut.Width = 117;
             // 
             // lblTotal
             // 
@@ -155,7 +156,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.GVPresences)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         }
 
         #endregion
