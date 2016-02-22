@@ -1,4 +1,20 @@
-﻿using System;
+﻿/* Projet intégrateur 1 (frmMotDePasse)
+    Travail sur les présences du centre d'aide en informatique du Cegep de Joliette
+    
+    Fiche permettant de réinitialiser son mot de passe
+
+    Fait par :
+
+    -Antoine Monzerol
+    -Félix Roy
+    -Jonathan Clavet-Grenier
+    -Alexandre Gratton
+    -Samuel Nadeau
+
+    Contact : 514-475-2623
+*/
+
+using System;
 using System.Windows.Forms;
 
 namespace CAI
@@ -16,6 +32,11 @@ namespace CAI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Fermer la fiche actuelle pour ouvrir la fiche de Login.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             Close();

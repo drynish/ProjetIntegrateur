@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CAI
@@ -21,18 +18,23 @@ namespace CAI
         /// Mot de passe du compte.
         /// </summary>
         private string FMotDePasse;
-        
         /// <summary>
-        /// ID de l'usager sélectionné.
+        /// ID du compte sélectionné pour choisir ses présences requises.
         /// </summary>
         private int FID;
 
-
-        public frmHoraireSel(string _NomUtilisateur, string _MotDePasse, int _id)
+        /// <summary>
+        /// Constructeur par défaut. Initialiser les données membres et sauvegarder celles-ci.
+        /// </summary>
+        /// <param name="_NomUtilisateur">Nom d'utilisateur du compte connecté présentement.</param>
+        /// <param name="_MotDePasse">Mot de passe du compte connecté présentement.</param>
+        /// <param name="_Id">Représente l'ID de l'utilisateur sélectionné pour qu'on sélectionne son horaire.</param>
+        public frmHoraireSel(string _NomUtilisateur, string _MotDePasse, int _Id)
         {
             FNomUtilisateur = _NomUtilisateur;
-            FMotDePasse = _MotDePasse;
-            FID = _id;
+            FMotDePasse     = _MotDePasse;
+            FID             = _Id;
+
             InitializeComponent();
         }
 
