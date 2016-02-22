@@ -59,6 +59,12 @@ namespace CAI
             ChargerPeriodes();
         }
 
+
+        /// <summary>
+        /// Gère chaque touche entrée pour ne permettre que les retours en arrière et les chiffres.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gererTouchesPeriodes(object sender, KeyPressEventArgs e)
         {
             // Autoriser le caractère Backspace.
@@ -69,6 +75,11 @@ namespace CAI
             }
         }
 
+        /// <summary>
+        /// Supprime la dernière période enregistrée.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSupp_Click(object sender, EventArgs e)
         {
             if (FTabPeriodesID.Length > 0)
@@ -92,11 +103,22 @@ namespace CAI
                 MessageBox.Show("Il n'y a aucune période dans la base de données!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// Ferme la fenêtre des période.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+
+        /// <summary>
+        /// Créer une nouvelle période avec les paramètres dans les boîte.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             if (FTabPeriodesID.Length == 14)
@@ -149,6 +171,11 @@ namespace CAI
                 cmbPeriodes.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Modifie la période sélectionnée.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdConfirmer_Click(object sender, EventArgs e)
         {
             if (VerifierHeureDebut() &&
@@ -184,12 +211,17 @@ namespace CAI
                 MessageBox.Show("Votre temps n'est pas valide. Veuillez réessayer.\nVoici un exemple du format à respecter: 1:00 à 20:01", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// Affiche les heures de la période choisie dans le comboBox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbPeriodes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!FEmpecherEventDeDeclencher && cmbPeriodes.SelectedIndex < FTabPeriodesID.Length)
             {
-                string idPeriode = Convert.ToString(FTabPeriodesID[cmbPeriodes.SelectedIndex]);
-                string contenuSelection = cmbPeriodes.Items[cmbPeriodes.SelectedIndex].ToString();
+                string idPeriode = Convert.ToString(FTabPeriodesID[cmbPeriodes.SelectedIndex]); //Id de la période choisie.
+                string contenuSelection = cmbPeriodes.Items[cmbPeriodes.SelectedIndex].ToString(); //Valeur de la période sélectionnée.
                 string[] tempoSplit;//Tableau temporaire pour le split.
 
                 //La commande est exécutée et le résultat est ajouté à la liste.
@@ -224,10 +256,14 @@ namespace CAI
             }
         }
 
-
+        /// <summary>
+        /// Retire le texte qui indique comment entrer les heures et les minutes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtHeures_Click(object sender, EventArgs e)
         {
-            TextBox TxtActuel = (sender as TextBox);
+            TextBox TxtActuel = (sender as TextBox); //Le textbox qui a appeler l'évènement.
 
             if (TxtActuel.Text == "hh" || TxtActuel.Text == "mm")
                 TxtActuel.Clear();
