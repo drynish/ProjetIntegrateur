@@ -19,11 +19,11 @@ namespace CAI
         /// <summary>
         /// Représente le nom d'utilisteur de l'utilisateur connecté en ce moment.
         /// </summary>
-        private string FNomUtilisateur = "f";
+        private string FNomUtilisateur = "";
         /// <summary>
         /// Représente le mot de passe de l'utilisteur connecté en ce moment.
         /// </summary>
-        private string FMotDePasse = "f";
+        private string FMotDePasse = "";
         /// <summary>
         /// Si l'utilisateur vient d'ajouter une période.
         /// </summary>
@@ -51,7 +51,7 @@ namespace CAI
 
         private void frmPeriodes_Load(object sender, EventArgs e) 
         {
-            chargerPeriodes();
+            ChargerPeriodes();
         }
 
         private void gererTouchesPeriodes(object sender, KeyPressEventArgs e)
@@ -86,7 +86,7 @@ namespace CAI
                 txtMinuteDebut.Enabled = false;
                 txtMinuteFin.Enabled = false;
                 txtHeureDebut.Text = txtHeureFin.Text = txtMinuteDebut.Text = txtMinuteFin.Text = "";
-                chargerPeriodes();
+                ChargerPeriodes();
             }
             else
                 MessageBox.Show("Il n'y a aucune période dans la base de données!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -136,21 +136,21 @@ namespace CAI
         /// <summary>
         /// Charge les périodes dans le comboBox.
         /// </summary>
-        private void chargerPeriodes()
+        private void ChargerPeriodes()
         {
             cmbPeriodes.Items.Clear();
             Array.Resize(ref FTabPeriodesID, 0);
 
             //La commande est exécutée et le résultat est ajouté à la liste.
-            DataTable resultat = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPeriodes", new string[] { FNomUtilisateur, FMotDePasse });
+            DataTable Resultat = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPeriodes", new string[] { FNomUtilisateur, FMotDePasse });
 
-            if (resultat != null)
+            if (Resultat != null)
             {
-                Array.Resize(ref FTabPeriodesID, resultat.Rows.Count);
-                for (int i = 0; i < resultat.Rows.Count; i++)
+                Array.Resize(ref FTabPeriodesID, Resultat.Rows.Count);
+                for (int i = 0; i < Resultat.Rows.Count; i++)
                 {
-                    FTabPeriodesID[i] = Convert.ToInt32(resultat.Rows[i][0].ToString());
-                    cmbPeriodes.Items.Add("Période " + resultat.Rows[i][1].ToString() + " : " + resultat.Rows[i][2].ToString() + " à " + resultat.Rows[i][3].ToString());
+                    FTabPeriodesID[i] = Convert.ToInt32(Resultat.Rows[i][0].ToString());
+                    cmbPeriodes.Items.Add("Période " + Resultat.Rows[i][1].ToString() + " : " + Resultat.Rows[i][2].ToString() + " à " + Resultat.Rows[i][3].ToString());
                 }
                 // Le premier élément est sélectionné.
                 cmbPeriodes.SelectedIndex = 0;
@@ -194,7 +194,7 @@ namespace CAI
                 }
 
                 //Les périodes sont rechargées.
-                chargerPeriodes();
+                ChargerPeriodes();
             }
             else
                 MessageBox.Show("Votre temps n'est pas valide. Veuillez réessayer.\nVoici un exemple du format à respecter: 1:00 à 20:01", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -209,7 +209,7 @@ namespace CAI
                 string[] tempoSplit;//Tableau temporaire pour le split.
 
                 //La commande est exécutée et le résultat est ajouté à la liste.
-                DataTable resultat = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPeriodeSelonID", new string[] { FNomUtilisateur, FMotDePasse, idPeriode });
+                DataTable Resultat = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPeriodeSelonID", new string[] { FNomUtilisateur, FMotDePasse, idPeriode });
 
                 if (FVientAjoutePeriode)
                 {
@@ -219,13 +219,13 @@ namespace CAI
                 }   
                 
                 //Le résultat est séparé pour être affiché correctement dans les textBox du formulaire.
-                tempoSplit = resultat.Rows[0][2].ToString().Split(':');
+                tempoSplit = Resultat.Rows[0][2].ToString().Split(':');
 
                 txtHeureDebut.Text = tempoSplit[0];
                 txtMinuteDebut.Text = tempoSplit[1];
 
 
-                tempoSplit = resultat.Rows[0][3].ToString().Split(':');
+                tempoSplit = Resultat.Rows[0][3].ToString().Split(':');
 
                 txtHeureFin.Text = tempoSplit[0];
                 txtMinuteFin.Text = tempoSplit[1];
@@ -243,10 +243,10 @@ namespace CAI
 
         private void txtHeures_Click(object sender, EventArgs e)
         {
-            TextBox txtActuel = (sender as TextBox);
+            TextBox TxtActuel = (sender as TextBox);
 
-            if (txtActuel.Text == "hh" || txtActuel.Text == "mm")
-                txtActuel.Clear();
+            if (TxtActuel.Text == "hh" || TxtActuel.Text == "mm")
+                TxtActuel.Clear();
         }
 
         /// <summary>
