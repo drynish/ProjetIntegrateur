@@ -1,21 +1,20 @@
 ﻿/* Projet intégrateur 1 (frmCoordonnateur)
 
-Travail sur les présences du centre d'aide en informatique du Cegep de Joliette
+    Travail sur les présences du centre d'aide en informatique du Cegep de Joliette
 
-Fiche montrant toutes les options qu'un coordonnateur dispose 
+    Fiche montrant toutes les options qu'un coordonnateur dispose.
 
-Fait par :
+    Fait par :
 
--Antoine Monzerol
--Félix Roy
--Jonathan Clavet-Grenier
--Alexandre Gratton
--Samuel Nadeau
+    -Antoine Monzerol
+    -Félix Roy
+    -Jonathan Clavet-Grenier
+    -Alexandre Gratton
+    -Samuel Nadeau
 
-Contact : 514-475-2623
+    Contact : 514-475-2623
 
 */
-
 
 using System;
 using System.Data;
@@ -23,6 +22,9 @@ using System.Windows.Forms;
 
 namespace CAI
 {
+    /// <summary>
+    /// Fiche montrant toutes les options qu'un coordonnateur dispose
+    /// </summary>
     public partial class frmCoordonnateur : Form
     {
         /// <summary>
@@ -61,21 +63,20 @@ namespace CAI
         /// <param name="e"></param>
         private void GVUsagers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1 && e.ColumnIndex > -1)
-                //Si le clique est valide (dans les marges du tableau)
+            // Si le clic est valide (dans les marges du tableau)
+            if (e.RowIndex > -1 && e.ColumnIndex > -1)    
             {
+                // Clique pour confirmer l'état d'un utilisateur (élève/coordonnateur)
                 if (e.ColumnIndex == 4 || e.ColumnIndex == 5) 
-                    //Clique pour confirmer l'état d'un utilisateur (élève/coordonnateur)
                 {
                     GVUsagers.Rows[e.RowIndex].Cells[4].Value = false;
                     GVUsagers.Rows[e.RowIndex].Cells[5].Value = false;
                     GVUsagers.Rows[e.RowIndex].Cells[6].Value = false;
 
                     GVUsagers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
-   
-                    if (e.ColumnIndex == 4)
-                        //Si l'usager est coordonnateur, on modifie ses droits
 
+                    //Si l'usager est coordonnateur, on modifie ses droits
+                    if (e.ColumnIndex == 4)
                         CExecuteur.ObtenirCExecuteur().ExecPs("spModifierDroits", new string[] { FNomUtilisateur, FMotDePasse, GVUsagers.Rows[e.RowIndex].Cells[0].Value.ToString(), "0" });
                     else
                     {
@@ -100,12 +101,14 @@ namespace CAI
                             //S'il met un autre usager élève
                             CExecuteur.ObtenirCExecuteur().ExecPs("spModifierDroits", new string[] { FNomUtilisateur, FMotDePasse, GVUsagers.Rows[e.RowIndex].Cells[0].Value.ToString(), "1" });  
                     }
+
+                    frmCoordonnateur_Load(null, null);
                 }
-                else if (e.ColumnIndex == 7) 
-                    //S'il clique sur le bouton pour afficher la sélection d'horaire
+                // S'il clique sur le bouton pour afficher la sélection d'horaire
+                else if (e.ColumnIndex == 7)    
                 {
+                    // Si l'usager sélectionné est un élève
                     if (bool.Parse(GVUsagers.Rows[e.RowIndex].Cells[5].Value.ToString()))
-                        //Si l'usager sélectionné est un élève
                     {
                         int id = Convert.ToInt32(GVUsagers.Rows[e.RowIndex].Cells[0].Value);
                         frmHoraireSel frmHorSel = new frmHoraireSel(FNomUtilisateur, FMotDePasse, id);
@@ -115,20 +118,22 @@ namespace CAI
                         //Si l'usager sélectionné n'est pas un élève
                         MessageBox.Show("Vous pouvez choisir un horaire seulement pour un élève !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                // S'il clique sur un bouton pour supprimer un usager
                 else if (e.ColumnIndex == 8)
-                    //S'il clique sur un bouton pour supprimer un usager
                 {
+                    // S'il ne se choisit pas lui même
                     if (FNomUtilisateur != GVUsagers.Rows[e.RowIndex].Cells[1].Value.ToString()) 
-                        //S'il ne se choisit pas lui même
                     {
-                        //Supprimer l'usager et mettre à jour la grille
-                        CExecuteur.ObtenirCExecuteur().ExecPs("spSupprimerEleve", new string[] { FNomUtilisateur, FMotDePasse, GVUsagers.Rows[e.RowIndex].Cells[0].Value.ToString()});
-                        GVUsagers.Rows.RemoveAt(e.RowIndex);
+                        if (MessageBox.Show("Êtes-vous sûr de vouloir supprimer cet élève? Cette opération est irréversible.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                            // Supprimer l'usager et mettre à jour la grille
+                            CExecuteur.ObtenirCExecuteur().ExecPs("spSupprimerEleve", new string[] { FNomUtilisateur, FMotDePasse, GVUsagers.Rows[e.RowIndex].Cells[0].Value.ToString() });
                     }
                     else
-                        //S'il se choisit lui même
+                        // S'il se choisit lui même
                         MessageBox.Show("Vous ne pouvez pas supprimer votre propre compte !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                frmCoordonnateur_Load(null, null);
             }
         }
         /// <summary>
@@ -167,11 +172,13 @@ namespace CAI
 
             TableRequete = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherUsagers", TabParamIN); //Mettre tous les utilisateurs et leurs informations dans une table
 
+            GVUsagers.Rows.Clear();
+
+            //S'il y a au moins un utilisateur
             if (TableRequete != null)
-                //S'il y a au moins un utilisateur
             {
+                //Pour tous les utilisateurs, afficher les informations dans la grille
                 for (int i = 0; i < TableRequete.Rows.Count; i++)
-                    //Pour tous les utilisateurs, afficher les informations dans la grille
                 {
                     GVUsagers.Rows.Add();
                     GVUsagers.Rows[i].Cells[0].Value = TableRequete.Rows[i][0].ToString();
@@ -218,6 +225,8 @@ namespace CAI
 
             TableRequete = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherEleves", TabParamIN); //Mettre tous les élèves et leurs informations dans une table
 
+            GVPresences.Rows.Clear();
+
             if (TableRequete != null)
             {
                 // Pour chaque élève, afficher leurs informations dans la grille
@@ -262,10 +271,10 @@ namespace CAI
 
             TableRequete = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherHeuresTous", TabParamIN); //Mettre le total d'heures dans une table
 
-            if (TableRequete != null) //Si un total existe
+            if (TableRequete != null) // Si un total existe
                 LblTotal.Text = TableRequete.Rows[0][0].ToString(); // Afficher le nombre total d'heures
             else
-                LblTotal.Text = "0"; //Afficher qu'il y a 0 heure d'inscrit 
+                LblTotal.Text = "0"; // Afficher qu'il y a 0 heure d'inscrit 
         }
     }
 }

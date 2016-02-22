@@ -1,6 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿/* Projet intégrateur 1 (frmPresences)
+
+    Travail sur les présences du centre d'aide en informatique du Cegep de Joliette
+
+    Fiche permettant de faire la gestion des présences requises pour un élève.
+
+    Fait par :
+
+    -Antoine Monzerol
+    -Félix Roy
+    -Jonathan Clavet-Grenier
+    -Alexandre Gratton
+    -Samuel Nadeau
+
+    Contact : 514-475-2623
+*/
+
+using System;
 using System.Data;
 using System.Drawing;
 using System.Text.RegularExpressions;
@@ -8,6 +23,9 @@ using System.Windows.Forms;
 
 namespace CAI
 {
+    /// <summary>
+    /// Fiche permettant de faire la gestion des présences requises pour un élève.
+    /// </summary>
     public partial class frmHoraireSel : Form
     {
         /// <summary>
@@ -191,20 +209,24 @@ namespace CAI
             DataTable TableRequete = new DataTable();  //DataTable pour recevoir les infos de la bd
             TableRequete = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPresencesRequisesDeUnEleveSelonID", paramIN); //Exécuter la procédure stockée avec les paramètres
 
-            //boucle sur chaque ligne de la requête
-            for (int i = 0; i < TableRequete.Rows.Count; i++)
+            if (TableRequete != null)
             {
-                /* La procédure stockée retourne la journée et la période
-                   sur chaque ligne, vérifier quelle journée est sélectionnée
-                   pour la journée sélectionnée, concaténer le nom du checkbox selon la période
-                   cocher la bonne checkbox selon son nom
-                */
+                //boucle sur chaque ligne de la requête
+                for (int i = 0; i < TableRequete.Rows.Count; i++)
+                {
+                    /* La procédure stockée retourne la journée et la période
+                       sur chaque ligne, vérifier quelle journée est sélectionnée
+                       pour la journée sélectionnée, concaténer le nom du checkbox selon la période
+                       cocher la bonne checkbox selon son nom
+                    */
 
-                BoxToCheck = "ChB" + TableRequete.Rows[i][0].ToString() + TableRequete.Rows[i][1].ToString();
-                Control[] chb = this.Controls.Find(BoxToCheck, false);
-                (chb[0] as CheckBox).Checked = true;
-   
+                    BoxToCheck = "ChB" + TableRequete.Rows[i][0].ToString() + TableRequete.Rows[i][1].ToString();
+                    Control[] Chb = this.Controls.Find(BoxToCheck, false);
+                    (Chb[0] as CheckBox).Checked = true;
+
+                }
             }
+
         }
     }
 
