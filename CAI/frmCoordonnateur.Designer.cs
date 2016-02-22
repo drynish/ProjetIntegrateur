@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPeriodes = new System.Windows.Forms.Button();
             this.tabPresence = new System.Windows.Forms.TabPage();
-            this.lbltotal = new System.Windows.Forms.Label();
+            this.LblTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.GVPresences = new System.Windows.Forms.DataGridView();
             this.presenceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,7 +73,7 @@
             // 
             // tabPresence
             // 
-            this.tabPresence.Controls.Add(this.lbltotal);
+            this.tabPresence.Controls.Add(this.LblTotal);
             this.tabPresence.Controls.Add(this.label1);
             this.tabPresence.Controls.Add(this.GVPresences);
             this.tabPresence.Location = new System.Drawing.Point(4, 22);
@@ -85,12 +85,12 @@
             // 
             // lbltotal
             // 
-            this.lbltotal.AutoSize = true;
-            this.lbltotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotal.Location = new System.Drawing.Point(61, 62);
-            this.lbltotal.Name = "lbltotal";
-            this.lbltotal.Size = new System.Drawing.Size(0, 20);
-            this.lbltotal.TabIndex = 3;
+            this.LblTotal.AutoSize = true;
+            this.LblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotal.Location = new System.Drawing.Point(61, 62);
+            this.LblTotal.Name = "lbltotal";
+            this.LblTotal.Size = new System.Drawing.Size(0, 20);
+            this.LblTotal.TabIndex = 3;
             // 
             // label1
             // 
@@ -345,7 +345,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrenomPresence;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomPresence;
         private System.Windows.Forms.DataGridViewButtonColumn presenceInformations;
-        private System.Windows.Forms.Label lbltotal;
+        private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomUtilisateurUsager;

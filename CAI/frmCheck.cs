@@ -56,15 +56,17 @@ namespace CAI
         /// <returns>La MAC adresse sous la forme d'une chaine de caractères</returns>
         public static string GetMACAddress()
         {
+            //Représente la configuration et les statistiques de l'interface réseau
             NetworkInterface[] Nics = NetworkInterface.GetAllNetworkInterfaces();
-            string sMacAddress = string.Empty;
+            //Représente la MacAdresse sous la forme d'une chaine de caractère
+            string MacAddress = string.Empty;
 
-            foreach (NetworkInterface adapter in Nics)
+            foreach (NetworkInterface Adapter in Nics)
             {
-                if (sMacAddress == string.Empty)
-                    sMacAddress = adapter.GetPhysicalAddress().ToString();       
+                if (MacAddress == string.Empty)
+                    MacAddress = Adapter.GetPhysicalAddress().ToString();       
             }
-            return sMacAddress;
+            return MacAddress;
         }
 
         /// <summary>
@@ -73,11 +75,11 @@ namespace CAI
         /// <returns>L'adresse IP sous la forme d'une chaine de caractères</returns>
         public static string GetIpAddress()
         {
-            string Ip = "";
-            IPHostEntry ipEntry = Dns.GetHostEntry(GetCompCode());
-            IPAddress[] addr = ipEntry.AddressList;
-            Ip = addr[2].ToString();
-            return Ip;
+            //Représente les informations d'adresse d'hôte internet
+            IPHostEntry IpEntry = Dns.GetHostEntry(GetCompCode());
+            //Représente l'adresse Ip de la machine
+            IPAddress[] addr = IpEntry.AddressList;
+            return addr[2].ToString();
         }
 
         /// <summary>
@@ -86,9 +88,7 @@ namespace CAI
         /// <returns>Le nom de l'ordinateur sous la forme d'une chaine de caractères</returns>
         public static string GetCompCode()
         {
-            string HostName = "";
-            HostName = Dns.GetHostName();
-            return HostName;
+            return Dns.GetHostName();
         }
 
         /// <summary>
