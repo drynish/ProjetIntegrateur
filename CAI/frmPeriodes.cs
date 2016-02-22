@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CAI
 {
+    /// <summary>
+    /// Représente la fiche de gestion des périodes. On doit être connecté en tant qu'administrateur
+    /// pour modifier cette fiche.
+    /// </summary>
     public partial class frmPeriodes : Form
     {
         /// <summary>
@@ -33,11 +31,18 @@ namespace CAI
         /// </summary>
         private int[] FTabPeriodesID;
 
-        public frmPeriodes()
+        /// <summary>
+        /// Constructeur.
+        /// </summary>
+        private frmPeriodes()
         {
             InitializeComponent();
         }
-  
+        /// <summary>
+        /// Constructuer par défaut. Initialiser les données membres et sauvegarder celles-ci.
+        /// </summary>
+        /// <param name="_NomUtilisateur">Nom d'utilisateur du compte connecté.</param>
+        /// <param name="_MotDePasse">Mot de passe du compte connecté.</param>
         public frmPeriodes(string _NomUtilisateur, string _MotDePasse)
         {
             FNomUtilisateur            = _NomUtilisateur;
@@ -64,11 +69,6 @@ namespace CAI
             }
         }
 
-        /// <summary>
-        /// Appelle le script de supression de la dernière période.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnSupp_Click(object sender, EventArgs e)
         {
             if (FTabPeriodesID.Length > 0)
@@ -92,21 +92,11 @@ namespace CAI
                 MessageBox.Show("Il n'y a aucune période dans la base de données!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        /// <summary>
-        /// Ferme la fenêtre et retourne au menu précédent.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        /// <summary>
-        /// Appelle le script d'ajout des périodes.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             if (FTabPeriodesID.Length == 14)
@@ -159,12 +149,6 @@ namespace CAI
                 cmbPeriodes.SelectedIndex = -1;
         }
 
-
-        /// <summary>
-        /// Appelle le script de modification des périodes.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void cmdConfirmer_Click(object sender, EventArgs e)
         {
             if (VerifierHeureDebut() &&
