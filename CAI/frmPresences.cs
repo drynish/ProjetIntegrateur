@@ -1,30 +1,23 @@
 ﻿/* Projet intégrateur 1 (frmPresences)
 
-Travail sur les présences du centre d'aide en informatique du Cegep de Joliette
+    Travail sur les présences du centre d'aide en informatique du Cegep de Joliette
 
-Fiche montrant toutes les présences passées des élèves
+    Fiche montrant toutes les présences passées des élèves
 
-Fait par :
+    Fait par :
 
--Antoine Monzerol
--Félix Roy
--Jonathan Clavet-Grenier
--Alexandre Gratton
--Samuel Nadeau
+    -Antoine Monzerol
+    -Félix Roy
+    -Jonathan Clavet-Grenier
+    -Alexandre Gratton
+    -Samuel Nadeau
 
-Contact : 514-475-2623
-
+    Contact : 514-475-2623
 */
 
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CAI
