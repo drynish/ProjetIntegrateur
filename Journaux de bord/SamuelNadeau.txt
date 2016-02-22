@@ -30,3 +30,8 @@ Journal de bord
 
 17/02 : -Fonctionnement de la form frmCheck
 	-Modification de la procédure permettant de signer sa présence
+
+22/02 : -AJout de commentaires et modification afin de respecter les normes de programmation dans frmCheck
+	-Ajout de commentaires dans frmLogin
+	-Ajout de commentaires dans frmCreation
+	
