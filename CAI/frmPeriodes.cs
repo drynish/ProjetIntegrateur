@@ -1,4 +1,22 @@
-﻿using System;
+﻿/* Projet intégrateur 1 (frmPeriodes)
+
+    Travail sur les présences du centre d'aide en informatique du Cegep de Joliette
+
+    Représente la fiche de gestion des périodes. On doit être connecté en tant qu'administrateur
+    pour modifier cette fiche.
+
+    Fait par :
+
+    -Antoine Monzerol
+    -Félix Roy
+    -Jonathan Clavet-Grenier
+    -Alexandre Gratton
+    -Samuel Nadeau
+
+    Contact : 514-475-2623
+*/
+
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -54,11 +72,15 @@ namespace CAI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Charger les périodes lors de l'ouverture de la fenêtre.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmPeriodes_Load(object sender, EventArgs e) 
         {
             ChargerPeriodes();
         }
-
 
         /// <summary>
         /// Gère chaque touche entrée pour ne permettre que les retours en arrière et les chiffres.
