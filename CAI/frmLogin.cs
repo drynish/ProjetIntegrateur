@@ -12,14 +12,11 @@ namespace CAI
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btNouveauMDP_Click(object sender, EventArgs e)
         {
-            //Objectif : Afficher la forme pour modifier son mot de passe. Cacher la forme actuelle.
-            frmMotDePasse frmMDP = new frmMotDePasse();
-            frmMDP.AccRefConnect = this;
+            frmMotDePasse FrmMDP = new frmMotDePasse();
             Hide();
-            frmMDP.Show();
-           
+            FrmMDP.ShowDialog();
         }
 
         private void btnCreation_Click(object sender, EventArgs e)
@@ -39,8 +36,8 @@ namespace CAI
 
             if (txtNom.Text != "" && txtMDP.Text != "") 
             {
-               // try
-               // {
+                try
+                {
                     DataTable DroitUtilisateur = CExecuteur.ObtenirCExecuteur().ExecFn("fnRetournerDroit", TabParametres);
                     // Si c'est un administrateur
                     if (DroitUtilisateur.Rows[0][0].ToString() == "0")
@@ -61,12 +58,12 @@ namespace CAI
                     }
                     else
                         MessageBox.Show("Mauvais utilisateur et/ou mot de passe! Veuillez réessayer.");
-               // }
-               // catch
-               // {
-                  //  MessageBox.Show("Une erreur inconnue s'est produite. Veuillez réessayer plus tard.");
-                //    Application.Exit();
-              //  }
+                }
+                catch
+                {
+                    MessageBox.Show("Une erreur inconnue s'est produite. Veuillez réessayer plus tard.");
+                    Application.Exit();
+                }
             }
             else
                 MessageBox.Show("Veuillez entrer votre nom et votre mot de passe !");   

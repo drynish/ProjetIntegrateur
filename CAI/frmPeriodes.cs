@@ -32,14 +32,14 @@ namespace CAI
         private int[] FTabPeriodesID;
 
         /// <summary>
-        /// Constructeur.
+        /// Constructeur privé. Ne devrait pas être instancié.
         /// </summary>
         private frmPeriodes()
         {
             InitializeComponent();
         }
         /// <summary>
-        /// Constructuer par défaut. Initialiser les données membres et sauvegarder celles-ci.
+        /// Constructeur par défaut. Initialiser les données membres et sauvegarder celles-ci.
         /// </summary>
         /// <param name="_NomUtilisateur">Nom d'utilisateur du compte connecté.</param>
         /// <param name="_MotDePasse">Mot de passe du compte connecté.</param>

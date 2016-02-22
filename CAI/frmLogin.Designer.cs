@@ -98,7 +98,7 @@
             this.btnNouveauMDP.TabIndex = 5;
             this.btnNouveauMDP.Text = "Mot de passe oublié";
             this.btnNouveauMDP.UseVisualStyleBackColor = true;
-            this.btnNouveauMDP.Click += new System.EventHandler(this.button3_Click);
+            this.btnNouveauMDP.Click += new System.EventHandler(this.btNouveauMDP_Click);
             // 
             // frmLogin
             // 

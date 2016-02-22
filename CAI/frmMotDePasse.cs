@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CAI
 {
+    /// <summary>
+    /// Classe permettant de réinitialiser son mot de passe.
+    /// </summary>
     public partial class frmMotDePasse : Form
     {
-        frmLogin RefAFrmConnection;
+        /// <summary>
+        /// Constructeur par défaut.
+        /// </summary>
         public frmMotDePasse()
         {
             InitializeComponent();
@@ -20,47 +18,54 @@ namespace CAI
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            //Objectif : Détruite cette fenêtre et revenir à la fenêtre principale.
-            Dispose();
-            RefAFrmConnection.Show();
-        }
-
-        public frmLogin AccRefConnect
-        {
-            get { return RefAFrmConnection; }
-            set { RefAFrmConnection = value; }
+            Close();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            const string MSG_OUBLIE_MDP = "-1"; // Représente le code d'erreur qui représente un mot de passe oublié
+            const string MSG_SUCCES     = "1";  // Représente le code d'erreur qui représente le succès
+
             if (txtNom.TextLength != 0 || txtMDPActuel.TextLength < 8)
             {
                 if (txtMDP.TextLength >= 8 && txtMDP.TextLength <= 40) {
-                    string[] paramIN = new string[4];
-                    paramIN[0] = txtNom.Text;
-                    paramIN[1] = txtMDPActuel.Text;
-                    paramIN[2] = txtMDP.Text;
-                    paramIN[3] = "0";
+                    string[] TabParamIN = new string[4];
+                    bool[] TabParamOUT = new bool[4];
 
-                    bool[] paramOUT = new bool[4];
-                    paramOUT[0] = false;
-                    paramOUT[1] = false;
-                    paramOUT[2] = false;
-                    paramOUT[3] = true;
-                    CExecuteur.ObtenirCExecuteur().ExecPs("spChangerMDP", ref paramIN, paramOUT);
+                    TabParamIN[0] = txtNom.Text;
+                    TabParamIN[1] = txtMDPActuel.Text;
+                    TabParamIN[2] = txtMDP.Text;
+                    TabParamIN[3] = "0";
 
-                    if (paramIN[3] == "-1")
+                    TabParamOUT[0] = false;
+                    TabParamOUT[1] = false;
+                    TabParamOUT[2] = false;
+                    TabParamOUT[3] = true;
+
+                    // Exécution de la procédure pour changer le mot de passe.
+                    CExecuteur.ObtenirCExecuteur().ExecPs("spChangerMDP", ref TabParamIN, TabParamOUT);
+
+                    // Si ça n'a pas fonctionné à cause que l'utilisateur et/ou mot de passe ne concorde pas
+                    switch (TabParamIN[3])
                     {
-                        txtMDP.Text = "";
-                        txtMDPActuel.Text = "";
-                        txtNom.Text = "";
-                        MessageBox.Show("Mauvais nom d'utilisateur et/ou mot de passe. Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    if (paramIN[3] == "1")
-                    {
-                        MessageBox.Show("Votre mot de passe a été changé.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Dispose();
-                        RefAFrmConnection.Show();
+                        // Si ça n'a pas fonctionné à cause de l'utilisateur et/ou mot de passe
+                        case MSG_OUBLIE_MDP:
+                            txtMDP.Text = "";
+                            txtMDPActuel.Text = "";
+                            txtNom.Text = "";
+                            MessageBox.Show("Mauvais nom d'utilisateur et/ou mot de passe. Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        // Si ça la fonctionné
+                        case MSG_SUCCES:
+                            MessageBox.Show("Votre mot de passe a été changé.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Close();
+                            break;
+                        default:
+                            txtMDP.Text = "";
+                            txtMDPActuel.Text = "";
+                            txtNom.Text = "";
+                            MessageBox.Show("Une erreur inconnue est survenue. Veuillez réessayer plus tard.");
+                            break;
                     }
                 }
                 else
