@@ -188,11 +188,10 @@ namespace CAI
                 }
 
             }
-
             else
             {
-                //erreur de connexion avec la bd
-                MessageBox.Show("Une erreur inconnue est survenu. Veuillez réessayer plus tard.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Si ça ne retourne rien, il n'y a pas de période.
+                MessageBox.Show("Vous devez ajouter une période avant d'effectuer cette opération!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
             }    
             

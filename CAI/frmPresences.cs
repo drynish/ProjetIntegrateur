@@ -84,18 +84,20 @@ namespace CAI
             DataTable TableRequete = new DataTable();
             TableRequete = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPresencesPasses", paramIN); //Mettre dans une table le résultat de la requête
 
-
-            //Pour toutes les présences passées
-            for (int i = 0; i < TableRequete.Rows.Count; i++)
+            if (TableRequete != null)
             {
-                //Afficher dans la grille les informations relatives aux présences
-                GVPresences.Rows.Add();
-                GVPresences.Rows[i].Cells[0].Value = TableRequete.Rows[i][0].ToString();
-                GVPresences.Rows[i].Cells[1].Value = TableRequete.Rows[i][1].ToString();
-                GVPresences.Rows[i].Cells[2].Value = TableRequete.Rows[i][2].ToString();
-                GVPresences.Rows[i].Cells[3].Value = TableRequete.Rows[i][3].ToString();
-                GVPresences.Rows[i].Cells[4].Value = TableRequete.Rows[i][4].ToString();
-                GVPresences.Rows[i].Cells[5].Value = TableRequete.Rows[i][5].ToString();
+                //Pour toutes les présences passées
+                for (int i = 0; i < TableRequete.Rows.Count; i++)
+                {
+                    //Afficher dans la grille les informations relatives aux présences
+                    GVPresences.Rows.Add();
+                    GVPresences.Rows[i].Cells[0].Value = TableRequete.Rows[i][0].ToString();
+                    GVPresences.Rows[i].Cells[1].Value = TableRequete.Rows[i][1].ToString();
+                    GVPresences.Rows[i].Cells[2].Value = TableRequete.Rows[i][2].ToString();
+                    GVPresences.Rows[i].Cells[3].Value = TableRequete.Rows[i][3].ToString();
+                    GVPresences.Rows[i].Cells[4].Value = TableRequete.Rows[i][4].ToString();
+                    GVPresences.Rows[i].Cells[5].Value = TableRequete.Rows[i][5].ToString();
+                }
             }
 
          }
@@ -114,7 +116,10 @@ namespace CAI
             DataTable TableRequete = new DataTable();
             TableRequete = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherHeuresEleve", paramIN); //Mettre dans une table le résultat de la requête
 
-            lblTotal.Text = TableRequete.Rows[0][0].ToString(); //Afficher dans un label le nombre total d'heures pour cet élève
+            if (TableRequete != null)
+                lblTotal.Text = TableRequete.Rows[0][0].ToString(); // Afficher dans un label le nombre total d'heures pour cet élève
+            else
+                lblTotal.Text = "0";
 
         }
     }
