@@ -1,0 +1,2 @@
+Chaque élève (sauf Antoine) avait plusieurs scrips SQL à faire. Par contre, souvent, il ne pouvait pas
+tester leur script. Donc, les scripts ont été créés par eux et corrigés par Jonathan lorsqu'il y avait des erreurs.
