@@ -227,15 +227,14 @@ namespace CAI
                         CExecuteur.ObtenirCExecuteur().ExecPs("spModifierPeriode", new string[] { FNomUtilisateur, FMotDePasse, HeureDebut, HeureFin, Convert.ToString(FTabPeriodesID[cmbPeriodes.SelectedIndex]) });
                         MessageBox.Show("La période " + (cmbPeriodes.SelectedIndex + 1).ToString() + " a été sauvegardé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+
+                    //Les périodes sont rechargées.
+                    ChargerPeriodes();
                 }
                 catch
                 {
                     MessageBox.Show("Il y a un conflit d'heure avec une autre période. Vérifiez l'heure de début et l'heure de fin.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
-                //Les périodes sont rechargées.
-                ChargerPeriodes();
             }
             else
                 MessageBox.Show("Votre temps n'est pas valide. Veuillez réessayer.\nVoici un exemple du format à respecter: 1:00 à 20:01", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
