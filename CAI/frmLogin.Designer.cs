@@ -96,7 +96,7 @@
             this.btnNouveauMDP.Name = "btnNouveauMDP";
             this.btnNouveauMDP.Size = new System.Drawing.Size(234, 23);
             this.btnNouveauMDP.TabIndex = 5;
-            this.btnNouveauMDP.Text = "Mot de passe oublié";
+            this.btnNouveauMDP.Text = "Réinitialiser son mot de passe";
             this.btnNouveauMDP.UseVisualStyleBackColor = true;
             this.btnNouveauMDP.Click += new System.EventHandler(this.btNouveauMDP_Click);
             // 
