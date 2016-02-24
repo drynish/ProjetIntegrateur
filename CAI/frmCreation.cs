@@ -53,12 +53,14 @@ namespace CAI
             const string MSG_UTILISATEUR_INVALIDE = "-1"; // Code d'erreur qui représente que l'utilisateur spécifié est déjà utilisé.
             const string MSG_SUCCES = "1"; // Représente que l'exécution de la procédure stockée s'est effectuée avec succès.
 
-            if (txtNomUsager.Text == "" && txtMDP.Text == "" && txtNom.Text == "" && txtPrenom.Text == "")
+            if (txtNomUsager.Text == "" || txtMDP.Text == "" || txtNom.Text == "" || txtPrenom.Text == "")
                 MessageBox.Show("Veuillez remplir tous les champs!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else  if (txtMDP.TextLength < 8)
                 MessageBox.Show("Votre mot de passe doit contenir au moins 8 caractères!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (!AdresseValide(txtNomUsager.Text))
                 MessageBox.Show("Le nom d'usager n'est pas une adresse valide!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (txtMDP.Text != txtConfirmerMDP.Text)
+                MessageBox.Show("Le mot de passe dans la boîte de confirmation n'est pas identique à celui de la première boîte! Veuillez entrez deux mots de passe identiques.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 string[] TabParamIN = new string[5];
@@ -90,8 +92,7 @@ namespace CAI
                     default:
                         MessageBox.Show("Une erreur inconnue est survenue. Veuillez réessayer plus tard.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
-                }
-                    
+                }      
             }
 
         }
@@ -112,6 +113,11 @@ namespace CAI
             {
                 return false;
             }
+        }
+
+        private void frmCreation_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

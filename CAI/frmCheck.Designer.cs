@@ -36,13 +36,13 @@
             // 
             // lblDate
             // 
-            this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(26, 25);
+            this.lblDate.Location = new System.Drawing.Point(1, 25);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(181, 24);
+            this.lblDate.Size = new System.Drawing.Size(373, 24);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "DATE ACTUELLE";
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblNote
             // 

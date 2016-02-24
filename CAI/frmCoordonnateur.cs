@@ -124,7 +124,7 @@ namespace CAI
                     // S'il ne se choisit pas lui même
                     if (FNomUtilisateur != GVUsagers.Rows[e.RowIndex].Cells[1].Value.ToString()) 
                     {
-                        if (MessageBox.Show("Êtes-vous sûr de vouloir supprimer cet élève? Cette opération est irréversible.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        if (MessageBox.Show("Êtes-vous sûr de vouloir supprimer ce compte? Cette opération est irréversible.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                             // Supprimer l'usager et mettre à jour la grille
                             CExecuteur.ObtenirCExecuteur().ExecPs("spSupprimerEleve", new string[] { FNomUtilisateur, FMotDePasse, GVUsagers.Rows[e.RowIndex].Cells[0].Value.ToString() });
                     }

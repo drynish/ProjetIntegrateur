@@ -36,27 +36,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtConfirmerMDP = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtMDPActuel
             // 
-            this.txtMDPActuel.Location = new System.Drawing.Point(132, 32);
+            this.txtMDPActuel.Location = new System.Drawing.Point(156, 32);
             this.txtMDPActuel.Name = "txtMDPActuel";
             this.txtMDPActuel.PasswordChar = '*';
-            this.txtMDPActuel.Size = new System.Drawing.Size(154, 20);
+            this.txtMDPActuel.Size = new System.Drawing.Size(130, 20);
             this.txtMDPActuel.TabIndex = 7;
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(132, 6);
+            this.txtNom.Location = new System.Drawing.Point(156, 6);
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(154, 20);
+            this.txtNom.Size = new System.Drawing.Size(130, 20);
             this.txtNom.TabIndex = 6;
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(6, 35);
+            this.lblPassword.Location = new System.Drawing.Point(6, 32);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(103, 13);
             this.lblPassword.TabIndex = 5;
@@ -65,7 +67,7 @@
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(6, 9);
+            this.lblNom.Location = new System.Drawing.Point(6, 6);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(82, 13);
             this.lblNom.TabIndex = 4;
@@ -73,16 +75,16 @@
             // 
             // txtMDP
             // 
-            this.txtMDP.Location = new System.Drawing.Point(132, 58);
+            this.txtMDP.Location = new System.Drawing.Point(156, 58);
             this.txtMDP.Name = "txtMDP";
             this.txtMDP.PasswordChar = '*';
-            this.txtMDP.Size = new System.Drawing.Size(154, 20);
+            this.txtMDP.Size = new System.Drawing.Size(130, 20);
             this.txtMDP.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 61);
+            this.label1.Location = new System.Drawing.Point(6, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 13);
             this.label1.TabIndex = 8;
@@ -90,7 +92,7 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(9, 84);
+            this.btnConfirm.Location = new System.Drawing.Point(8, 111);
             this.btnConfirm.MaximumSize = new System.Drawing.Size(800, 200);
             this.btnConfirm.MinimumSize = new System.Drawing.Size(0, 23);
             this.btnConfirm.Name = "btnConfirm";
@@ -102,7 +104,7 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(150, 84);
+            this.btnAnnuler.Location = new System.Drawing.Point(150, 111);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(136, 27);
             this.btnAnnuler.TabIndex = 12;
@@ -110,11 +112,30 @@
             this.btnAnnuler.UseVisualStyleBackColor = true;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Confirmer votre mot de passe";
+            // 
+            // txtConfirmerMDP
+            // 
+            this.txtConfirmerMDP.Location = new System.Drawing.Point(156, 84);
+            this.txtConfirmerMDP.Name = "txtConfirmerMDP";
+            this.txtConfirmerMDP.PasswordChar = '*';
+            this.txtConfirmerMDP.Size = new System.Drawing.Size(130, 20);
+            this.txtConfirmerMDP.TabIndex = 10;
+            // 
             // frmMotDePasse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 119);
+            this.ClientSize = new System.Drawing.Size(296, 143);
+            this.Controls.Add(this.txtConfirmerMDP);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.txtMDP);
@@ -145,5 +166,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnAnnuler;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtConfirmerMDP;
     }
 }
