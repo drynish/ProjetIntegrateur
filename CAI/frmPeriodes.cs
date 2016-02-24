@@ -212,19 +212,27 @@ namespace CAI
                 HeureDebut = txtHeureDebut.Text + ":" + txtMinuteDebut.Text;
                 HeureFin = txtHeureFin.Text + ":" + txtMinuteFin.Text;
 
-                // S'il vient d'ajouter une période
-                if (FVientAjoutePeriode)
+                try
                 {
-                    CExecuteur.ObtenirCExecuteur().ExecPs("spAjouterPeriode", new string[] { FNomUtilisateur, FMotDePasse, HeureDebut, HeureFin });
-                    btnAjouter.Enabled = true;
-                    FVientAjoutePeriode = false;
-                    MessageBox.Show("La période " + (FTabPeriodesID.Length + 1).ToString() + " a été ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // S'il vient d'ajouter une période
+                    if (FVientAjoutePeriode)
+                    {
+                        CExecuteur.ObtenirCExecuteur().ExecPs("spAjouterPeriode", new string[] { FNomUtilisateur, FMotDePasse, HeureDebut, HeureFin });
+                        btnAjouter.Enabled = true;
+                        FVientAjoutePeriode = false;
+                        MessageBox.Show("La période " + (FTabPeriodesID.Length + 1).ToString() + " a été ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        CExecuteur.ObtenirCExecuteur().ExecPs("spModifierPeriode", new string[] { FNomUtilisateur, FMotDePasse, HeureDebut, HeureFin, Convert.ToString(FTabPeriodesID[cmbPeriodes.SelectedIndex]) });
+                        MessageBox.Show("La période " + (cmbPeriodes.SelectedIndex + 1).ToString() + " a été sauvegardé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                else
+                catch
                 {
-                    CExecuteur.ObtenirCExecuteur().ExecPs("spModifierPeriode", new string[] { FNomUtilisateur, FMotDePasse, HeureDebut, HeureFin, Convert.ToString(FTabPeriodesID[cmbPeriodes.SelectedIndex]) });
-                    MessageBox.Show("La période " + (cmbPeriodes.SelectedIndex + 1).ToString() + " a été sauvegardé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Il y a un conflit d'heure avec une autre période. Vérifiez l'heure de début et l'heure de fin.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
 
                 //Les périodes sont rechargées.
                 ChargerPeriodes();
