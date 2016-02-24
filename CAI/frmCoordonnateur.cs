@@ -276,5 +276,10 @@ namespace CAI
             else
                 LblTotal.Text = "0"; // Afficher qu'il y a 0 heure d'inscrit 
         }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
