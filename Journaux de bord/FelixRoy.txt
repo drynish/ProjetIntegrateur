@@ -1,4 +1,4 @@
-
+﻿
 27 janvier 2016
 
 -Choix du type de base de données à utiliser.
@@ -36,3 +36,7 @@
 22 février 2016
 -Changement de frmPeriode pour respecter les normes de programmations (ajout de commentaires).                                             
 
+24 février 2016
+-Tests de débogage pour arriver à la première version finale.
+-Réparation des bogues trouvé dans les tests.
+-Changement de la présentation de l'interface graphique (Nom de boutons, emplacement des éléments, etc...).
