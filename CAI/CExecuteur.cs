@@ -14,7 +14,7 @@ class CExecuteur
     /// <summary>
     /// Chaine de connexion par défaut, modifiée selon le TP.
     /// </summary>
-    private const string CHAINE_DEFAUT = "Server=172.21.82.37; Port=3306; Database=presence; Uid=CAI; Pwd=tabarnak1!;";
+    private const string CHAINE_DEFAUT = "Server=sql5.freemysqlhosting.net; Port=3306; Database=sql5109751; Uid=sql5109751; Pwd=3ZTWmyU8xJ;";
 
     /// <summary>
     /// Connexion utilisée
@@ -161,51 +161,47 @@ class CExecuteur
     {
         DataTable pTabInfos = null; // Représente les informations retournées de la procédure stockée exécuté.
 
-        // Si la procédure stockée reçu existe
-        if (RetournerSiPsExiste(_NomPs))
+        string[] TabNomParametres = RetournerNomParametre(_NomPs); // Tableau qui représente les paramètres pour la procédure stockée.
+        MySqlCommand pCmdSql = new MySqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée.
+        pCmdSql.CommandType = CommandType.StoredProcedure;
+
+        try
         {
-            string[] TabNomParametres = RetournerNomParametre(_NomPs); // Tableau qui représente les paramètres pour la procédure stockée.
-            MySqlCommand pCmdSql = new MySqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée.
-            pCmdSql.CommandType = CommandType.StoredProcedure;
+            m_ConSQL.Open();
 
-            try
+            // S'il y a des paramètres existant, on ajoute ces paramètres pour que lorsqu'on va exécuter la procédure stockée, cette procéduire va recevoir les valeurs pour chaque paramètre.
+            if (TabNomParametres != null && _TabParametres.Length == TabNomParametres.Length)
+                for (int indParam = 0; indParam < TabNomParametres.Length; indParam++)
+                    pCmdSql.Parameters.AddWithValue(TabNomParametres[indParam], _TabParametres[indParam]);
+            pCmdSql.Parameters.Add("@return", MySqlDbType.Int32);
+            pCmdSql.Parameters["@return"].Direction = ParameterDirection.ReturnValue;
+
+            MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informatiosn retournées de la procédure stockée exécuté.
+
+            // Si la procédure retourné a au moins un enregistrement ou plus.
+            if (pLigneActuel.HasRows)
             {
-                m_ConSQL.Open();
-
-                // S'il y a des paramètres existant, on ajoute ces paramètres pour que lorsqu'on va exécuter la procédure stockée, cette procéduire va recevoir les valeurs pour chaque paramètre.
-                if (TabNomParametres != null && _TabParametres.Length == TabNomParametres.Length)
-                    for (int indParam = 0; indParam < TabNomParametres.Length; indParam++)
-                        pCmdSql.Parameters.AddWithValue(TabNomParametres[indParam], _TabParametres[indParam]);
-                pCmdSql.Parameters.Add("@return", MySqlDbType.Int32);
-                pCmdSql.Parameters["@return"].Direction = ParameterDirection.ReturnValue;
-
-                MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informatiosn retournées de la procédure stockée exécuté.
-
-                // Si la procédure retourné a au moins un enregistrement ou plus.
-                if (pLigneActuel.HasRows)
+                pTabInfos = new DataTable(); // Correspond à la table d'enregistrement que l'on va retourner selon les informations retournées de la procédure stockée.
+                // Pour chaque colonne de la vue retourné
+                for (int indCol = 0; indCol < pLigneActuel.FieldCount; indCol++)
+                    pTabInfos.Columns.Add();
+                // Pour chaque enregistrement reçu de la vue exécuté, on place celui-ci dans la table que l'on souhaite retourner.
+                while (pLigneActuel.Read())
                 {
-                    pTabInfos = new DataTable(); // Correspond à la table d'enregistrement que l'on va retourner selon les informations retournées de la procédure stockée.
-                    // Pour chaque colonne de la vue retourné
-                    for (int indCol = 0; indCol < pLigneActuel.FieldCount; indCol++)
-                        pTabInfos.Columns.Add();
-                    // Pour chaque enregistrement reçu de la vue exécuté, on place celui-ci dans la table que l'on souhaite retourner.
-                    while (pLigneActuel.Read())
-                    {
-                        object[] TabInfosLigneActuel = new object[pLigneActuel.FieldCount]; // Tableau qui contient toutes les informations de la ligne actuelle
-                        pLigneActuel.GetValues(TabInfosLigneActuel);
-                        pTabInfos.Rows.Add(TabInfosLigneActuel);
-                    }
-                    pTabInfos.Rows.Add(pCmdSql.Parameters["@return"].Value);
-                    pLigneActuel.Close();
+                    object[] TabInfosLigneActuel = new object[pLigneActuel.FieldCount]; // Tableau qui contient toutes les informations de la ligne actuelle
+                    pLigneActuel.GetValues(TabInfosLigneActuel);
+                    pTabInfos.Rows.Add(TabInfosLigneActuel);
                 }
+                pTabInfos.Rows.Add(pCmdSql.Parameters["@return"].Value);
+                pLigneActuel.Close();
             }
-            finally
-            {
-                // Si la connexion existe encore, on ferme celle-ci.
-                if (m_ConSQL != null)
-                    m_ConSQL.Close();
+        }
+        finally
+        {
+            // Si la connexion existe encore, on ferme celle-ci.
+            if (m_ConSQL != null)
+                m_ConSQL.Close();
                
-            }
         }
 
         return pTabInfos;
@@ -356,41 +352,37 @@ class CExecuteur
     {
         string[] TabParametres = null; // Tableau qui va retourner tous les noms des paramètres de la procédure stockée qu'on a reçu en paramètre.
 
-        // Si la procédure stockée existe
-        if (RetournerSiPsExiste(_NomPs))
+        MySqlCommand pCmdSql = new MySqlCommand("spRetournerNomsParametres", m_ConSQL); // Pointe vers une procédure stockée (ici on va exécuter une procédure stockée)
+        pCmdSql.Parameters.AddWithValue("NomProcedure", _NomPs);
+        pCmdSql.CommandType = CommandType.StoredProcedure;
+
+        try
         {
-            MySqlCommand pCmdSql = new MySqlCommand("spRetournerNomsParametres", m_ConSQL); // Pointe vers une procédure stockée (ici on va exécuter une procédure stockée)
-            pCmdSql.Parameters.AddWithValue("NomProcedure", _NomPs);
-            pCmdSql.CommandType = CommandType.StoredProcedure;
+            m_ConSQL.Open();
+            MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader();
+            List<string> pLstParametres  = new List<string>(); // Création d'une liste pour sauvegarder les paramètres.
 
-            try
+            // Si ça la retourné des paramètres.
+            while (pLigneActuel.Read())
             {
-                m_ConSQL.Open();
-                MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader();
-                List<string> pLstParametres  = new List<string>(); // Création d'une liste pour sauvegarder les paramètres.
+                object[] TabInfosLigneActuel = new object[pLigneActuel.FieldCount]; // Tableau qui contient toutes les informations de la ligne actuelle
+                pLigneActuel.GetValues(TabInfosLigneActuel);
 
-                // Si ça la retourné des paramètres.
-                while (pLigneActuel.Read())
-                {
-                    object[] TabInfosLigneActuel = new object[pLigneActuel.FieldCount]; // Tableau qui contient toutes les informations de la ligne actuelle
-                    pLigneActuel.GetValues(TabInfosLigneActuel);
-
-                    if (TabInfosLigneActuel[0] != null)
-                        // Ajout des noms des paramètres de la procédure ou fonction dans la liste des noms de paramètres.       
-                        pLstParametres.Add((string)TabInfosLigneActuel[0]);  
-                }
-
-                if (pLstParametres.Count > 0)
-                    TabParametres = pLstParametres.ToArray();
-
-                pLstParametres = null;
+                if (TabInfosLigneActuel[0] != null)
+                    // Ajout des noms des paramètres de la procédure ou fonction dans la liste des noms de paramètres.       
+                    pLstParametres.Add((string)TabInfosLigneActuel[0]);  
             }
-            finally
-            {
-                // Si la connexion existe encore, on ferme celle-ci.
-                if (m_ConSQL != null)
-                    m_ConSQL.Close();
-            }
+
+            if (pLstParametres.Count > 0)
+                TabParametres = pLstParametres.ToArray();
+
+            pLstParametres = null;
+        }
+        finally
+        {
+            // Si la connexion existe encore, on ferme celle-ci.
+            if (m_ConSQL != null)
+                m_ConSQL.Close();
         }
 
         return TabParametres;

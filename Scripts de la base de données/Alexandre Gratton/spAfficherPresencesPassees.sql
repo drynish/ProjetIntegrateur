@@ -11,8 +11,7 @@ BEGIN
 		SELECT  PresencesPassesDateCheckIn, PresencesPassesAddrIPCheckIn, PresencesPassesMacCheckIn, 
 				PresencesPassesDateCheckOut, PresencesPassesAddrIPCheckOut, PresencesPassesMacCheckOut
         FROM presencespasses 
-			INNER JOIN presencesrequises ON PresencesPassesPresencesRequisesID = PresencesRequisesID
-			INNER JOIN usagers ON PresencesRequisesUsagersID = UsagersID
+			INNER JOIN usagers ON PresencesPassesUsagersID = UsagersID
         WHERE UsagersID = EleveID;
 	END IF;
 END//
