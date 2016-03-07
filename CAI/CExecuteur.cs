@@ -271,48 +271,44 @@ class CExecuteur
     /// <param name="_TabEstEnOutput">Tableau des paramètres qui représente si le paramètre est en output ou non.</param>
     public void ExecPs(string _NomPs, ref string[] _TabParametres, bool[] _TabEstEnOutput)
     {
-        // Si la procédure stockée reçu existe
-        if (RetournerSiPsExiste(_NomPs))
+        string[] TabNomParametres = RetournerNomParametre(_NomPs); // Tableau qui représente les paramètres pour la procédure stockée.
+        MySqlCommand pCmdSql = new MySqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée.
+        pCmdSql.CommandType = CommandType.StoredProcedure;
+
+        try
         {
-            string[] TabNomParametres = RetournerNomParametre(_NomPs); // Tableau qui représente les paramètres pour la procédure stockée.
-            MySqlCommand pCmdSql = new MySqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée.
-            pCmdSql.CommandType = CommandType.StoredProcedure;
+            m_ConSQL.Open();
 
-            try
+            // S'il y a des paramètres existant, on ajoute ces paramètres pour que lorsqu'on va exécuter la procédure stockée, cette procédure va recevoir les valeurs pour chaque paramètre.
+            if (TabNomParametres != null && _TabParametres.Length == TabNomParametres.Length && _TabParametres.Length == _TabEstEnOutput.Length)
             {
-                m_ConSQL.Open();
-
-                // S'il y a des paramètres existant, on ajoute ces paramètres pour que lorsqu'on va exécuter la procédure stockée, cette procédure va recevoir les valeurs pour chaque paramètre.
-                if (TabNomParametres != null && _TabParametres.Length == TabNomParametres.Length && _TabParametres.Length == _TabEstEnOutput.Length)
+                for (int IndParam = 0; IndParam < TabNomParametres.Length; IndParam++)
                 {
-                    for (int IndParam = 0; IndParam < TabNomParametres.Length; IndParam++)
+                    pCmdSql.Parameters.AddWithValue(TabNomParametres[IndParam], _TabParametres[IndParam]);
+                    if (_TabEstEnOutput[IndParam])
                     {
-                        pCmdSql.Parameters.AddWithValue(TabNomParametres[IndParam], _TabParametres[IndParam]);
-                        if (_TabEstEnOutput[IndParam])
-                        {
-                            pCmdSql.Parameters[IndParam].MySqlDbType = MySqlDbType.VarChar;
-                            pCmdSql.Parameters[IndParam].Size = 4000;
-                            pCmdSql.Parameters[IndParam].Direction = ParameterDirection.Output;
-                        }
-
+                        pCmdSql.Parameters[IndParam].MySqlDbType = MySqlDbType.VarChar;
+                        pCmdSql.Parameters[IndParam].Size = 4000;
+                        pCmdSql.Parameters[IndParam].Direction = ParameterDirection.Output;
                     }
+
                 }
-                pCmdSql.ExecuteNonQuery();
-                // S'il y a des paramètres existant, on ajoute ces paramètres pour que lorsqu'on va exécuter la procédure stockée, cette procédure 
-                if (TabNomParametres != null && _TabParametres.Length == TabNomParametres.Length && _TabParametres.Length == _TabEstEnOutput.Length)
-                {
-                    for (int IndParam = 0; IndParam < _TabEstEnOutput.Length; IndParam++)
-                        if (_TabEstEnOutput[IndParam])
-                            _TabParametres[IndParam] = pCmdSql.Parameters[IndParam].Value.ToString();
-                }
-                    
             }
-            finally
+            pCmdSql.ExecuteNonQuery();
+            // S'il y a des paramètres existant, on ajoute ces paramètres pour que lorsqu'on va exécuter la procédure stockée, cette procédure 
+            if (TabNomParametres != null && _TabParametres.Length == TabNomParametres.Length && _TabParametres.Length == _TabEstEnOutput.Length)
             {
-                // Si la connexion existe encore, on ferme celle-ci.
-                if (m_ConSQL != null)
-                    m_ConSQL.Close();
+                for (int IndParam = 0; IndParam < _TabEstEnOutput.Length; IndParam++)
+                    if (_TabEstEnOutput[IndParam])
+                        _TabParametres[IndParam] = pCmdSql.Parameters[IndParam].Value.ToString();
             }
+                    
+        }
+        finally
+        {
+            // Si la connexion existe encore, on ferme celle-ci.
+            if (m_ConSQL != null)
+                m_ConSQL.Close();
         }
     }
 
