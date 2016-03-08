@@ -85,41 +85,38 @@ class CExecuteur
     {
         DataTable pTabInfos = null; // Représente les informations retournées de la view exécuté.
 
-        // Si la vue reçu existe
-        if (RetournerSiVueExiste(_NomVue))
+        MySqlCommand pCmdSql = new MySqlCommand("SELECT * FROM " + _NomVue, m_ConSQL); // Pointe vers une commande SQL (ici ce sera une vue qui va être exécuté)
+
+        pCmdSql.CommandType = CommandType.Text;
+
+        try
         {
-            MySqlCommand pCmdSql = new MySqlCommand("SELECT * FROM " + _NomVue, m_ConSQL); // Pointe vers une commande SQL (ici ce sera une vue qui va être exécuté)
-
-            pCmdSql.CommandType = CommandType.Text;
-
-            try
+            m_ConSQL.Open();
+            MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informations retournées de la procédure stockée exécuté.
+            // Si la vue retourné a au moins un enregistrement ou plus.
+            if (pLigneActuel.HasRows)
             {
-                m_ConSQL.Open();
-                MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informations retournées de la procédure stockée exécuté.
-                // Si la vue retourné a au moins un enregistrement ou plus.
-                if (pLigneActuel.HasRows)
+                pTabInfos = new DataTable(); // Correspond à la table d'enregistrement que l'on va retourner selon les informations retournées de la vue.
+                // Pour chaque colonne de la vue retourné
+                for (int indCol = 0; indCol < pLigneActuel.FieldCount; indCol++)
+                    pTabInfos.Columns.Add();
+                // Pour chaque enregistrement reçu de la vue exécuté, on place celui-ci dans la table que l'on souhaite retourner.
+                while (pLigneActuel.Read())
                 {
-                    pTabInfos = new DataTable(); // Correspond à la table d'enregistrement que l'on va retourner selon les informations retournées de la vue.
-                    // Pour chaque colonne de la vue retourné
-                    for (int indCol = 0; indCol < pLigneActuel.FieldCount; indCol++)
-                        pTabInfos.Columns.Add();
-                    // Pour chaque enregistrement reçu de la vue exécuté, on place celui-ci dans la table que l'on souhaite retourner.
-                    while (pLigneActuel.Read())
-                    {
-                        object[] TabInfosLigneActuel = new object[pLigneActuel.FieldCount]; // Tableau qui contient toutes les informations de la ligne actuelle
-                        pLigneActuel.GetValues(TabInfosLigneActuel);
-                        pTabInfos.Rows.Add(TabInfosLigneActuel);
-                    }
-                    pLigneActuel.Close();
+                    object[] TabInfosLigneActuel = new object[pLigneActuel.FieldCount]; // Tableau qui contient toutes les informations de la ligne actuelle
+                    pLigneActuel.GetValues(TabInfosLigneActuel);
+                    pTabInfos.Rows.Add(TabInfosLigneActuel);
                 }
-            }
-            finally
-            {
-                // Si la connexion SQL existe encore, on ferme celle-ci.
-                if (m_ConSQL != null)
-                    m_ConSQL.Close();
+                pLigneActuel.Close();
             }
         }
+        finally
+        {
+            // Si la connexion SQL existe encore, on ferme celle-ci.
+            if (m_ConSQL != null)
+                m_ConSQL.Close();
+        }
+        
 
         return pTabInfos;
     }
@@ -217,47 +214,43 @@ class CExecuteur
     {
         DataTable pTabInfos = null; // Représente les informations retournées de la procédure stockée exécuté.
 
-        // Si la procédure stockée reçu existe
-        if (RetournerSiPsExiste(_NomPs))
+        string[] TabNomParametres = RetournerNomParametre(_NomPs); // Tableau qui représente les paramètres pour la procédure stockée.
+        MySqlCommand pCmdSql = new MySqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée.
+        pCmdSql.CommandType = CommandType.StoredProcedure;
+
+        try
         {
-            string[] TabNomParametres = RetournerNomParametre(_NomPs); // Tableau qui représente les paramètres pour la procédure stockée.
-            MySqlCommand pCmdSql = new MySqlCommand(_NomPs, m_ConSQL); // Pointe vers une procédure stockée.
-            pCmdSql.CommandType = CommandType.StoredProcedure;
+            m_ConSQL.Open();
 
-            try
+            // S'il y a des paramètres existant, on ajoute ces paramètres pour que lorsqu'on va exécuter la procédure stockée, cette procéduire va recevoir les valeurs pour chaque paramètre.
+            if (TabNomParametres != null && _TabParametres.Length == TabNomParametres.Length)
+                for (int indParam = 0; indParam < TabNomParametres.Length; indParam++)
+                    pCmdSql.Parameters.AddWithValue(TabNomParametres[indParam], _TabParametres[indParam]);
+                
+            MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informatiosn retournées de la procédure stockée exécuté.
+                
+            // Si la procédure retourné a au moins un enregistrement ou plus.
+            if (pLigneActuel.HasRows)
             {
-                m_ConSQL.Open();
-
-                // S'il y a des paramètres existant, on ajoute ces paramètres pour que lorsqu'on va exécuter la procédure stockée, cette procéduire va recevoir les valeurs pour chaque paramètre.
-                if (TabNomParametres != null && _TabParametres.Length == TabNomParametres.Length)
-                    for (int indParam = 0; indParam < TabNomParametres.Length; indParam++)
-                        pCmdSql.Parameters.AddWithValue(TabNomParametres[indParam], _TabParametres[indParam]);
-                
-                MySqlDataReader pLigneActuel = pCmdSql.ExecuteReader(); // Pointe vers l'enregistrement courant des informatiosn retournées de la procédure stockée exécuté.
-                
-                // Si la procédure retourné a au moins un enregistrement ou plus.
-                if (pLigneActuel.HasRows)
+                pTabInfos = new DataTable(); // Correspond à la table d'enregistrement que l'on va retourner selon les informations retournées de la procédure stockée.
+                // Pour chaque colonne de la vue retourné
+                for (int indCol = 0; indCol < pLigneActuel.FieldCount; indCol++)
+                    pTabInfos.Columns.Add();
+                // Pour chaque enregistrement reçu de la vue exécuté, on place celui-ci dans la table que l'on souhaite retourner.
+                while (pLigneActuel.Read())
                 {
-                    pTabInfos = new DataTable(); // Correspond à la table d'enregistrement que l'on va retourner selon les informations retournées de la procédure stockée.
-                    // Pour chaque colonne de la vue retourné
-                    for (int indCol = 0; indCol < pLigneActuel.FieldCount; indCol++)
-                        pTabInfos.Columns.Add();
-                    // Pour chaque enregistrement reçu de la vue exécuté, on place celui-ci dans la table que l'on souhaite retourner.
-                    while (pLigneActuel.Read())
-                    {
-                        object[] TabInfosLigneActuel = new object[pLigneActuel.FieldCount]; // Tableau qui contient toutes les informations de la ligne actuelle
-                        pLigneActuel.GetValues(TabInfosLigneActuel);
-                        pTabInfos.Rows.Add(TabInfosLigneActuel);
-                    }
-                    pLigneActuel.Close();
-                }                                       
-            }
-            finally
-            {
-                // Si la connexion existe encore, on ferme celle-ci.
-                if (m_ConSQL != null)
-                    m_ConSQL.Close();
-            }
+                    object[] TabInfosLigneActuel = new object[pLigneActuel.FieldCount]; // Tableau qui contient toutes les informations de la ligne actuelle
+                    pLigneActuel.GetValues(TabInfosLigneActuel);
+                    pTabInfos.Rows.Add(TabInfosLigneActuel);
+                }
+                pLigneActuel.Close();
+            }                                       
+        }
+        finally
+        {
+            // Si la connexion existe encore, on ferme celle-ci.
+            if (m_ConSQL != null)
+                m_ConSQL.Close();
         }
 
         return pTabInfos;
