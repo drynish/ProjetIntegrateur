@@ -34,4 +34,14 @@ Journal de bord
 22/02 : -AJout de commentaires et modification afin de respecter les normes de programmation dans frmCheck
 	-Ajout de commentaires dans frmLogin
 	-Ajout de commentaires dans frmCreation
+24/02:
+	-Test
+	-Changer pour la base de données en ligne
+
+29/02:	-Semaine de relâche
+
+02/03:	-Semaine de relâche
+
+07/03:	-Test au CAI
+	-Fixer quelques problèmes mineures
 	
