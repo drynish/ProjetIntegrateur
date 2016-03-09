@@ -151,40 +151,51 @@ namespace CAI
         {
             string[] TabParametres     = new string[0]; // Représente le tableau des paramètres nécessaires pour la requête
             DataTable DroitUtilisateur = CExecuteur.ObtenirCExecuteur().ExecPs("spObtenirDateEtHeure", TabParametres); // DataTable contenant le résultat de la requête
-            CultureInfo Fournisseur    = new CultureInfo("fr-FR"); // Représente le fournisseur pour la conversion de la date
-            string Date                = DroitUtilisateur.Rows[0][0].ToString(); // Représente la date actuelle du serveur
 
-            Date = Date.Remove(Date.Length - 3);
-            DateTime Datetime = DateTime.ParseExact(Date, "g", Fournisseur); // Représente la date sous la forme d'un DateTime
-
-            lblDate.Text = "Le " + Datetime.ToLongDateString() + " à " + Datetime.ToShortTimeString();
-            TabParametres    = new string[1];
-            TabParametres[0] = FNomUtilisateur;
-            DroitUtilisateur = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPresencesRequisesDeUnEleve", TabParametres);
-            
-            // Permet de faire afficher les information selon le résultat de la requête
             if (DroitUtilisateur != null)
             {
-                Date = "";
+                CultureInfo Fournisseur = new CultureInfo("fr-CA"); // Représente le fournisseur pour la conversion de la date
+                string Date = DroitUtilisateur.Rows[0][0].ToString(); // Représente la date actuelle du serveur
 
-                for (int i=0; i< DroitUtilisateur.Rows.Count; i++)
+                Date = Date.Remove(Date.Length - 3);
+                
+                DateTime Datetime = Convert.ToDateTime(Date); // Représente la date sous la forme d'un DateTime
+    
+                Datetime = Datetime.AddHours(-5);
+
+                lblDate.Text = "Le " + Datetime.ToLongDateString() + " à " + Datetime.ToShortTimeString();
+                TabParametres = new string[1];
+                TabParametres[0] = FNomUtilisateur;
+                DroitUtilisateur = CExecuteur.ObtenirCExecuteur().ExecPs("spAfficherPresencesRequisesDeUnEleve", TabParametres);
+
+                // Permet de faire afficher les information selon le résultat de la requête
+                if (DroitUtilisateur != null)
                 {
-                    if (i == DroitUtilisateur.Rows.Count - 2)
-                        Date = Date + DroitUtilisateur.Rows[i][0].ToString() + " et ";
+                    Date = "";
+
+                    for (int i = 0; i < DroitUtilisateur.Rows.Count; i++)
+                    {
+                        if (i == DroitUtilisateur.Rows.Count - 2)
+                            Date = Date + DroitUtilisateur.Rows[i][0].ToString() + " et ";
+                        else
+                            Date = Date + DroitUtilisateur.Rows[i][0].ToString() + ", ";
+                    }
+                    if (DroitUtilisateur.Rows.Count > 1)
+                        lblNote.Text = lblNote.Text + " Vous avez des présences requises aujourd'hui à " + Date.Remove(Date.Length - 2) + ".";
                     else
-                        Date = Date + DroitUtilisateur.Rows[i][0].ToString() + ", ";
+                        lblNote.Text = lblNote.Text + " Vous avez une présence requise aujourd'hui à " + Date.Remove(Date.Length - 2) + ".";
                 }
-                if (DroitUtilisateur.Rows.Count > 1)
-                    lblNote.Text = lblNote.Text + " Vous avez des présences requises aujourd'hui à " + Date.Remove(Date.Length - 2) + ".";
                 else
-                    lblNote.Text = lblNote.Text + " Vous avez une présence requise aujourd'hui à " + Date.Remove(Date.Length - 2) + ".";
+                {
+                    lblNote.Text = lblNote.Text + " Vous n'avez pas de présence requise aujourd'hui.";
+                    btnConfirm.Enabled = false;
+                }
             }
             else
             {
                 lblNote.Text = lblNote.Text + " Vous n'avez pas de présence requise aujourd'hui.";
                 btnConfirm.Enabled = false;
             }
-
         }
         /// <summary>
         /// Perme de fermer la fiche.
