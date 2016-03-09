@@ -1,4 +1,4 @@
-﻿
+
 27 janvier 2016
 
 -Choix du type de base de données à utiliser.
@@ -40,3 +40,7 @@
 -Tests de débogage pour arriver à la première version finale.
 -Réparation des bogues trouvé dans les tests.
 -Changement de la présentation de l'interface graphique (Nom de boutons, emplacement des éléments, etc...).
+
+8 mars 2016
+-Tests finaux au CAI.
+-Réparation des bogues trouvés.
