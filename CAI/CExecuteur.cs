@@ -14,7 +14,7 @@ class CExecuteur
     /// <summary>
     /// Chaine de connexion par défaut, modifiée selon le TP.
     /// </summary>
-    private const string CHAINE_DEFAUT = "Server=sql5.freemysqlhosting.net; Port=3306; Database=sql5109751; Uid=sql5109751; Pwd=3ZTWmyU8xJ;";
+    private const string CHAINE_DEFAUT = "Server=infolinux.cegep-lanaudiere.qc.ca; Port=3306; Database=presence; Uid=presence; Pwd=3ZTWmyU8xJ;";
 
     /// <summary>
     /// Connexion utilisée

@@ -1,136 +1,15 @@
-c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\bin\Debug\CAI.exe.config
-c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\bin\Debug\CAI.exe
-c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\bin\Debug\CAI.pdb
-c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
-c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.frmMain.resources
-c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.Properties.Resources.resources
-c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
-c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.exe
-c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.pdb
-c:\users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.frmMotDePasse.resources
-C:\Users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.frmCreation.resources
-C:\Users\1271285\documents\visual studio 2015\Projects\CAI\CAI\obj\Debug\CAI.frmCheck.resources
-C:\Users\1271285\Desktop\Presence\CAI\bin\Debug\CAI.exe.config
-C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.exe
-C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.pdb
-C:\Users\1271285\Desktop\Presence\CAI\bin\Debug\CAI.exe
-C:\Users\1271285\Desktop\Presence\CAI\bin\Debug\CAI.pdb
-C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
-C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.frmMain.resources
-C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.frmCheck.resources
-C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.frmCreation.resources
-C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.frmMotDePasse.resources
-C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.Properties.Resources.resources
-C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
-C:\Users\1271285\Desktop\Presence\CAI\obj\Debug\CAI.frmCoordonnateur.resources
-<<<<<<< HEAD
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\bin\Debug\CAI.exe.config
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.exe
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.pdb
-=======
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\bin\Debug\CAI.exe.config
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.exe
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.pdb
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMain.resources
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCheck.resources
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCoordonnateur.resources
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCreation.resources
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMotDePasse.resources
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.Properties.Resources.resources
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\bin\Debug\CAI.exe
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\bin\Debug\CAI.pdb
->>>>>>> origin/master
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.exe.config
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.exe
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.pdb
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.exe
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.pdb
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMain.resources
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCheck.resources
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCoordonnateur.resources
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCreation.resources
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMotDePasse.resources
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.Properties.Resources.resources
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
-C:\Users\Antoine\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
-C:\Users\1271285\Documents\GitHub\Presence\ProjetIntegrateur\CAI\obj\Debug\CAI.frmPeriodes.resources
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\bin\Debug\CAI.exe
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\bin\Debug\CAI.pdb
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.frmLogin.resources
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCheck.resources
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCoordonnateur.resources
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCreation.resources
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMotDePasse.resources
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.frmPeriodes.resources
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.Properties.Resources.resources
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
-P:\Session VI\ProjetIntegrateur\ProjetIntegrateur\CAI\bin\Debug\MySql.Data.dll
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.exe.config
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.exe
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.pdb
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.exe
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\bin\Debug\CAI.pdb
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmLogin.resources
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCheck.resources
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCoordonnateur.resources
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCreation.resources
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMotDePasse.resources
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.frmPeriodes.resources
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.Properties.Resources.resources
-C:\Users\1271285\Documents\GitHub\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\bin\Debug\CAI.exe.config
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.exe
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.pdb
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\bin\Debug\CAI.exe
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\bin\Debug\CAI.pdb
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.frmLogin.resources
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCheck.resources
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCoordonnateur.resources
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCreation.resources
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMotDePasse.resources
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.frmPeriodes.resources
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.Properties.Resources.resources
-C:\Users\1160026\Desktop\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\bin\Debug\CAI.exe.config
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.exe
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.pdb
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\bin\Debug\CAI.exe
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\bin\Debug\CAI.pdb
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmLogin.resources
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmCheck.resources
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmCoordonnateur.resources
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmCreation.resources
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmHoraireSel.resources
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmMotDePasse.resources
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmPeriodes.resources
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmPresences.resources
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.Properties.Resources.resources
-C:\Users\CAI\Desktop\ProjetIntegrateur-master\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
-P:\ProjetIntegrateur-master\CAI\bin\Debug\CAI.exe.config
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.exe
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.pdb
-P:\ProjetIntegrateur-master\CAI\bin\Debug\CAI.exe
-P:\ProjetIntegrateur-master\CAI\bin\Debug\CAI.pdb
-P:\ProjetIntegrateur-master\CAI\bin\Debug\MySql.Data.dll
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmLogin.resources
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmCheck.resources
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmCoordonnateur.resources
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmCreation.resources
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmHoraireSel.resources
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmMotDePasse.resources
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmPeriodes.resources
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.frmPresences.resources
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.Properties.Resources.resources
-P:\ProjetIntegrateur-master\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\bin\Debug\CAI.exe.config
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\bin\Debug\CAI.exe
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\bin\Debug\CAI.pdb
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.frmLogin.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCheck.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCoordonnateur.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCreation.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.frmHoraireSel.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.frmMotDePasse.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.frmPeriodes.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.frmPresences.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.Properties.Resources.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.csproj.GenerateResource.Cache
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.exe
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.pdb

@@ -9,8 +9,8 @@ CREATE PROCEDURE spAfficherHeuresEleve
 BEGIN
 	IF (fnRetournerDroit(NomUtilisateurUsager, MotPasse) = 0) THEN	
 		SELECT  SEC_TO_TIME(SUM(TIME_TO_SEC(PresencesPassesDateCheckOut) - TIME_TO_SEC(PresencesPassesDateCheckIn))) AS timediff
-        FROM presencespasses 
-			INNER JOIN usagers ON PresencesPassesUsagersID = UsagersID
+        FROM PresencesPasses 
+			INNER JOIN Usagers ON PresencesPassesUsagersID = UsagersID
         WHERE UsagersID = EleveID;
 	END IF;
 END//

@@ -161,7 +161,7 @@ namespace CAI
                 
                 DateTime Datetime = Convert.ToDateTime(Date); // Représente la date sous la forme d'un DateTime
     
-                Datetime = Datetime.AddHours(-5);
+                //Datetime = Datetime.AddHours(-5);
 
                 lblDate.Text = "Le " + Datetime.ToLongDateString() + " à " + Datetime.ToShortTimeString();
                 TabParametres = new string[1];

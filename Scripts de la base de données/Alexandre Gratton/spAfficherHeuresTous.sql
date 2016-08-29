@@ -8,6 +8,6 @@ CREATE PROCEDURE spAfficherHeuresTous
 BEGIN
 	IF (fnRetournerDroit(NomUtilisateurUsager, MotPasse) = 0) THEN	
 		SELECT  SEC_TO_TIME(SUM(TIME_TO_SEC(PresencesPassesDateCheckOut) - TIME_TO_SEC(PresencesPassesDateCheckIn))) AS timediff
-        FROM presencespasses;
+        FROM PresencesPasses;
 	END IF;
 END//

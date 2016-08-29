@@ -13,15 +13,15 @@ BEGIN
 
 	/*Si l'utilisateur est un admin, il peut modifier une période.*/
 	IF (fnRetournerDroit(nomUtilisateur, motPasse) = 0) THEN
-		SELECT usagers.UsagersPrenom, usagers.UsagersNom, presencesrequises.PresencesRequisesJournee, periodes.PeriodesHeureDebut, periodes.PeriodesHeureFin  
-		FROM (((usagers INNER JOIN presencesrequises 
-		ON usagers.UsagersID = presencesrequises.PresencesRequisesUsagersID)  
+		SELECT Usagers.UsagersPrenom, Usagers.UsagersNom, PresencesRequises.PresencesRequisesJournee, Periodes.PeriodesHeureDebut, Periodes.PeriodesHeureFin  
+		FROM (((Usagers INNER JOIN Presencesrequises 
+		ON Usagers.UsagersID = PresencesRequises.PresencesRequisesUsagersID)  
 		
 		INNER JOIN presencesrequisesperiodes
-		ON presencesrequises.PresencesRequisesID = presencesrequisesperiodes.PresencesRequisesPeriodesPresencesRequisesID)
+		ON PresencesRequises.PresencesRequisesID = PresencesRequisesPeriodes.PresencesRequisesPeriodesPresencesRequisesID)
 		
-		INNER JOIN periodes
-		ON presencesrequisesperiodes.PresencesRequisesPeriodesPeriodesID = periodes.PeriodesID);
+		INNER JOIN Periodes
+		ON PresencesRequisesPeriodes.PresencesRequisesPeriodesPeriodesID = Periodes.PeriodesID);
                                                                          
 	END IF;
 	

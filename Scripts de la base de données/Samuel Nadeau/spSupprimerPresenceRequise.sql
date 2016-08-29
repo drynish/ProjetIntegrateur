@@ -5,6 +5,6 @@ CREATE PROCEDURE spSupprimerPresenceRequise(NomUtilisateur VARCHAR(40), MotDePas
 BEGIN
   
   IF (fnRetournerDroit(NomUtilisateur, MotDePasse) = 0) THEN
-	DELETE FROM presencesrequises WHERE PresencesRequisesUsagersID = UsagersID;
+	DELETE FROM PresencesRequises WHERE PresencesRequisesUsagersID = UsagersID;
   END IF;
 END//
