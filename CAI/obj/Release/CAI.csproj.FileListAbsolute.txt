@@ -1,0 +1,15 @@
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\bin\Release\CAI.exe.config
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.frmLogin.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.frmCheck.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.frmCoordonnateur.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.frmCreation.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.frmHoraireSel.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.frmMotDePasse.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.frmPeriodes.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.frmPresences.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.Properties.Resources.resources
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.csproj.GenerateResource.Cache
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\bin\Release\CAI.exe
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\bin\Release\CAI.pdb
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.exe
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Release\CAI.pdb

@@ -17,7 +17,7 @@ BEGIN
 		FROM (((Usagers INNER JOIN Presencesrequises 
 		ON Usagers.UsagersID = PresencesRequises.PresencesRequisesUsagersID)  
 		
-		INNER JOIN presencesrequisesperiodes
+		INNER JOIN PresencesRequisesPeriodes
 		ON PresencesRequises.PresencesRequisesID = PresencesRequisesPeriodes.PresencesRequisesPeriodesPresencesRequisesID)
 		
 		INNER JOIN Periodes

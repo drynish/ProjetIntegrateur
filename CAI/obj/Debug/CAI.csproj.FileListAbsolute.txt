@@ -1,6 +1,7 @@
 C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\bin\Debug\CAI.exe.config
 C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\bin\Debug\CAI.exe
 C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\bin\Debug\CAI.pdb
+C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.csprojResolveAssemblyReference.cache
 C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.frmLogin.resources
 C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCheck.resources
 C:\Users\Michel Di Croci\git\ProjetIntegrateur\CAI\obj\Debug\CAI.frmCoordonnateur.resources

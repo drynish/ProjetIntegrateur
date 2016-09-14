@@ -20,6 +20,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Globalization;
+using System.Net.Sockets;
 
 namespace CAI
 {
@@ -85,8 +86,16 @@ namespace CAI
             //Représente les informations d'adresse d'hôte internet
             IPHostEntry IpEntry = Dns.GetHostEntry(GetCompCode());
             //Représente l'adresse Ip de la machine
-            IPAddress[] addr = IpEntry.AddressList;
-            return addr[2].ToString();
+
+            foreach (var ip in IpEntry.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+
+            return "";        
         }
 
         /// <summary>

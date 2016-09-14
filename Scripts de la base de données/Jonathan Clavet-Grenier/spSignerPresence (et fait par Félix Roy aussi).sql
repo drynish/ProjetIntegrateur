@@ -23,12 +23,12 @@ BEGIN
 
 	IF (fnRetournerDroit(nomUtilisateur, motPasse) = 1) THEN
 		/*Le ID de l'usagé est obtenu.*/
-		SELECT UsagersID FROM usagers
+		SELECT UsagersID FROM Usagers
 		WHERE UsagersNomUtilisateur = nomUtilisateur AND UsagersMotDePasse = md5(motPasse)
 		INTO idUsager;
 
 		/*Vérification si une présence est requise.*/
-		SELECT PresencesRequisesID FROM presencesrequises
+		SELECT PresencesRequisesID FROM PresencesRequises
 		WHERE PresencesRequisesJournee = DAYNAME(CURDATE()) AND PresencesRequisesUsagersID = idUsager
 		ORDER BY PresencesRequisesID ASC
 		LIMIT 1
@@ -43,14 +43,14 @@ BEGIN
 			INTO idPresencePasse;
 			
 			IF (idPresencePasse != -1) THEN
-				UPDATE presencespasses
+				UPDATE PresencesPasses
 				SET PresencesPassesDateCheckOut = NOW(), PresencesPassesAddrIPCheckOut = ipOrdi, PresencesPassesMacCheckOut = macOrdi
 				WHERE DATE(PresencesPassesDateCheckIn) = CURDATE() AND PresencesPassesDateCheckOut IS NULL AND PresencesPassesUsagersID = idUsager;
 				
 				SET MsgRetour = "1"; /* L'utilisateur a fait un check-out. */
 			ELSE
 				/*Sinon, une nouvelle signature est crée. (login)*/
-				INSERT INTO presencespasses (PresencesPassesUsagersID, PresencesPassesDateCheckIn, PresencesPassesAddrIPCheckIn, PresencesPassesMacCheckIn)
+				INSERT INTO PresencesPasses (PresencesPassesUsagersID, PresencesPassesDateCheckIn, PresencesPassesAddrIPCheckIn, PresencesPassesMacCheckIn)
 				VALUES (idUsager, NOW(), ipOrdi, macOrdi);
 				
 				SET MsgRetour = "0"; /* L'utilisateur a fait un check-in. */
